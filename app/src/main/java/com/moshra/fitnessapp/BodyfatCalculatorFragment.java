@@ -1,10 +1,12 @@
 package com.moshra.fitnessapp;
 
 
+import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
 
+import android.preference.PreferenceManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -20,11 +22,11 @@ import android.widget.TextView;
  */
 public class BodyfatCalculatorFragment extends Fragment {
 
-    private int mHeight;
-    private int mWeight;
-    private int mWaist;
-    private int mNeck;
-    private int mHips;
+    private double mHeight;
+    private double mWeight;
+    private double mWaist;
+    private double mNeck;
+    private double mHips;
     private double mBfPercent;
     private boolean mIsFemale;
 
@@ -61,6 +63,25 @@ public class BodyfatCalculatorFragment extends Fragment {
         });
 
         Button calculateBodyfat = view.findViewById(R.id.calculate_bodyfat);
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
+        final String units = prefs.getString(getString(R.string.settings_unit_key),
+                getString(R.string.settings_unit_default));
+
+        final EditText heightEntry = view.findViewById(R.id.bodyfat_height_entry);
+        final EditText weightEntry = view.findViewById(R.id.bodyfat_weight_entry);
+        final EditText waistEntry = view.findViewById(R.id.bodyfat_waist_entry);
+        final EditText neckEntry = view.findViewById(R.id.bodyfat_neck_entry);
+        final EditText hipsEntry = view.findViewById(R.id.bodyfat_hips_entry);
+
+        if (units.equals(getString(R.string.settings_unit_metric_value))) {
+
+            heightEntry.setHint(R.string.hint_cm);
+            weightEntry.setHint(R.string.hint_kg);
+            waistEntry.setHint(getString(R.string.hint_cm));
+            neckEntry.setHint(R.string.hint_cm);
+            hipsEntry.setHint(R.string.hint_cm);
+
+        }
 
         calculateBodyfat.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -68,23 +89,28 @@ public class BodyfatCalculatorFragment extends Fragment {
 
                 view.findViewById(R.id.bodyfat_results).setVisibility(View.VISIBLE);
 
-                EditText entryText = view.findViewById(R.id.bodyfat_height_entry);
-                mHeight = Integer.parseInt(String.valueOf(entryText.getText()));
-                entryText = view.findViewById(R.id.bodyfat_weight_entry);
-                mWeight = Integer.parseInt(String.valueOf(entryText.getText()));
-                entryText = view.findViewById(R.id.bodyfat_waist_entry);
-                mWaist = Integer.parseInt(String.valueOf(entryText.getText()));
-                entryText = view.findViewById(R.id.bodyfat_neck_entry);
-                mNeck = Integer.parseInt(String.valueOf(entryText.getText()));
+                mHeight = Integer.parseInt(String.valueOf(heightEntry.getText()));
+                mWeight = Integer.parseInt(String.valueOf(weightEntry.getText()));
+                mWaist = Integer.parseInt(String.valueOf(waistEntry.getText()));
+                mNeck = Integer.parseInt(String.valueOf(neckEntry.getText()));
+
+                if (units == getString(R.string.settings_unit_us_value)) {
+                    mHeight *= 2.54;
+                    mNeck *= 2.54;
+                    mWaist *= 2.54;
+                    mWeight /= 2.2;
+                }
 
                 if (mIsFemale) {
-                    entryText = view.findViewById(R.id.bodyfat_hips_entry);
-                    mHips = Integer.parseInt(String.valueOf(entryText.getText()));
-                    mBfPercent = 495 / (1.29579 - (0.35004 * Math.log10(mWaist + mHips - mNeck)) + (0.221 * Math.log10(mHeight))) - 450;
+                    mHips = Integer.parseInt(String.valueOf(hipsEntry.getText()));
+                    if (units == getString(R.string.settings_unit_us_value)) {
+                        mHips *= 2.54;
+                    }
+                    mBfPercent = 495 / (1.29579 - 0.35004 * Math.log10(mWaist + mHips - mNeck) + 0.221 * Math.log10(mHeight)) - 450;
                     TextView textView = view.findViewById(R.id.bodyfat_percent_results);
                     textView.setText(String.valueOf(mBfPercent));
                 } else {
-                    mBfPercent = 495 / (1.0324 - (0.19077 * Math.log10(mWaist - mNeck)) + .15456 * Math.log10(mHeight)) - 450;
+                    mBfPercent = 495 / (1.0324 - 0.19077 * Math.log10(mWaist - mNeck) + .15456 * Math.log10(mHeight)) - 450;
                     TextView textView = view.findViewById(R.id.bodyfat_percent_results);
                     textView.setText(String.valueOf(mBfPercent));
                 }

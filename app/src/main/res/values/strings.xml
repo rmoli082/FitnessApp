@@ -15,5 +15,15 @@
     <string name="calculate">Calculate</string>
     <string name="hint">in inches</string>
     <string name="hint_pounds">in pounds</string>
+    <string name="hint_cm">in cm</string>
+    <string name="hint_kg">in kg</string>
     <string name="bodyfat_percent">Bodyfat percentage</string>
+    <string name="settings_name">Settings</string>
+    <string name="settings_unit_label">Units</string>
+    <string name="settings_unit_key">settings_unit</string>
+    <string name="settings_unit_default">@string/settings_unit_us_value</string>
+    <string name="settings_unit_metric_label">Metric</string>
+    <string name="settings_unit_metric_value">metric</string>
+    <string name="settings_unit_us_label">US</string>
+    <string name="settings_unit_us_value">us</string>
 </resources>

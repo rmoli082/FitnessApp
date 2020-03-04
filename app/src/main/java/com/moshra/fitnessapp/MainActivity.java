@@ -8,6 +8,7 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.widget.Toast;
@@ -41,14 +42,17 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 int id = item.getItemId();
+                FragmentManager fm = getSupportFragmentManager();
+                FragmentTransaction transaction = fm.beginTransaction();
                 switch(id)
                 {
                     case R.id.bodyfat_calc:
-                        FragmentManager fm = getSupportFragmentManager();
-                        FragmentTransaction transaction = fm.beginTransaction();
                         transaction.replace(R.id.contentFragment, new BodyfatCalculatorFragment()).commit();
                         dl.closeDrawer(GravityCompat.START);
                         break;
+                    case R.id.settings:
+                        Intent settingsIntent = new Intent (MainActivity.this, SettingsActivity.class);
+                        startActivity(settingsIntent);
                     default:
                         return true;
                 }
