@@ -3,4 +3,17 @@
     <string name="bodyfat_calc">Bodyfat Calculator</string>
     <string name="Open">open</string>
     <string name="Close">close</string>
+    <string name="sex_header">Please select your sex:</string>
+    <string name="male">Male</string>
+    <string name="female">Female</string>
+    <string name="waist_male">Waist (at navel)</string>
+    <string name="waist_female">Waist (at narrowest)</string>
+    <string name="hips">Hips (at widest)</string>
+    <string name="neck">Neck (at narrowest)</string>
+    <string name="height">Height</string>
+    <string name="weight">Weight</string>
+    <string name="calculate">Calculate</string>
+    <string name="hint">in inches</string>
+    <string name="hint_pounds">in pounds</string>
+    <string name="bodyfat_percent">Bodyfat percentage</string>
 </resources>
