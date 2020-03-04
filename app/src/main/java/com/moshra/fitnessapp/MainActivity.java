@@ -50,6 +50,14 @@ public class MainActivity extends AppCompatActivity {
                         transaction.replace(R.id.contentFragment, new BodyfatCalculatorFragment()).commit();
                         dl.closeDrawer(GravityCompat.START);
                         break;
+                    case R.id.calorie_calc:
+                        transaction.replace(R.id.contentFragment, new CalorieFragment()).commit();
+                        dl.closeDrawer(GravityCompat.START);
+                        break;
+                    case R.id.macro_calc:
+                        transaction.replace(R.id.contentFragment, new MacroFragment()).commit();
+                        dl.closeDrawer(GravityCompat.START);
+                        break;
                     case R.id.settings:
                         Intent settingsIntent = new Intent (MainActivity.this, SettingsActivity.class);
                         startActivity(settingsIntent);

@@ -1,6 +1,8 @@
 <resources>
     <string name="app_name">FitnessApp</string>
     <string name="bodyfat_calc">Bodyfat Calculator</string>
+    <string name="calorie_calc">Calorie Calculator</string>
+    <string name="macro_calc">Macro Calculator</string>
     <string name="Open">open</string>
     <string name="Close">close</string>
     <string name="sex_header">Please select your sex:</string>
@@ -28,4 +30,16 @@
     <string name="settings_unit_metric_value">metric</string>
     <string name="settings_unit_us_label">US</string>
     <string name="settings_unit_us_value">us</string>
+    <string name="goal_select_header">Select your goal:</string>
+    <string name="goal_weight_loss">Fat loss</string>
+    <string name="goal_weight_gain">Gain muscle</string>
+    <string name="macro_diet_header">Select your diet:</string>
+    <string name="default_diet">Default</string>
+    <string name="keto_diet">Keto</string>
+    <string name="enter_calories">Enter calories required:</string>
+    <string name="calories_hint">3200</string>
+    <string name="macro_carb_header">Carbs: </string>
+    <string name="macro_protein_header">Protein: </string>
+    <string name="macro_fat_header">Fat: </string>
+    <string name="get_results">Get Results</string>
 </resources>

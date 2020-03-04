@@ -52,7 +52,7 @@ public class BodyfatCalculatorFragment extends Fragment {
         sexGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup group, int checkedId) {
-                if (sexGroup.getCheckedRadioButtonId() == R.id.sex_button_female) {
+                if (checkedId == R.id.sex_button_female) {
                     mIsFemale = true;
                     view.findViewById(R.id.bodyfat_female_options).setVisibility(View.VISIBLE);
                     TextView femaleWaist = view.findViewById(R.id.bodyfat_waist_header);

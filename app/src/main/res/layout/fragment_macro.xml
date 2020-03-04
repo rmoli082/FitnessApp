@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".MacroFragment">
+
+    <TextView
+        android:id="@+id/macro_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:text="@string/macro_calc"
+        android:textSize="32sp" />
+
+    <TextView
+        android:id="@+id/macro_diet_header"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/macro_title"
+        android:text="@string/macro_diet_header" />
+
+    <RadioGroup
+        android:id="@+id/macro_diet_select"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/macro_title"
+        android:layout_toEndOf="@id/macro_diet_header"
+        android:orientation="horizontal">
+
+        <RadioButton
+            android:id="@+id/macro_diet_default_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/default_diet" />
+
+        <RadioButton
+            android:id="@+id/macro_diet_keto_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/keto_diet" />
+
+    </RadioGroup>
+
+    <TextView
+        android:id="@+id/macro_calories_header"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/macro_diet_select"
+        android:text="@string/enter_calories" />
+
+    <EditText
+        android:id="@+id/macro_calorie_entry"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/macro_diet_select"
+        android:layout_alignBaseline="@id/macro_calories_header"
+        android:layout_toEndOf="@id/macro_calories_header"
+        android:hint="@string/calories_hint"
+        android:inputType="number" />
+
+    <Button
+        android:id="@+id/macro_get_results_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/macro_calorie_entry"
+        android:layout_margin="16dp"
+        android:text="@string/get_results" />
+
+    <TextView
+        android:id="@+id/macro_carb_header"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/macro_get_results_button"
+        android:text="@string/macro_carb_header" />
+
+    <TextView
+        android:id="@+id/macro_carb_result"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/macro_get_results_button"
+        android:layout_toEndOf="@id/macro_carb_header" />
+
+    <TextView
+        android:id="@+id/macro_protein_header"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/macro_carb_header"
+        android:text="@string/macro_protein_header" />
+
+    <TextView
+        android:id="@+id/macro_protein_result"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/macro_carb_header"
+        android:layout_toEndOf="@id/macro_protein_header" />
+
+    <TextView
+        android:id="@+id/macro_fat_header"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/macro_protein_header"
+        android:text="@string/macro_fat_header" />
+
+    <TextView
+        android:id="@+id/macro_fat_result"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/macro_protein_header"
+        android:layout_toEndOf="@id/macro_fat_header" />
+
+</RelativeLayout>

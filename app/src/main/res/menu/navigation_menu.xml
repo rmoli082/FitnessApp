@@ -5,6 +5,14 @@
         android:icon="@mipmap/ic_launcher"
         android:title="@string/bodyfat_calc"/>
 
+    <item android:id = "@+id/calorie_calc"
+        android:icon="@mipmap/ic_launcher"
+        android:title="@string/calorie_calc" />
+
+    <item android:id = "@+id/macro_calc"
+        android:icon="@mipmap/ic_launcher"
+        android:title="@string/macro_calc" />
+
     <item android:id="@+id/settings"
         android:icon="@mipmap/ic_launcher"
         android:title="@string/settings_name"/>
