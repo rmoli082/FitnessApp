@@ -13,10 +13,10 @@ import android.widget.TextView;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class BodyfatCalculatorFragment extends Fragment {
+public class MainScreenFragment extends Fragment {
 
 
-    public BodyfatCalculatorFragment() {
+    public MainScreenFragment() {
         // Required empty public constructor
     }
 
@@ -25,7 +25,7 @@ public class BodyfatCalculatorFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         TextView textView = new TextView(getActivity());
-        textView.setText(R.string.bodyfat_calc);
+        textView.setText(R.string.app_name);
         return textView;
     }
 

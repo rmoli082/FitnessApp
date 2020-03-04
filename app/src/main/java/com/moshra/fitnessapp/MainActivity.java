@@ -3,6 +3,7 @@ package com.moshra.fitnessapp;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
@@ -30,6 +31,9 @@ public class MainActivity extends AppCompatActivity {
         dl.addDrawerListener(t);
         t.syncState();
 
+        FragmentTransaction tx = getSupportFragmentManager().beginTransaction();
+        tx.replace(R.id.contentFragment, new MainScreenFragment()).commit();
+
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         nv = findViewById(R.id.nv);
@@ -40,11 +44,10 @@ public class MainActivity extends AppCompatActivity {
                 switch(id)
                 {
                     case R.id.bodyfat_calc:
-                        Toast.makeText(MainActivity.this, "My Account",Toast.LENGTH_SHORT).show();
                         FragmentManager fm = getSupportFragmentManager();
                         FragmentTransaction transaction = fm.beginTransaction();
-                        transaction.replace(R.id.activity_main, new BodyfatCalculatorFragment()).commit();
-
+                        transaction.replace(R.id.contentFragment, new BodyfatCalculatorFragment()).commit();
+                        dl.closeDrawer(GravityCompat.START);
                         break;
                     default:
                         return true;
