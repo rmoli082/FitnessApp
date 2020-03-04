@@ -17,7 +17,9 @@
     <string name="hint_pounds">in pounds</string>
     <string name="hint_cm">in cm</string>
     <string name="hint_kg">in kg</string>
-    <string name="bodyfat_percent">Bodyfat percentage</string>
+    <string name="bodyfat_percent">Bodyfat percentage:</string>
+    <string name="lean_mass">Lean mass:</string>
+    <string name="fat_mass">Fat mass:</string>
     <string name="settings_name">Settings</string>
     <string name="settings_unit_label">Units</string>
     <string name="settings_unit_key">settings_unit</string>

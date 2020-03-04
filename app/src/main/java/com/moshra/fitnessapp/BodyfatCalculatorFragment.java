@@ -1,6 +1,7 @@
 package com.moshra.fitnessapp;
 
 
+import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 
@@ -17,6 +18,8 @@ import android.widget.RadioGroup;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import java.util.prefs.PreferenceChangeEvent;
+
 /**
  * A simple {@link Fragment} subclass.
  */
@@ -28,6 +31,8 @@ public class BodyfatCalculatorFragment extends Fragment {
     private double mNeck;
     private double mHips;
     private double mBfPercent;
+    private double mFatMass;
+    private double mLeanMass;
     private boolean mIsFemale;
 
 
@@ -63,8 +68,8 @@ public class BodyfatCalculatorFragment extends Fragment {
         });
 
         Button calculateBodyfat = view.findViewById(R.id.calculate_bodyfat);
-        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
-        final String units = prefs.getString(getString(R.string.settings_unit_key),
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getActivity());
+        String units = prefs.getString(getString(R.string.settings_unit_key),
                 getString(R.string.settings_unit_default));
 
         final EditText heightEntry = view.findViewById(R.id.bodyfat_height_entry);
@@ -94,11 +99,14 @@ public class BodyfatCalculatorFragment extends Fragment {
                 mWaist = Integer.parseInt(String.valueOf(waistEntry.getText()));
                 mNeck = Integer.parseInt(String.valueOf(neckEntry.getText()));
 
+                SharedPreferences prefs = getActivity().getPreferences(Context.MODE_PRIVATE);
+                String units = prefs.getString(getString(R.string.settings_unit_key),
+                        getString(R.string.settings_unit_default));
+
                 if (units == getString(R.string.settings_unit_us_value)) {
                     mHeight *= 2.54;
                     mNeck *= 2.54;
                     mWaist *= 2.54;
-                    mWeight /= 2.2;
                 }
 
                 if (mIsFemale) {
@@ -114,6 +122,14 @@ public class BodyfatCalculatorFragment extends Fragment {
                     TextView textView = view.findViewById(R.id.bodyfat_percent_results);
                     textView.setText(String.valueOf(mBfPercent));
                 }
+
+                mFatMass = mWeight * mBfPercent / 100;
+                mLeanMass = mWeight - mFatMass;
+
+                TextView tv = view.findViewById(R.id.bodyfat_fat_mass_results);
+                tv.setText(String.valueOf(mFatMass));
+                tv = view.findViewById(R.id.bodyfat_lean_mass_results);
+                tv.setText(String.valueOf(mLeanMass));
 
             }
         });
