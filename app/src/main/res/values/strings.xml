@@ -42,4 +42,5 @@
     <string name="macro_protein_header">Protein: </string>
     <string name="macro_fat_header">Fat: </string>
     <string name="get_results">Get Results</string>
+    <string name="body_index_calc">BMI Calculator</string>
 </resources>

@@ -1,4 +1,4 @@
-package com.moshra.fitnessapp;
+package com.morashstudios.fitnessapp;
 
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -8,8 +8,6 @@ import android.preference.PreferenceManager;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
-
-import java.util.prefs.Preferences;
 
 public class SettingsActivity extends AppCompatActivity {
 

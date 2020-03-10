@@ -1,4 +1,4 @@
-package com.moshra.fitnessapp;
+package com.morashstudios.fitnessapp;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
@@ -11,7 +11,6 @@ import androidx.fragment.app.FragmentTransaction;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
-import android.widget.Toast;
 
 import com.google.android.material.navigation.NavigationView;
 
@@ -48,6 +47,10 @@ public class MainActivity extends AppCompatActivity {
                 {
                     case R.id.bodyfat_calc:
                         transaction.replace(R.id.contentFragment, new BodyfatCalculatorFragment()).commit();
+                        dl.closeDrawer(GravityCompat.START);
+                        break;
+                    case R.id.bmi_calc:
+                        transaction.replace(R.id.contentFragment, new BodyIndexFragment()).commit();
                         dl.closeDrawer(GravityCompat.START);
                         break;
                     case R.id.calorie_calc:

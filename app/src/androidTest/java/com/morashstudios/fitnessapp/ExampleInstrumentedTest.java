@@ -1,4 +1,4 @@
-package com.moshra.fitnessapp;
+package com.morashstudios.fitnessapp;
 
 import android.content.Context;
 
@@ -22,6 +22,6 @@ public class ExampleInstrumentedTest {
         // Context of the app under test.
         Context appContext = InstrumentationRegistry.getInstrumentation().getTargetContext();
 
-        assertEquals("com.moshra.fitnessapp", appContext.getPackageName());
+        assertEquals("com.morashstudios.fitnessapp", appContext.getPackageName());
     }
 }

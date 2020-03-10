@@ -1,4 +1,4 @@
-package com.moshra.fitnessapp;
+package com.morashstudios.fitnessapp;
 
 import org.junit.Test;
 

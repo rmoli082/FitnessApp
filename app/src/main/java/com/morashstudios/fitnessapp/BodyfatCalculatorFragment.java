@@ -1,4 +1,4 @@
-package com.moshra.fitnessapp;
+package com.morashstudios.fitnessapp;
 
 
 import android.content.Context;
@@ -15,10 +15,9 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import java.util.prefs.PreferenceChangeEvent;
+import java.text.DecimalFormat;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -92,12 +91,14 @@ public class BodyfatCalculatorFragment extends Fragment {
             @Override
             public void onClick(View v) {
 
+                DecimalFormat df = new DecimalFormat("0.0");
+
                 view.findViewById(R.id.bodyfat_results).setVisibility(View.VISIBLE);
 
-                mHeight = Integer.parseInt(String.valueOf(heightEntry.getText()));
-                mWeight = Integer.parseInt(String.valueOf(weightEntry.getText()));
-                mWaist = Integer.parseInt(String.valueOf(waistEntry.getText()));
-                mNeck = Integer.parseInt(String.valueOf(neckEntry.getText()));
+                mHeight = Double.parseDouble(String.valueOf(heightEntry.getText()));
+                mWeight = Double.parseDouble(String.valueOf(weightEntry.getText()));
+                mWaist = Double.parseDouble(String.valueOf(waistEntry.getText()));
+                mNeck = Double.parseDouble(String.valueOf(neckEntry.getText()));
 
                 SharedPreferences prefs = getActivity().getPreferences(Context.MODE_PRIVATE);
                 String units = prefs.getString(getString(R.string.settings_unit_key),
@@ -110,26 +111,26 @@ public class BodyfatCalculatorFragment extends Fragment {
                 }
 
                 if (mIsFemale) {
-                    mHips = Integer.parseInt(String.valueOf(hipsEntry.getText()));
+                    mHips = Double.parseDouble(String.valueOf(hipsEntry.getText()));
                     if (units == getString(R.string.settings_unit_us_value)) {
                         mHips *= 2.54;
                     }
                     mBfPercent = 495 / (1.29579 - 0.35004 * Math.log10(mWaist + mHips - mNeck) + 0.221 * Math.log10(mHeight)) - 450;
                     TextView textView = view.findViewById(R.id.bodyfat_percent_results);
-                    textView.setText(String.valueOf(mBfPercent));
+                    textView.setText(df.format(mBfPercent));
                 } else {
                     mBfPercent = 495 / (1.0324 - 0.19077 * Math.log10(mWaist - mNeck) + .15456 * Math.log10(mHeight)) - 450;
                     TextView textView = view.findViewById(R.id.bodyfat_percent_results);
-                    textView.setText(String.valueOf(mBfPercent));
+                    textView.setText(df.format(mBfPercent));
                 }
 
                 mFatMass = mWeight * mBfPercent / 100;
                 mLeanMass = mWeight - mFatMass;
 
                 TextView tv = view.findViewById(R.id.bodyfat_fat_mass_results);
-                tv.setText(String.valueOf(mFatMass));
+                tv.setText(df.format(mFatMass));
                 tv = view.findViewById(R.id.bodyfat_lean_mass_results);
-                tv.setText(String.valueOf(mLeanMass));
+                tv.setText(df.format(mLeanMass));
 
             }
         });
