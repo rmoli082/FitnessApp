@@ -9,4 +9,20 @@
         <item>@string/settings_unit_metric_value</item>
         <item>@string/settings_unit_us_value</item>
     </string-array>
+
+    <string-array name="calories_activity_level_entries">
+        <item>@string/activity_sedentary</item>
+        <item>@string/activity_light</item>
+        <item>@string/activity_moderate</item>
+        <item>@string/activity_intense</item>
+        <item>@string/activity_very_intense</item>
+    </string-array>
+
+    <string-array name="calories_activity_level_values">
+        <item>@string/activity_sedentary_value</item>
+        <item>@string/activity_light_value</item>
+        <item>@string/activity_moderate_value</item>
+        <item>@string/activity_intense_value</item>
+        <item>@string/activity_very_intense_value</item>
+    </string-array>
 </resources>

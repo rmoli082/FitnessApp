@@ -56,6 +56,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/height"
+            android:layout_alignEnd="@id/bodyfat_waist_header"
             android:layout_marginStart="16dp"
             android:layout_marginTop="16dp"
             android:layout_marginEnd="8dp"/>
@@ -67,6 +68,7 @@
             android:layout_toEndOf="@id/bodyfat_height_header"
             android:layout_marginTop="8dp"
             android:layout_alignBaseline="@id/bodyfat_height_header"
+            android:layout_alignStart="@id/bodyfat_waist_entry"
             android:hint="@string/hint"
             android:inputType="numberDecimal" />
 
@@ -75,6 +77,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/bodyfat_height_header"
+            android:layout_alignEnd="@id/bodyfat_waist_header"
             android:layout_marginStart="16dp"
             android:layout_marginTop="16dp"
             android:layout_marginEnd="8dp"
@@ -88,6 +91,7 @@
             android:layout_toEndOf="@id/bodyfat_weight_header"
             android:layout_marginTop="8dp"
             android:layout_alignBaseline="@id/bodyfat_weight_header"
+            android:layout_alignStart="@id/bodyfat_waist_entry"
             android:hint="@string/hint_pounds"
             android:inputType="numberDecimal" />
 
@@ -133,13 +137,6 @@
             android:hint="@string/hint"
             android:inputType="numberDecimal" />
 
-        <RelativeLayout
-            android:id="@+id/bodyfat_female_options"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/bodyfat_neck_header"
-            android:visibility="gone">
-
             <TextView
                 android:id="@+id/bodyfat_hips_header"
                 android:layout_width="wrap_content"
@@ -147,7 +144,10 @@
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="16dp"
                 android:layout_marginEnd="8dp"
-                android:text="@string/hips" />
+                android:layout_below="@id/bodyfat_neck_header"
+                android:layout_alignEnd="@id/bodyfat_waist_header"
+                android:text="@string/hips"
+                android:visibility="gone"/>
 
             <EditText
                 android:id="@+id/bodyfat_hips_entry"
@@ -156,10 +156,10 @@
                 android:layout_toEndOf="@id/bodyfat_hips_header"
                 android:layout_marginTop="8dp"
                 android:layout_alignBaseline="@id/bodyfat_hips_header"
+                android:layout_alignStart="@id/bodyfat_waist_entry"
                 android:hint="@string/hint"
-                android:inputType="numberDecimal" />
-
-        </RelativeLayout>
+                android:inputType="numberDecimal"
+                android:visibility="gone" />
 
     </RelativeLayout>
 
@@ -192,6 +192,7 @@
             android:layout_marginStart="16dp"
             android:layout_marginTop="16dp"
             android:layout_marginEnd="8dp"
+            android:layout_alignStart="@id/bodyfat_lean_mass_results"
             android:layout_toEndOf="@id/bodyfat_percent_header" />
 
         <TextView
@@ -201,6 +202,7 @@
             android:layout_marginStart="16dp"
             android:layout_marginTop="16dp"
             android:layout_marginEnd="8dp"
+            android:layout_alignEnd="@id/bodyfat_percent_header"
             android:layout_below="@id/bodyfat_percent_header"
             android:text="@string/fat_mass" />
 
@@ -211,6 +213,7 @@
             android:layout_marginStart="16dp"
             android:layout_marginTop="16dp"
             android:layout_marginEnd="8dp"
+            android:layout_alignStart="@id/bodyfat_lean_mass_results"
             android:layout_below="@id/bodyfat_percent_header"
             android:layout_toEndOf="@id/bodyfat_lean_mass_header" />
 
@@ -222,6 +225,7 @@
             android:layout_marginTop="16dp"
             android:layout_marginEnd="8dp"
             android:layout_below="@id/bodyfat_fat_mass_header"
+            android:layout_alignEnd="@id/bodyfat_percent_header"
             android:text="@string/lean_mass" />
 
         <TextView

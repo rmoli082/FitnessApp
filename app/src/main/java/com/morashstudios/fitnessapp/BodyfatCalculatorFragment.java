@@ -1,12 +1,8 @@
 package com.morashstudios.fitnessapp;
 
 
-import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-
-import androidx.fragment.app.Fragment;
-
 import android.preference.PreferenceManager;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -16,6 +12,8 @@ import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
+
+import androidx.fragment.app.Fragment;
 
 import java.text.DecimalFormat;
 
@@ -53,12 +51,14 @@ public class BodyfatCalculatorFragment extends Fragment {
             public void onCheckedChanged(RadioGroup group, int checkedId) {
                 if (checkedId == R.id.sex_button_female) {
                     mIsFemale = true;
-                    view.findViewById(R.id.bodyfat_female_options).setVisibility(View.VISIBLE);
+                    view.findViewById(R.id.bodyfat_hips_header).setVisibility(View.VISIBLE);
+                    view.findViewById(R.id.bodyfat_hips_entry).setVisibility(View.VISIBLE);
                     TextView femaleWaist = view.findViewById(R.id.bodyfat_waist_header);
                     femaleWaist.setText(R.string.waist_female);
                 } else {
                     mIsFemale = false;
-                    view.findViewById(R.id.bodyfat_female_options).setVisibility(View.GONE);
+                    view.findViewById(R.id.bodyfat_hips_header).setVisibility(View.GONE);
+                    view.findViewById(R.id.bodyfat_hips_entry).setVisibility(View.GONE);
                     TextView maleWaist = view.findViewById(R.id.bodyfat_waist_header);
                     maleWaist.setText(R.string.waist_male);
                 }
@@ -68,7 +68,7 @@ public class BodyfatCalculatorFragment extends Fragment {
 
         Button calculateBodyfat = view.findViewById(R.id.calculate_bodyfat);
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getActivity());
-        String units = prefs.getString(getString(R.string.settings_unit_key),
+        final String units = prefs.getString(getString(R.string.settings_unit_key),
                 getString(R.string.settings_unit_default));
 
         final EditText heightEntry = view.findViewById(R.id.bodyfat_height_entry);
@@ -100,11 +100,7 @@ public class BodyfatCalculatorFragment extends Fragment {
                 mWaist = Double.parseDouble(String.valueOf(waistEntry.getText()));
                 mNeck = Double.parseDouble(String.valueOf(neckEntry.getText()));
 
-                SharedPreferences prefs = getActivity().getPreferences(Context.MODE_PRIVATE);
-                String units = prefs.getString(getString(R.string.settings_unit_key),
-                        getString(R.string.settings_unit_default));
-
-                if (units == getString(R.string.settings_unit_us_value)) {
+                if (units.equals(getString(R.string.settings_unit_us_value))) {
                     mHeight *= 2.54;
                     mNeck *= 2.54;
                     mWaist *= 2.54;
@@ -112,7 +108,7 @@ public class BodyfatCalculatorFragment extends Fragment {
 
                 if (mIsFemale) {
                     mHips = Double.parseDouble(String.valueOf(hipsEntry.getText()));
-                    if (units == getString(R.string.settings_unit_us_value)) {
+                    if (units.equals( getString(R.string.settings_unit_us_value))) {
                         mHips *= 2.54;
                     }
                     mBfPercent = 495 / (1.29579 - 0.35004 * Math.log10(mWaist + mHips - mNeck) + 0.221 * Math.log10(mHeight)) - 450;

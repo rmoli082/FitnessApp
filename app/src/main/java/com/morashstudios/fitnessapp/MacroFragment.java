@@ -1,9 +1,6 @@
 package com.morashstudios.fitnessapp;
 
 import android.os.Bundle;
-
-import androidx.fragment.app.Fragment;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,6 +8,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioGroup;
 import android.widget.TextView;
+
+import androidx.fragment.app.Fragment;
 
 import java.text.DecimalFormat;
 
@@ -64,14 +63,13 @@ public class MacroFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 mCalorieNeeds = Integer.parseInt(String.valueOf(calorieEntry.getText()));
-                DecimalFormat df = new DecimalFormat("0.0");
                 TextView carbAmount = view.findViewById(R.id.macro_carb_result);
                 TextView proteinAmount = view.findViewById(R.id.macro_protein_result);
                 TextView fatAmount = view.findViewById(R.id.macro_fat_result);
 
-                carbAmount.setText(df.format((mCalorieNeeds*mCarbsPercent)/4));
-                proteinAmount.setText(df.format((mCalorieNeeds*mProteinPercent)/4));
-                fatAmount.setText(df.format((mCalorieNeeds*mFatPercent)/9));
+                carbAmount.setText(String.valueOf(Math.round((mCalorieNeeds*mCarbsPercent)/4)));
+                proteinAmount.setText(String.valueOf(Math.round((mCalorieNeeds*mProteinPercent)/4)));
+                fatAmount.setText(String.valueOf(Math.round((mCalorieNeeds*mFatPercent)/9)));
             }
         });
 
