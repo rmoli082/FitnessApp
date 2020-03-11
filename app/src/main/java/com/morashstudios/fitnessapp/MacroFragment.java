@@ -77,6 +77,8 @@ public class MacroFragment extends Fragment {
                     return;
                 }
 
+                view.findViewById(R.id.macro_results_tab).setVisibility(View.VISIBLE);
+
                 mCalorieNeeds = Integer.parseInt(String.valueOf(calorieEntry.getText()));
                 TextView carbAmount = view.findViewById(R.id.macro_carb_result);
                 TextView proteinAmount = view.findViewById(R.id.macro_protein_result);

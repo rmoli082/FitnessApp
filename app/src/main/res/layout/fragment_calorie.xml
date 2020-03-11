@@ -1,164 +1,162 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".CalorieFragment">
 
-    <TextView
-        android:id="@+id/calorie_title"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="center_horizontal"
-        android:text="@string/calorie_calc"
-        android:textSize="32sp" />
-
-    <TextView
-        android:id="@+id/calorie_gender_header"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/calorie_title"
-        android:layout_centerHorizontal="true"
-        android:text="@string/sex_header" />
-
-    <RadioGroup
-        android:id="@+id/calorie_gender_select"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/calorie_gender_header"
-        android:layout_centerHorizontal="true"
-        android:orientation="horizontal">
-
-        <RadioButton
-            android:id="@+id/calorie_gender_male"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/male" />
-
-        <RadioButton
-            android:id="@+id/calorie_gender_female"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/female" />
-
-    </RadioGroup>
-
-    <TextView
-        android:id="@+id/calorie_height_header"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/calorie_gender_select"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="8dp"
-        android:text="@string/height" />
-
-    <EditText
-        android:id="@+id/calorie_height_entry"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBaseline="@id/calorie_height_header"
-        android:layout_marginTop="8dp"
-        android:layout_toEndOf="@id/calorie_height_header"
-        android:hint="@string/hint"
-        android:inputType="numberDecimal" />
-
-    <TextView
-        android:id="@+id/calorie_weight_header"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/calorie_height_header"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="8dp"
-        android:text="@string/weight" />
-
-    <EditText
-        android:id="@+id/calorie_weight_entry"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/calorie_height_header"
-        android:layout_alignBaseline="@id/calorie_weight_header"
-        android:layout_marginTop="8dp"
-        android:layout_toEndOf="@id/calorie_weight_header"
-        android:hint="@string/hint_pounds"
-        android:inputType="numberDecimal" />
-
-    <TextView
-        android:id="@+id/calorie_age_header"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/calorie_weight_header"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="8dp"
-        android:text="@string/enter_age" />
-
-    <EditText
-        android:id="@+id/calorie_age_entry"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/calorie_weight_entry"
-        android:layout_alignBaseline="@id/calorie_age_header"
-        android:layout_alignStart="@id/calorie_weight_entry"
-        android:layout_marginTop="8dp"
-        android:layout_toEndOf="@id/calorie_age_header"
-        android:hint="@string/hint_year"
-        android:inputType="numberDecimal" />
-
-    <TextView
-        android:id="@+id/calorie_activity_header"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/calorie_age_entry"
-        android:text="@string/activity_header"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="8dp"/>
-
-    <Spinner
-        android:id="@+id/calorie_activity_select"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/calorie_age_entry"
-        android:layout_toEndOf="@id/calorie_activity_header"
-        android:entries="@array/calories_activity_level_entries"
-        android:layout_marginTop="8dp"
-        android:layout_alignBaseline="@id/calorie_activity_header"/>
-
-    <Button
-        android:id="@+id/calculate_calories_button"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/calorie_activity_header"
-        android:layout_margin="16dp"
-        android:text="@string/calculate"/>
-
-    <RelativeLayout
-        android:id="@+id/calorie_results_tab"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/calculate_calories_button"
-        android:visibility="gone" >
+        android:orientation="vertical">
 
         <TextView
-            android:id="@+id/calories_needed_header"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/calories_needed"/>
+            android:id="@+id/calorie_title"
+            style="@style/TitleText"
+            android:text="@string/calorie_calc" />
 
         <TextView
-            android:id="@+id/calorie_results"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_toEndOf="@id/calories_needed_header"/>
-
-        <TextView
+            android:id="@+id/calorie_gender_header"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_below="@id/calories_needed_header"
-            android:text="@string/lose_or_gain_text" />
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:text="@string/sex_header" />
 
-    </RelativeLayout>
+        <RadioGroup
+            android:id="@+id/calorie_gender_select"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:orientation="horizontal">
 
-</RelativeLayout>
+            <RadioButton
+                android:id="@+id/calorie_gender_male"
+                style="@style/RadioButtonCandy"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/male" />
+
+            <RadioButton
+                android:id="@+id/calorie_gender_female"
+                style="@style/RadioButtonCandy"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/female" />
+
+        </RadioGroup>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/calorie_height_header"
+                style="@style/HeaderText"
+                android:text="@string/height" />
+
+            <EditText
+                android:id="@+id/calorie_height_entry"
+                style="@style/EntryText"
+                android:autofillHints="@string/hint"
+                android:hint="@string/hint"
+                android:inputType="numberDecimal" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/calorie_weight_header"
+                style="@style/HeaderText"
+                android:text="@string/weight" />
+
+            <EditText
+                android:id="@+id/calorie_weight_entry"
+                style="@style/EntryText"
+                android:autofillHints="@string/hint_pounds"
+                android:hint="@string/hint_pounds"
+                android:inputType="numberDecimal" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/calorie_age_header"
+                style="@style/HeaderText"
+                android:text="@string/enter_age" />
+
+            <EditText
+                android:id="@+id/calorie_age_entry"
+                style="@style/EntryText"
+                android:autofillHints="@string/hint_year"
+                android:hint="@string/hint_year"
+                android:inputType="numberDecimal" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/calorie_activity_header"
+                style="@style/HeaderText"
+                android:text="@string/activity_header" />
+
+            <Spinner
+                android:id="@+id/calorie_activity_select"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:layout_weight="1"
+                android:entries="@array/calories_activity_level_entries" />
+
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/calculate_calories_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            android:text="@string/calculate" />
+
+        <LinearLayout
+            android:id="@+id/calorie_results_tab"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:visibility="gone">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/calories_needed_header"
+                    style="@style/ResultsHeader"
+                    android:text="@string/calories_needed" />
+
+                <TextView
+                    android:id="@+id/calorie_results"
+                    style="@style/ResultsText" />
+
+            </LinearLayout>
+
+            <TextView
+                style="@style/HeaderText"
+                android:text="@string/lose_or_gain_text" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</ScrollView>

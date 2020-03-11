@@ -10,11 +10,8 @@
         android:orientation="vertical">
 
         <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center_horizontal"
-            android:text="@string/bodyfat_calc"
-            android:textSize="32sp" />
+            style="@style/TitleText"
+            android:text="@string/bodyfat_calc"/>
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -22,7 +19,7 @@
 
             <TextView
                 android:id="@+id/sex_header"
-                style="@style/EntryText"
+                style="@style/HeaderText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerHorizontal="true"
@@ -61,12 +58,12 @@
 
             <TextView
                 android:id="@+id/bodyfat_height_header"
-                style="@style/EntryText"
+                style="@style/HeaderText"
                 android:text="@string/height" />
 
             <EditText
                 android:id="@+id/bodyfat_height_entry"
-                style="@style/InputBox"
+                style="@style/EntryText"
                 android:autofillHints="@string/hint"
                 android:hint="@string/hint"
                 android:inputType="numberDecimal" />
@@ -80,12 +77,12 @@
 
             <TextView
                 android:id="@+id/bodyfat_weight_header"
-                style="@style/EntryText"
+                style="@style/HeaderText"
                 android:text="@string/weight" />
 
             <EditText
                 android:id="@+id/bodyfat_weight_entry"
-                style="@style/InputBox"
+                style="@style/EntryText"
                 android:autofillHints="@string/hint_pounds"
                 android:hint="@string/hint_pounds"
                 android:inputType="numberDecimal" />
@@ -99,12 +96,12 @@
 
             <TextView
                 android:id="@+id/bodyfat_waist_header"
-                style="@style/EntryText"
+                style="@style/HeaderText"
                 android:text="@string/waist_male" />
 
             <EditText
                 android:id="@+id/bodyfat_waist_entry"
-                style="@style/InputBox"
+                style="@style/EntryText"
                 android:autofillHints="@string/hint"
                 android:hint="@string/hint"
                 android:inputType="numberDecimal" />
@@ -117,12 +114,12 @@
 
             <TextView
                 android:id="@+id/bodyfat_neck_header"
-                style="@style/EntryText"
+                style="@style/HeaderText"
                 android:text="@string/neck" />
 
             <EditText
                 android:id="@+id/bodyfat_neck_entry"
-                style="@style/InputBox"
+                style="@style/EntryText"
                 android:autofillHints="@string/hint"
                 android:hint="@string/hint"
                 android:inputType="numberDecimal" />
@@ -135,13 +132,13 @@
 
             <TextView
                 android:id="@+id/bodyfat_hips_header"
-                style="@style/EntryText"
+                style="@style/HeaderText"
                 android:text="@string/hips"
                 android:visibility="gone" />
 
             <EditText
                 android:id="@+id/bodyfat_hips_entry"
-                style="@style/InputBox"
+                style="@style/EntryText"
                 android:autofillHints="@string/hint"
                 android:hint="@string/hint"
                 android:inputType="numberDecimal"
@@ -169,12 +166,12 @@
 
                 <TextView
                     android:id="@+id/bodyfat_percent_header"
-                    style="@style/ResultsHeaderText"
+                    style="@style/ResultsHeader"
                     android:text="@string/bodyfat_percent" />
 
                 <TextView
                     android:id="@+id/bodyfat_percent_results"
-                    style="@style/ResultsResultText" />
+                    style="@style/ResultsText" />
 
             </LinearLayout>
 
@@ -185,12 +182,12 @@
 
                 <TextView
                     android:id="@+id/bodyfat_fat_mass_header"
-                    style="@style/ResultsHeaderText"
+                    style="@style/ResultsHeader"
                     android:text="@string/fat_mass" />
 
                 <TextView
                     android:id="@+id/bodyfat_fat_mass_results"
-                    style="@style/ResultsResultText" />
+                    style="@style/ResultsText" />
 
             </LinearLayout>
 
@@ -201,12 +198,12 @@
 
                 <TextView
                     android:id="@+id/bodyfat_lean_mass_header"
-                    style="@style/ResultsHeaderText"
+                    style="@style/ResultsHeader"
                     android:text="@string/lean_mass" />
 
                 <TextView
                     android:id="@+id/bodyfat_lean_mass_results"
-                    style="@style/ResultsResultText" />
+                    style="@style/ResultsText" />
 
             </LinearLayout>
 
