@@ -8,4 +8,36 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <style name="EntryText">
+        <item name="android:textSize">16sp</item>
+        <item name="android:layout_margin">8dp</item>
+        <item name = "android:layout_width">0dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:gravity">end</item>
+    </style>
+
+    <style name="InputBox">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:layout_marginTop">6dp</item>
+        <item name="android:layout_marginEnd">24dp</item>
+        <item name="android:gravity">center_horizontal</item>
+    </style>
+
+    <style name="ResultsHeaderText" parent="EntryText">
+        <item name="android:textSize">20sp</item>
+    </style>
+
+    <style name="ResultsResultText" parent="ResultsHeaderText">
+        <item name="android:gravity">center_horizontal</item>
+    </style>
+
+    <style name="RadioButtonCandy">
+        <item name="android:textSize">16sp</item>
+        <item name="android:layout_marginBottom">8dp</item>
+        <item name="android:layout_marginEnd">8dp</item>
+    </style>
+
 </resources>
