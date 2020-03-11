@@ -186,7 +186,6 @@
                 <TextView
                     android:id="@+id/bodyfat_fat_mass_header"
                     style="@style/ResultsHeaderText"
-                    android:gravity="end"
                     android:text="@string/fat_mass" />
 
                 <TextView
@@ -207,10 +206,7 @@
 
                 <TextView
                     android:id="@+id/bodyfat_lean_mass_results"
-                    style="@style/ResultsResultText"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1" />
+                    style="@style/ResultsResultText" />
 
             </LinearLayout>
 

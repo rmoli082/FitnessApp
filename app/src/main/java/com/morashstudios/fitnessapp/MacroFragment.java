@@ -6,8 +6,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.fragment.app.Fragment;
 
@@ -35,7 +37,7 @@ public class MacroFragment extends Fragment {
         // Inflate the layout for this fragment
         final View view = inflater.inflate(R.layout.fragment_macro, container, false);
 
-        RadioGroup dietGoalSelect = view.findViewById(R.id.macro_diet_select);
+        final RadioGroup dietGoalSelect = view.findViewById(R.id.macro_diet_select);
 
         dietGoalSelect.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
@@ -62,6 +64,19 @@ public class MacroFragment extends Fragment {
         getResultsButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+                RadioButton dietGoal = view.findViewById(dietGoalSelect.getCheckedRadioButtonId());
+
+                if (dietGoal == null) {
+                    Toast.makeText(getContext(), "Please select a diet type", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
+                if (String.valueOf(calorieEntry.getText()).isEmpty()) {
+                    Toast.makeText(getContext(), "Please enter calorie requirements", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
                 mCalorieNeeds = Integer.parseInt(String.valueOf(calorieEntry.getText()));
                 TextView carbAmount = view.findViewById(R.id.macro_carb_result);
                 TextView proteinAmount = view.findViewById(R.id.macro_protein_result);

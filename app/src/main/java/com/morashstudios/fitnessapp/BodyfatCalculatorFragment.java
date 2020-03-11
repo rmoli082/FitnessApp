@@ -12,6 +12,7 @@ import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.fragment.app.Fragment;
 
@@ -44,7 +45,6 @@ public class BodyfatCalculatorFragment extends Fragment {
         final View view = inflater.inflate(R.layout.fragment_bodyfat, container, false);
 
         final RadioGroup sexGroup = view.findViewById(R.id.sex_button_group);
-        RadioButton sexChoice = view.findViewById(sexGroup.getCheckedRadioButtonId());
 
         sexGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
@@ -92,6 +92,21 @@ public class BodyfatCalculatorFragment extends Fragment {
             public void onClick(View v) {
 
                 DecimalFormat df = new DecimalFormat("0.0");
+
+                RadioButton sexChoice = view.findViewById(sexGroup.getCheckedRadioButtonId());
+
+                if (sexChoice == null){
+                    Toast.makeText(getContext(), "Please select a gender", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
+                if (String.valueOf(heightEntry.getText()).isEmpty() ||
+                        String.valueOf(weightEntry.getText()).isEmpty() ||
+                        String.valueOf(waistEntry.getText()).isEmpty() ||
+                        String.valueOf(neckEntry.getText()).isEmpty()) {
+                    Toast.makeText(getContext(), "Please enter your measurements", Toast.LENGTH_SHORT).show();
+                    return;
+                }
 
                 view.findViewById(R.id.bodyfat_results).setVisibility(View.VISIBLE);
 

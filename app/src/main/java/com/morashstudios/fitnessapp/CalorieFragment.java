@@ -3,16 +3,17 @@ package com.morashstudios.fitnessapp;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.RelativeLayout;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.fragment.app.Fragment;
 
@@ -44,9 +45,7 @@ public class CalorieFragment extends Fragment {
         final String units = prefs.getString(getString(R.string.settings_unit_key),
                 getString(R.string.settings_unit_default));
 
-        Log.i("Units", units);
-
-        RadioGroup genderSelect = view.findViewById(R.id.calorie_gender_select);
+        final RadioGroup genderSelect = view.findViewById(R.id.calorie_gender_select);
         final EditText heightEntry = view.findViewById(R.id.calorie_height_entry);
         final EditText weightEntry = view.findViewById(R.id.calorie_weight_entry);
         final EditText ageEntry = view.findViewById(R.id.calorie_age_entry);
@@ -63,17 +62,27 @@ public class CalorieFragment extends Fragment {
         genderSelect.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup group, int checkedId) {
-                if (checkedId == R.id.calorie_gender_female) {
-                    mIsFemale = true;
-                } else {
-                    mIsFemale = false;
-                }
+                mIsFemale = checkedId == R.id.calorie_gender_female;
             }
         });
 
         calculateCaloriesButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+                RadioButton genderChoice = view.findViewById(genderSelect.getCheckedRadioButtonId());
+
+                if (genderChoice == null) {
+                    Toast.makeText(getContext(), "Please select a gender", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
+                if (String.valueOf(heightEntry.getText()).isEmpty() ||
+                        String.valueOf(weightEntry.getText()).isEmpty() ||
+                        String.valueOf(ageEntry.getText()).isEmpty()) {
+                    Toast.makeText(getContext(), "Please enter your measurements", Toast.LENGTH_SHORT).show();
+                    return;
+                }
 
                 resultsTab.setVisibility(View.VISIBLE);
 
@@ -120,7 +129,6 @@ public class CalorieFragment extends Fragment {
                 }
 
                 mBMR *= mCalorieModifier;
-                Log.i("mBMR", String.valueOf(mBMR));
 
                 calorieResults.setText(String.valueOf(Math.round(mBMR)));
 

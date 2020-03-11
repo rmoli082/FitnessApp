@@ -10,6 +10,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.fragment.app.Fragment;
 
@@ -56,8 +57,13 @@ public class BodyIndexFragment extends Fragment {
             @Override
             public void onClick(View v) {
 
-                LinearLayout resultsTab = view.findViewById(R.id.bmi_results_tab);
-                resultsTab.setVisibility(View.VISIBLE);
+                view.findViewById(R.id.bmi_results_tab).setVisibility(View.VISIBLE);
+
+                if (String.valueOf(weightEntry.getText()).isEmpty() ||
+                String.valueOf(heightEntry.getText()).isEmpty()) {
+                    Toast.makeText(getContext(), "Please enter your measurements", Toast.LENGTH_SHORT).show();
+                    return;
+                }
 
                 mWeight = Double.parseDouble(String.valueOf(weightEntry.getText()));
                 mHeight = Double.parseDouble(String.valueOf(heightEntry.getText()));
