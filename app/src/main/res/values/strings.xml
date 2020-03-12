@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">FitnessApp</string>
+    <string name="app_name">Sehat Fitness</string>
     <string name="bodyfat_calc">Body Fat Calculator</string>
     <string name="calorie_calc">Calorie Calculator</string>
     <string name="macro_calc">Macro Calculator</string>
@@ -61,5 +61,5 @@
     <string name="activity_very_intense_value">very_intense</string>
     <string name="enter_age">Age</string>
     <string name="calories_needed">Total calories needed:</string>
-    <string name="lose_or_gain_text">To lose fat: subtract 500 calories from this total.\nTo gain muscle: add 500 calories to this total.</string>
+    <string name="lose_or_gain_text">To lose fat: subtract 250 to 500 calories from this total.\nTo gain muscle: add 250 to 500 calories to this total.</string>
 </resources>

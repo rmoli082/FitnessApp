@@ -103,7 +103,8 @@ public class BodyfatCalculatorFragment extends Fragment {
                 if (String.valueOf(heightEntry.getText()).isEmpty() ||
                         String.valueOf(weightEntry.getText()).isEmpty() ||
                         String.valueOf(waistEntry.getText()).isEmpty() ||
-                        String.valueOf(neckEntry.getText()).isEmpty()) {
+                        String.valueOf(neckEntry.getText()).isEmpty() ||
+                        (mIsFemale && String.valueOf(hipsEntry.getText()).isEmpty())){
                     Toast.makeText(getContext(), "Please enter your measurements", Toast.LENGTH_SHORT).show();
                     return;
                 }
@@ -122,10 +123,12 @@ public class BodyfatCalculatorFragment extends Fragment {
                 }
 
                 if (mIsFemale) {
+
                     mHips = Double.parseDouble(String.valueOf(hipsEntry.getText()));
                     if (units.equals( getString(R.string.settings_unit_us_value))) {
                         mHips *= 2.54;
                     }
+
                     mBfPercent = 495 / (1.29579 - 0.35004 * Math.log10(mWaist + mHips - mNeck) + 0.221 * Math.log10(mHeight)) - 450;
                     TextView textView = view.findViewById(R.id.bodyfat_percent_results);
                     textView.setText(df.format(mBfPercent));

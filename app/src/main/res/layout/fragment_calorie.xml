@@ -152,7 +152,7 @@
             </LinearLayout>
 
             <TextView
-                style="@style/HeaderText"
+                style="@style/FillerText"
                 android:text="@string/lose_or_gain_text" />
 
         </LinearLayout>

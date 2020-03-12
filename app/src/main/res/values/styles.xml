@@ -40,13 +40,22 @@
     </style>
 
     <style name="ResultsText" parent="ResultsHeader">
-        <item name="android:gravity">center_horizontal</item>
+        <item name="android:gravity">start</item>
+        <item name="android:layout_marginStart">16dp</item>
     </style>
 
     <style name="RadioButtonCandy">
         <item name="android:textSize">16sp</item>
         <item name="android:layout_marginBottom">8dp</item>
         <item name="android:layout_marginEnd">8dp</item>
+    </style>
+
+    <style name="FillerText">
+        <item name="android:textSize">16sp</item>
+        <item name="android:layout_margin">16dp</item>
+        <item name = "android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:gravity">center_horizontal</item>
     </style>
 
 </resources>

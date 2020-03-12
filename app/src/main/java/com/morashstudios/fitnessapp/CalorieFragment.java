@@ -8,9 +8,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
-import android.widget.RelativeLayout;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -51,7 +51,7 @@ public class CalorieFragment extends Fragment {
         final EditText ageEntry = view.findViewById(R.id.calorie_age_entry);
         final Spinner activitySelect = view.findViewById(R.id.calorie_activity_select);
         final TextView calorieResults = view.findViewById(R.id.calorie_results);
-        final RelativeLayout resultsTab = view.findViewById(R.id.calorie_results_tab);
+        final LinearLayout resultsTab = view.findViewById(R.id.calorie_results_tab);
         Button calculateCaloriesButton = view.findViewById(R.id.calculate_calories_button);
 
         if (units.equals(getString(R.string.settings_unit_metric_value))) {
