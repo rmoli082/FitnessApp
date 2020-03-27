@@ -4,7 +4,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/activity_main"
     android:layout_width="match_parent"
-    android:layout_height="match_parent" >
+    android:layout_height="match_parent"
+    android:background="@color/colorPrimaryExtraLight">
 
     <FrameLayout
         android:layout_width="wrap_content"
@@ -15,13 +16,12 @@
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         app:menu="@menu/navigation_menu"
+        android:theme="@style/NavDrawerTheme"
         android:layout_gravity="start"
         app:headerLayout="@layout/nav_header"
         android:id="@+id/nv"
         app:itemBackground="@color/colorPrimaryLight"
-        android:background="@color/colorPrimaryExtraLight">
-
-    </com.google.android.material.navigation.NavigationView>
+        android:background="@color/colorPrimaryLight" />
 
 
 

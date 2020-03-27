@@ -1,11 +1,13 @@
 <resources>
     <string name="app_name">Sehat Fitness</string>
+    <string name="greeting">Welcome to Sehat Fitness</string>
     <string name="bodyfat_calc">Body Fat Calculator</string>
     <string name="calorie_calc">Calorie Calculator</string>
     <string name="macro_calc">Macro Calculator</string>
+    <string name="menu_home">Home</string>
     <string name="Open">open</string>
     <string name="Close">close</string>
-    <string name="sex_header">Please select your sex:</string>
+    <string name="sex_header">Please select your gender:</string>
     <string name="male">Male</string>
     <string name="female">Female</string>
     <string name="waist_male">Waist (around navel)</string>
@@ -14,13 +16,12 @@
     <string name="neck">Neck (narrowest)</string>
     <string name="height">Height</string>
     <string name="weight">Weight</string>
-    <string name="calculate">Calculate</string>
     <string name="hint">in inches</string>
     <string name="hint_pounds">in pounds</string>
     <string name="hint_cm">in cm</string>
     <string name="hint_kg">in kg</string>
     <string name="hint_year">in years</string>
-    <string name="bodyfat_percent">Body fat percent:</string>
+    <string name="bodyfat_percent">Body fat:</string>
     <string name="lean_mass">Lean mass:</string>
     <string name="fat_mass">Fat mass:</string>
     <string name="settings_name">Settings</string>
@@ -36,8 +37,10 @@
     <string name="goal_weight_gain">Gain muscle</string>
     <string name="macro_diet_header">Select your diet:</string>
     <string name="default_diet">Default</string>
+    <string name="locarb_diet">Low Carb</string>
+    <string name="lofat_diet">Low Fat</string>
     <string name="keto_diet">Keto</string>
-    <string name="enter_calories">Enter calories required:</string>
+    <string name="enter_calories">Calories required:</string>
     <string name="calories_hint">3200</string>
     <string name="macro_carb_header">Carbs:</string>
     <string name="macro_protein_header">Protein:</string>
@@ -47,19 +50,38 @@
     <string name="bmi_weight_entry">Enter weight:</string>
     <string name="bmi_height_entry">Enter height:</string>
     <string name="bmi_header">BMI:</string>
-    <string name="activity_header">Select activity level:</string>
+    <string name="activity_header">Activity level:</string>
     <string name="activity_select">Click to select</string>
-    <string name="activity_sedentary">No exercise</string>
-    <string name="activity_light">Exercise 1–3 days</string>
-    <string name="activity_moderate">Exercise 2–4 days</string>
-    <string name="activity_intense">Intense Exercise 2–4 days</string>
-    <string name="activity_very_intense">Intense Exercise 5–7 days</string>
+    <string name="activity_sedentary">No or little exercise</string>
+    <string name="activity_light">Exercise 1–3 days/week</string>
+    <string name="activity_moderate">Exercise 2–4 days/week</string>
+    <string name="activity_heavy">Exercise 5-7 days/week</string>
+    <string name="activity_intense">Intense Exercise 2–4 days/week</string>
+    <string name="activity_very_intense">Intense Exercise 5–7 days/week</string>
     <string name="activity_sedentary_value">sedentary</string>
     <string name="activity_light_value">light</string>
     <string name="activity_moderate_value">moderate</string>
+    <string name="activity_heavy_value">heavy</string>
     <string name="activity_intense_value">intense</string>
     <string name="activity_very_intense_value">very_intense</string>
     <string name="enter_age">Age</string>
     <string name="calories_needed">Total calories needed:</string>
-    <string name="lose_or_gain_text">To lose fat: subtract 250 to 500 calories from this total.\nTo gain muscle: add 250 to 500 calories to this total.</string>
+    <string name="lose_or_gain_text">To lose fat: subtract 250 to 500 calories from this total.\n\nTo gain muscle: add 250 to 500 calories to this total.</string>
+    <string name="bodyfat_description">The Body Fat Calculator uses the US Navy formulas for calculating body fat percentage. To calculate your body fat percentage, you will require a measuring tape to get your height as well as the circumference of your neck, waist, and hips. Once your body fat percentage is calculated, the calculator will also provide your lean mass and fat mass results.</string>
+    <string name="bodyindex_description">The BMI Calculator will measure your body fat based on your height and weight and will help you determine if you\'re at a healthy weight. Please note that the calculator does not differentiate between fat and muscle, so the calculator will be inaccurate for those with a high lean muscle mass.</string>
+    <string name="calorie_description">The Calorie Calculator will help to computer your daily calorie needs based on your height, weight, age, and activity levels. Whether your goal is to gain muscle or lose fat, the Calorie Calculator will help you achieve those goals by providing an estimate of your daily caloric needs.</string>
+    <string name="macro_description">The Macro Calculator will help you to compute the required amount of carbs, protein, and fat that you should intake daily based on your caloric and dietary needs. You can select a normal diet, a low fat diet, a low carb diet, and the Keto diet to target your macro splits.</string>
+    <string name="settings_description">You can select between Metric units and US units by accessing the app settings.\n\nClick on the desired calculator below, or select it from the main menu. </string>
+    <string name="lbs">lbs</string>
+    <string name="kg">kg</string>
+    <string name="percent">%</string>
+    <string name="grams">g</string>
+    <string name="chart_header">Acceptable Body Fat Ranges</string>
+    <string name="bmi_chart_header">Acceptable BMI Ranges</string>
+    <string name="percent_chart_male">Athletes\t\t\t\t6-14%\nFitness\t\t\t\t\t14-18%\nAverage\t\t\t\t18-25%\nObese\t\t\t\t\t\t25%+\n\n</string>
+    <string name="percent_chart_female">Athletes\t\t\t\t14-21%\nFitness\t\t\t\t\t21-25%\nAverage\t\t\t\t25-32%\nObese\t\t\t\t\t\t32%+\n\n</string>
+    <string name="bmi_chart">Underweight\t\t\t\t\t&lt; 18.5\nNormal weight\t\t\t18.5-24.9\nOverweight\t\t\t\t\t\t\t25-29.9\nObese\t\t\t\t\t\t\t\t\t\t\t\t\t\t&gt; 30</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

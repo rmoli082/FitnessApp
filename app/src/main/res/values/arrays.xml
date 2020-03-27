@@ -14,6 +14,7 @@
         <item>@string/activity_sedentary</item>
         <item>@string/activity_light</item>
         <item>@string/activity_moderate</item>
+        <item>@string/activity_heavy</item>
         <item>@string/activity_intense</item>
         <item>@string/activity_very_intense</item>
     </string-array>
@@ -22,6 +23,7 @@
         <item>@string/activity_sedentary_value</item>
         <item>@string/activity_light_value</item>
         <item>@string/activity_moderate_value</item>
+        <item>@string/activity_heavy_value</item>
         <item>@string/activity_intense_value</item>
         <item>@string/activity_very_intense_value</item>
     </string-array>

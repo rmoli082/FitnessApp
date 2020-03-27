@@ -1,9 +1,11 @@
 package com.morashstudios.fitnessapp;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioButton;
@@ -49,9 +51,19 @@ public class MacroFragment extends Fragment {
                         mProteinPercent = 0.3;
                         mFatPercent = 0.2;
                         break;
+                    case R.id.macro_diet_locarb_button:
+                        mCarbsPercent = 0.25;
+                        mProteinPercent = 0.3;
+                        mFatPercent = 0.45;
+                        break;
+                    case R.id.macro_diet_lofat_button:
+                        mCarbsPercent = 0.55;
+                        mProteinPercent = 0.3;
+                        mFatPercent = 0.15;
+                        break;
                     case R.id.macro_diet_keto_button:
-                        mCarbsPercent = 0.15;
-                        mProteinPercent = 0.15;
+                        mCarbsPercent = 0.10;
+                        mProteinPercent = 0.20;
                         mFatPercent = 0.7;
                         break;
                 }
@@ -64,6 +76,11 @@ public class MacroFragment extends Fragment {
         getResultsButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+                if (view != null) {
+                    InputMethodManager imm = (InputMethodManager) getActivity().getSystemService(Context.INPUT_METHOD_SERVICE);
+                    imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
+                }
 
                 RadioButton dietGoal = view.findViewById(dietGoalSelect.getCheckedRadioButtonId());
 

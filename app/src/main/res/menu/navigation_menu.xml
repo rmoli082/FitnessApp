@@ -1,12 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
+    <item android:id="@+id/main_screen"
+        android:icon="@drawable/baseline_home_black_24"
+        android:title="@string/menu_home" />
+
     <item android:id="@+id/bodyfat_calc"
-        android:icon='@drawable/round_accessibility_new_black_24'
-        android:title="@string/bodyfat_calc"/>
+        android:icon="@drawable/baseline_settings_input_svideo_black_24"
+        android:title="@string/bodyfat_calc" />
 
     <item android:id="@+id/bmi_calc"
-        android:icon="@drawable/baseline_network_check_black_24"
+        android:icon="@drawable/round_accessibility_new_black_24"
         android:title="@string/body_index_calc" />
 
     <item android:id = "@+id/calorie_calc"
@@ -16,6 +20,12 @@
     <item android:id = "@+id/macro_calc"
         android:icon="@drawable/round_donut_small_black_24"
         android:title="@string/macro_calc" />
+
+    <item android:id = "@+id/measurements"
+        android:title="Measurements" />
+
+    <item android:id="@+id/blank_space"
+        android:title="" />
 
     <item android:id="@+id/settings"
         android:icon="@drawable/round_settings_black_24"

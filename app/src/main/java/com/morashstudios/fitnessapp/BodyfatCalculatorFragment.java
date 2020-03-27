@@ -1,12 +1,14 @@
 package com.morashstudios.fitnessapp;
 
 
+import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioButton;
@@ -14,6 +16,7 @@ import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 
 import java.text.DecimalFormat;
@@ -53,12 +56,16 @@ public class BodyfatCalculatorFragment extends Fragment {
                     mIsFemale = true;
                     view.findViewById(R.id.bodyfat_hips_header).setVisibility(View.VISIBLE);
                     view.findViewById(R.id.bodyfat_hips_entry).setVisibility(View.VISIBLE);
+                    view.findViewById(R.id.percentage_chart_female).setVisibility(View.VISIBLE);
+                    view.findViewById(R.id.percentage_chart_male).setVisibility(View.GONE);
                     TextView femaleWaist = view.findViewById(R.id.bodyfat_waist_header);
                     femaleWaist.setText(R.string.waist_female);
                 } else {
                     mIsFemale = false;
                     view.findViewById(R.id.bodyfat_hips_header).setVisibility(View.GONE);
                     view.findViewById(R.id.bodyfat_hips_entry).setVisibility(View.GONE);
+                    view.findViewById(R.id.percentage_chart_female).setVisibility(View.GONE);
+                    view.findViewById(R.id.percentage_chart_male).setVisibility(View.VISIBLE);
                     TextView maleWaist = view.findViewById(R.id.bodyfat_waist_header);
                     maleWaist.setText(R.string.waist_male);
                 }
@@ -76,20 +83,27 @@ public class BodyfatCalculatorFragment extends Fragment {
         final EditText waistEntry = view.findViewById(R.id.bodyfat_waist_entry);
         final EditText neckEntry = view.findViewById(R.id.bodyfat_neck_entry);
         final EditText hipsEntry = view.findViewById(R.id.bodyfat_hips_entry);
+        TextView lbsKgSwitch = view.findViewById(R.id.lbs_or_kg);
 
         if (units.equals(getString(R.string.settings_unit_metric_value))) {
 
             heightEntry.setHint(R.string.hint_cm);
             weightEntry.setHint(R.string.hint_kg);
-            waistEntry.setHint(getString(R.string.hint_cm));
+            waistEntry.setHint(R.string.hint_cm);
             neckEntry.setHint(R.string.hint_cm);
             hipsEntry.setHint(R.string.hint_cm);
+            lbsKgSwitch.setText(R.string.kg);
 
         }
 
         calculateBodyfat.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+                if (view != null) {
+                    InputMethodManager imm = (InputMethodManager) getActivity().getSystemService(Context.INPUT_METHOD_SERVICE);
+                    imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
+                }
 
                 DecimalFormat df = new DecimalFormat("0.0");
 

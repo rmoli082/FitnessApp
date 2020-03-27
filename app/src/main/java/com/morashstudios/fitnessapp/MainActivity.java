@@ -46,6 +46,11 @@ public class MainActivity extends AppCompatActivity {
                 FragmentTransaction transaction = fm.beginTransaction();
                 switch(id)
                 {
+
+                    case R.id.main_screen:
+                        transaction.replace (R.id.contentFragment, new MainScreenFragment()).commit();
+                        dl.closeDrawer(GravityCompat.START);
+                        break;
                     case R.id.bodyfat_calc:
                         transaction.replace(R.id.contentFragment, new BodyfatCalculatorFragment()).commit();
                         dl.closeDrawer(GravityCompat.START);
@@ -60,6 +65,10 @@ public class MainActivity extends AppCompatActivity {
                         break;
                     case R.id.macro_calc:
                         transaction.replace(R.id.contentFragment, new MacroFragment()).commit();
+                        dl.closeDrawer(GravityCompat.START);
+                        break;
+                    case R.id.measurements:
+                        transaction.replace(R.id.contentFragment, new MeasurementsFragment()).commit();
                         dl.closeDrawer(GravityCompat.START);
                         break;
                     case R.id.settings:

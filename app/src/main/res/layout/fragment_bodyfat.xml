@@ -150,19 +150,20 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="16dp"
-            android:text="@string/calculate" />
+            android:text="@string/get_results" />
 
         <LinearLayout
             android:id="@+id/bodyfat_results"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:visibility="invisible">
+            android:visibility="gone">
 
             <LinearLayout
                 android:id="@+id/bodyfat_results_group"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal">
 
                 <TextView
                     android:id="@+id/bodyfat_percent_header"
@@ -173,12 +174,17 @@
                     android:id="@+id/bodyfat_percent_results"
                     style="@style/ResultsText" />
 
+                <TextView
+                    style="@style/ResultsText"
+                    android:text="@string/percent"/>
+
             </LinearLayout>
 
             <LinearLayout
                 android:id="@+id/fatmass_results_group"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal">
 
                 <TextView
                     android:id="@+id/bodyfat_fat_mass_header"
@@ -189,12 +195,18 @@
                     android:id="@+id/bodyfat_fat_mass_results"
                     style="@style/ResultsText" />
 
+                <TextView
+                    android:id="@+id/lbs_or_kg"
+                    style="@style/ResultsText"
+                    android:text="@string/lbs"/>
+
             </LinearLayout>
 
             <LinearLayout
                 android:id="@+id/leanmass_results_group"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal">
 
                 <TextView
                     android:id="@+id/bodyfat_lean_mass_header"
@@ -204,6 +216,36 @@
                 <TextView
                     android:id="@+id/bodyfat_lean_mass_results"
                     style="@style/ResultsText" />
+
+                <TextView
+                    android:id="@id/lbs_or_kg"
+                    style="@style/ResultsText"
+                    android:text="@string/lbs"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/bodyfat_chart_group"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:orientation="vertical">
+
+                <TextView
+                    style="@style/ChartHeader"
+                    android:layout_marginTop="24dp"
+                    android:text="@string/chart_header" />
+
+                <TextView
+                    android:id="@+id/percentage_chart_male"
+                    style="@style/ChartText"
+                    android:text="@string/percent_chart_male" />
+
+                <TextView
+                    android:id="@+id/percentage_chart_female"
+                    style="@style/ChartText"
+                    android:text="@string/percent_chart_female"
+                    android:visibility="gone"/>
 
             </LinearLayout>
 
