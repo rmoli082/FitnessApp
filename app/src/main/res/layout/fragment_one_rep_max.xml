@@ -8,12 +8,127 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
 
         <TextView
+            style="@style/TitleText"
+            android:text="@string/repmax_calc" />
+
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:text="Rep Max Calculator" />
+            android:layout_height="wrap_content">
+
+            <TextView
+                style="@style/HeaderText"
+                android:text="@string/repmax_weight"/>
+
+            <EditText
+                style="@style/EntryText"
+                android:id="@+id/repmax_weight_entry"
+                android:hint="@string/lb_or_kg"
+                android:inputType="numberDecimal"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                style="@style/HeaderText"
+                android:text="@string/repmax_reps"/>
+
+            <EditText
+                style="@style/EntryText"
+                android:id="@+id/repmax_reps_entry"
+                android:hint="@string/one_to_ten"
+                android:inputType="number"/>
+
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/onerm_results_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            android:text="@string/get_results"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal">
+
+            <TextView
+                style="@style/ResultsHeader"
+                android:text="@string/repmax_1rm"/>
+
+            <TextView
+                android:id="@+id/repmax_onerm"
+                style="@style/ResultsText" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal">
+
+            <TextView
+                style="@style/ResultsHeader"
+                android:text="@string/repmax_2rm"/>
+
+            <TextView
+                android:id="@+id/repmax_tworm"
+                style="@style/ResultsText" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal">
+
+            <TextView
+                style="@style/ResultsHeader"
+                android:text="@string/repmax_3rm"/>
+
+            <TextView
+                android:id="@+id/repmax_threerm"
+                style="@style/ResultsText" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal">
+
+            <TextView
+                style="@style/ResultsHeader"
+                android:text="@string/repmax_5rm"/>
+
+            <TextView
+                android:id="@+id/repmax_fiverm"
+                style="@style/ResultsText" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal">
+
+            <TextView
+                style="@style/ResultsHeader"
+                android:text="@string/repmax_10rm"/>
+
+            <TextView
+                android:id="@+id/repmax_tenrm"
+                style="@style/ResultsText" />
+
+        </LinearLayout>
+
 
     </LinearLayout>
 

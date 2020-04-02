@@ -82,4 +82,13 @@
     <string name="percent_chart_female">Athletes\t\t\t\t14-21%\nFitness\t\t\t\t\t21-25%\nAverage\t\t\t\t25-32%\nObese\t\t\t\t\t\t32%+\n\n</string>
     <string name="bmi_chart">Underweight\t\t\t\t\t&lt; 18.5\nNormal weight\t\t\t18.5-24.9\nOverweight\t\t\t\t\t\t\t25-29.9\nObese\t\t\t\t\t\t\t\t\t\t\t\t\t\t&gt; 30</string>
     <string name="repmax_calc">Rep Max Calculator</string>
+    <string name="repmax_weight">Enter weight lifted:</string>
+    <string name="repmax_reps">Enter reps completed:</string>
+    <string name="lb_or_kg">lbs or kg</string>
+    <string name="one_to_ten">from 1 to 10</string>
+    <string name="repmax_1rm">One Rep Max:</string>
+    <string name="repmax_2rm">Two Rep Max:</string>
+    <string name="repmax_3rm">Three Rep Max:</string>
+    <string name="repmax_5rm">Five Rep Max:</string>
+    <string name="repmax_10rm">Ten Rep Max:</string>
 </resources>
