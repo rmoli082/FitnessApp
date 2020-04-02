@@ -45,7 +45,7 @@ public class MeasurementsAdapter extends RecyclerView.Adapter<MeasurementsAdapte
         }
     }
 
-    void setMeasurements(List<Measurements> measurements) {
+    public void setMeasurements(List<Measurements> measurements) {
         mMeasurements = measurements;
         notifyDataSetChanged();
     }

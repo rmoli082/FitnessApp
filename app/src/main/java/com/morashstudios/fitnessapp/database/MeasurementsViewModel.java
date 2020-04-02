@@ -11,13 +11,13 @@ public class MeasurementsViewModel extends AndroidViewModel {
 
     private MeasurementsRepository mRepository;
     private LiveData<List<Measurements>> mAllMeasurements;
-    private MeasurementsViewModel(Application application) {
+    public MeasurementsViewModel(Application application) {
         super(application);
         mRepository = new MeasurementsRepository(application);
         mAllMeasurements = mRepository.getAllMeasurements();
     }
 
-    LiveData<List<Measurements>> getmAllMeasurements() {return mAllMeasurements;}
+    public LiveData<List<Measurements>> getAllMeasurements() {return mAllMeasurements;}
 
     public void insert (Measurements measurements) {mRepository.insert(measurements);}
 }

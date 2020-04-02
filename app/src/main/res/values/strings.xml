@@ -81,7 +81,5 @@
     <string name="percent_chart_male">Athletes\t\t\t\t6-14%\nFitness\t\t\t\t\t14-18%\nAverage\t\t\t\t18-25%\nObese\t\t\t\t\t\t25%+\n\n</string>
     <string name="percent_chart_female">Athletes\t\t\t\t14-21%\nFitness\t\t\t\t\t21-25%\nAverage\t\t\t\t25-32%\nObese\t\t\t\t\t\t32%+\n\n</string>
     <string name="bmi_chart">Underweight\t\t\t\t\t&lt; 18.5\nNormal weight\t\t\t18.5-24.9\nOverweight\t\t\t\t\t\t\t25-29.9\nObese\t\t\t\t\t\t\t\t\t\t\t\t\t\t&gt; 30</string>
-
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="repmax_calc">Rep Max Calculator</string>
 </resources>

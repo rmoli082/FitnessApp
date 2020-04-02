@@ -21,7 +21,12 @@
         android:icon="@drawable/round_donut_small_black_24"
         android:title="@string/macro_calc" />
 
+    <item android:id = "@+id/repmax_calc"
+        android:icon="@drawable/baseline_fitness_center_black_24"
+        android:title="@string/repmax_calc" />
+
     <item android:id = "@+id/measurements"
+        android:icon="@drawable/baseline_straighten_black_24"
         android:title="Measurements" />
 
     <item android:id="@+id/blank_space"

@@ -39,13 +39,12 @@ public class Measurements {
     private float weight;
     private float bf_percent;
 
-    public Measurements(int measurement_id, String date, float neck_circumference, float chest_circumference,
+    public Measurements(String date, float neck_circumference, float chest_circumference,
                         float waist_circumference, float hip_circumference, float right_bicep_circumference,
                         float right_forearm_circumference, float left_bicep_circumference,
                         float left_forearm_circumference, float right_thigh_circumference,
                         float right_calf_circumference, float left_thigh_circumference,
                         float left_calf_circumference, float weight, float bf_percent) {
-        this.measurement_id = measurement_id;
         this.date = date;
         this.neck_circumference = neck_circumference;
         this.chest_circumference = chest_circumference;
