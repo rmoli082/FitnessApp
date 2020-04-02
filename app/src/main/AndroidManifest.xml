@@ -9,8 +9,12 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".AddMeasurementActivity"></activity>
-        <activity android:name=".MeasurementsActivity" />
+        <activity android:name=".AddMeasurementActivity"
+            android:parentActivityName=".MeasurementsActivity"
+            android:screenOrientation="nosensor"/>
+        <activity android:name=".MeasurementsActivity"
+            android:parentActivityName=".MainActivity"
+            android:screenOrientation="nosensor"/>
         <activity
             android:name=".SettingsActivity"
             android:parentActivityName=".MainActivity"

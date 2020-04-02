@@ -95,4 +95,19 @@
     <string name="add_measurement">Add Measurements</string>
     <string name="saved">Measurements saved</string>
     <string name="not_saved">Measurements not saved</string>
+    <string name="add_neck">Neck</string>
+    <string name="add_chest">Chest</string>
+    <string name="add_waist">Waist</string>
+    <string name="add_hips">Hips</string>
+    <string name="add_rBicep">Bicep(right)</string>
+    <string name="add_rForearm">Forearm(right)</string>
+    <string name="add_lBicep">Bicep(left)</string>
+    <string name="add_lForearm">Forearm(left)</string>
+    <string name="add_rThigh">Thigh(right)</string>
+    <string name="add_rCalf">Calf(right)</string>
+    <string name="add_lThigh">Thigh(left)</string>
+    <string name="add_lCalf">Calf(left)</string>
+    <string name="save_button">Save</string>
+    <string name="enterstuffpls">Please enter a measurement or fill with 0 to continue</string>
+    <string name="no_entries">No entries recorded</string>
 </resources>

@@ -1,8 +1,11 @@
 package com.morashstudios.fitnessapp;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.lifecycle.ViewModelProviders;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -11,15 +14,24 @@ import android.widget.Toast;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
-public class MeasurementsActivity extends AppCompatActivity {
+import java.util.Date;
+import java.util.List;
+
+public class MeasurementsActivity extends AppCompatActivity implements MeasurementListAdapter.OnDeleteClickListener {
 
     private static final int NEW_MEASUREMENT_ACTIVITY_REQ_CODE = 1;
     private MeasurementViewModel measurementViewModel;
+    private MeasurementListAdapter measurementListAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_measurements);
+
+        RecyclerView recyclerView = findViewById(R.id.recyclerview);
+        measurementListAdapter = new MeasurementListAdapter(this, this);
+        recyclerView.setAdapter(measurementListAdapter);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
         FloatingActionButton addFab = findViewById(R.id.add_measurement_fab);
         addFab.setOnClickListener(new View.OnClickListener() {
@@ -32,6 +44,13 @@ public class MeasurementsActivity extends AppCompatActivity {
         });
 
         measurementViewModel = ViewModelProviders.of(this).get(MeasurementViewModel.class);
+
+        measurementViewModel.getAllMeasurements().observe(this, new Observer<List<Measurement>>() {
+            @Override
+            public void onChanged(List<Measurement> measurements) {
+                measurementListAdapter.setMeasurements(measurements);
+            }
+        });
     }
 
     @Override
@@ -40,8 +59,21 @@ public class MeasurementsActivity extends AppCompatActivity {
 
         if (requestCode == NEW_MEASUREMENT_ACTIVITY_REQ_CODE && resultCode == RESULT_OK) {
 
-            // Code to insert note
-            Measurement measurement = new Measurement (data.getFloatExtra("neck", 0));
+            Measurement measurement = new Measurement (new Date().toString(),
+                    data.getFloatExtra("neck", 0f),
+                    data.getFloatExtra("chest", 0f),
+                    data.getFloatExtra("waist", 0f),
+                    data.getFloatExtra("hips", 0f),
+                    data.getFloatExtra("rBicep", 0f),
+                    data.getFloatExtra("rForearm", 0f),
+                    data.getFloatExtra("lBicep", 0f),
+                    data.getFloatExtra("lForearm", 0f),
+                    data.getFloatExtra("rThigh", 0f),
+                    data.getFloatExtra("rCalf", 0f),
+                    data.getFloatExtra("lThigh", 0f),
+                    data.getFloatExtra("lCalf", 0f),
+                    data.getFloatExtra("weight", 0f),
+                    data.getFloatExtra("bodyfat", 0f));
             measurementViewModel.insert(measurement);
 
             Toast.makeText(getApplicationContext(), R.string.saved, Toast.LENGTH_LONG).show();
@@ -51,5 +83,11 @@ public class MeasurementsActivity extends AppCompatActivity {
             Toast.makeText(getApplicationContext(), R.string.not_saved, Toast.LENGTH_LONG).show();
 
         }
+    }
+
+    @Override
+    public void OnDeleteCLickListener(Measurement myMeasurement) {
+        //Code for delete operation
+        measurementViewModel.delete(myMeasurement);
     }
 }
