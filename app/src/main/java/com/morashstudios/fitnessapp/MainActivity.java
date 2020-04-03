@@ -71,10 +71,6 @@ public class MainActivity extends AppCompatActivity {
                         transaction.replace(R.id.contentFragment, new OneRepMaxFragment()).commit();
                         dl.closeDrawer(GravityCompat.START);
                         break;
-                    case R.id.measurements:
-                        Intent measurementsIntent = new Intent (MainActivity.this, MeasurementsActivity.class);
-                        startActivity(measurementsIntent);
-                        break;
                     case R.id.settings:
                         Intent settingsIntent = new Intent (MainActivity.this, SettingsActivity.class);
                         startActivity(settingsIntent);

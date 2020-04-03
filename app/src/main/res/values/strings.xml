@@ -71,6 +71,7 @@
     <string name="bodyindex_description">The BMI Calculator will measure your body fat based on your height and weight and will help you determine if you\'re at a healthy weight. Please note that the calculator does not differentiate between fat and muscle, so the calculator will be inaccurate for those with a high lean muscle mass.</string>
     <string name="calorie_description">The Calorie Calculator will help to computer your daily calorie needs based on your height, weight, age, and activity levels. Whether your goal is to gain muscle or lose fat, the Calorie Calculator will help you achieve those goals by providing an estimate of your daily caloric needs.</string>
     <string name="macro_description">The Macro Calculator will help you to compute the required amount of carbs, protein, and fat that you should intake daily based on your caloric and dietary needs. You can select a normal diet, a low fat diet, a low carb diet, and the Keto diet to target your macro splits.</string>
+    <string name="onerm_description">The Rep Max Calculator will estimate a one repetition maximum for a particular lift derived from the amount of reps and weight you lift. Using the one rep max, the calculator will also determine a 2, 3, 5 and 10 repetition max for your lift.</string>
     <string name="settings_description">You can select between Metric units and US units by accessing the app settings.\n\nClick on the desired calculator below, or select it from the main menu. </string>
     <string name="lbs">lbs</string>
     <string name="kg">kg</string>
@@ -91,4 +92,7 @@
     <string name="repmax_3rm">Three Rep Max:</string>
     <string name="repmax_5rm">Five Rep Max:</string>
     <string name="repmax_10rm">Ten Rep Max:</string>
+    <string name="add_measurement">Add Measurements</string>
+    <string name="saved">Measurements saved</string>
+    <string name="not_saved">Measurements not saved</string>
 </resources>

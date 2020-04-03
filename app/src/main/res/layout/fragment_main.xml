@@ -53,6 +53,15 @@
             style="@style/FillerText"
             android:text="@string/macro_description" />
 
+        <TextView
+            android:id="@+id/onerm_select"
+            style="@style/FillerHeader"
+            android:text="@string/repmax_calc" />
+
+        <TextView
+            style="@style/FillerText"
+            android:text="@string/onerm_description" />
+
     </LinearLayout>
 
 </ScrollView>

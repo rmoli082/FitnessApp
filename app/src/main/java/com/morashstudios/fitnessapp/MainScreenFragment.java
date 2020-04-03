@@ -31,6 +31,7 @@ public class MainScreenFragment extends Fragment {
         TextView bodyindexSelect = view.findViewById(R.id.bodyindex_select);
         TextView calorieSelect = view.findViewById(R.id.calorie_select);
         TextView macroSelect = view.findViewById(R.id.macro_select);
+        TextView onermSelect = view.findViewById(R.id.onerm_select);
 
         FragmentManager fm = getFragmentManager();
         final FragmentTransaction transaction = fm.beginTransaction();
@@ -62,6 +63,13 @@ public class MainScreenFragment extends Fragment {
                 transaction.replace(R.id.contentFragment, new MacroFragment()).commit();
             }
         });
+
+        onermSelect.setOnClickListener((new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                transaction.replace(R.id.contentFragment, new OneRepMaxFragment()).commit();
+            }
+        }));
 
         return view;
     }
