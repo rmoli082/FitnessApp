@@ -190,21 +190,20 @@ public class Measurement {
 
     @Override
     public String toString() {
-        return "Measurements: " +
-                "Date: " + mDate + "\t" +
-                "Neck: " + mNeck + "\t" +
-                "Chest: " + mChest + "\t" +
-                "Waist: " + mWaist + "\t" +
-                "Hips: " + mHips + "\t" +
-                "Bicep (r): " + mRightBicep + "\t" +
-                "Forearm (r): " + mRightForearm + "\t" +
-                "Bicep (l): " + mLeftBicep + "\t" +
-                "Forearm (l): " + mLeftForearm + "\t" +
-                "Thigh (r): " + mRightThigh + "\t" +
-                "Calf (r): " + mRightCalf + "\t" +
-                "Thigh (l): " + mLeftThigh + "\t" +
-                "Calf (l): " + mLeftCalf + "\t" +
-                "Weight: " + mWeight + "\t" +
+        return "Date: " + mDate + "\n\n" +
+                "Neck: " + mNeck + "\t\t" +
+                "Chest: " + mChest + "\t\t" +
+                "Waist: " + mWaist + "\n" +
+                "Hips: " + mHips + "\t\t" +
+                "Bicep (r): " + mRightBicep + "\t\t" +
+                "Forearm (r): " + mRightForearm + "\n" +
+                "Bicep (l): " + mLeftBicep + "\t\t" +
+                "Forearm (l): " + mLeftForearm + "\t\t" +
+                "Thigh (r): " + mRightThigh + "\n" +
+                "Calf (r): " + mRightCalf + "\t\t" +
+                "Thigh (l): " + mLeftThigh + "\t\t" +
+                "Calf (l): " + mLeftCalf + "\n" +
+                "Weight: " + mWeight + "\t\t" +
                 "Bodyfat: " + mBodyfat;
     }
 

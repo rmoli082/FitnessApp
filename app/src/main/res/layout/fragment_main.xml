@@ -2,6 +2,7 @@
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical">
 
     <LinearLayout
@@ -11,56 +12,123 @@
 
         <TextView
             style="@style/TitleText"
+            android:layout_marginBottom="8dp"
             android:text="@string/greeting" />
 
         <TextView
             style="@style/FillerText"
-            android:text="@string/settings_description" />
+            android:text="@string/settings_description"
+            android:layout_marginBottom="16dp"/>
 
-        <TextView
+        <androidx.cardview.widget.CardView
             android:id="@+id/bodyfat_select"
-            style="@style/FillerHeader"
-            android:text="@string/bodyfat_calc" />
+            style="@style/MainCard" >
 
-        <TextView
-            style="@style/FillerText"
-            android:text="@string/bodyfat_description" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
 
-        <TextView
+                <TextView
+                    style="@style/FillerHeader"
+                    android:layout_marginTop="8dp"
+                    android:text="@string/bodyfat_calc" />
+
+                <TextView
+                    style="@style/FillerText"
+                    android:text="@string/bodyfat_description" />
+
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
             android:id="@+id/bodyindex_select"
-            style="@style/FillerHeader"
-            android:text="@string/body_index_calc" />
+            style="@style/MainCard" >
 
-        <TextView
-            style="@style/FillerText"
-            android:text="@string/bodyindex_description" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
 
-        <TextView
+                <TextView
+                    style="@style/FillerHeader"
+                    android:layout_marginTop="8dp"
+                    android:text="@string/body_index_calc" />
+
+                <TextView
+                    style="@style/FillerText"
+                    android:text="@string/bodyindex_description" />
+
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
             android:id="@+id/calorie_select"
-            style="@style/FillerHeader"
-            android:text="@string/calorie_calc" />
+            style="@style/MainCard" >
 
-        <TextView
-            style="@style/FillerText"
-            android:text="@string/calorie_description" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
 
-        <TextView
+                <TextView
+                    style="@style/FillerHeader"
+                    android:layout_marginTop="8dp"
+                    android:text="@string/calorie_calc" />
+
+                <TextView
+                    style="@style/FillerText"
+                    android:text="@string/calorie_description" />
+
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
             android:id="@+id/macro_select"
-            style="@style/FillerHeader"
-            android:text="@string/macro_calc" />
+            style="@style/MainCard" >
 
-        <TextView
-            style="@style/FillerText"
-            android:text="@string/macro_description" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
 
-        <TextView
+                <TextView
+                    style="@style/FillerHeader"
+                    android:layout_marginTop="8dp"
+                    android:text="@string/macro_calc" />
+
+                <TextView
+                    style="@style/FillerText"
+                    android:text="@string/macro_description" />
+
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
             android:id="@+id/onerm_select"
-            style="@style/FillerHeader"
-            android:text="@string/repmax_calc" />
+            style="@style/MainCard" >
 
-        <TextView
-            style="@style/FillerText"
-            android:text="@string/onerm_description" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    style="@style/FillerHeader"
+                    android:layout_marginTop="8dp"
+                    android:text="@string/repmax_calc" />
+
+                <TextView
+                    style="@style/FillerText"
+                    android:text="@string/onerm_description" />
+
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
 
     </LinearLayout>
 

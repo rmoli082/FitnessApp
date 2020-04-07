@@ -5,8 +5,8 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
 
+import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
@@ -27,11 +27,11 @@ public class MainScreenFragment extends Fragment {
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_main, container, false);
 
-        TextView bodyfatSelect = view.findViewById(R.id.bodyfat_select);
-        TextView bodyindexSelect = view.findViewById(R.id.bodyindex_select);
-        TextView calorieSelect = view.findViewById(R.id.calorie_select);
-        TextView macroSelect = view.findViewById(R.id.macro_select);
-        TextView onermSelect = view.findViewById(R.id.onerm_select);
+        CardView bodyfatSelect = view.findViewById(R.id.bodyfat_select);
+        CardView bodyindexSelect = view.findViewById(R.id.bodyindex_select);
+        CardView calorieSelect = view.findViewById(R.id.calorie_select);
+        CardView macroSelect = view.findViewById(R.id.macro_select);
+        CardView onermSelect = view.findViewById(R.id.onerm_select);
 
         FragmentManager fm = getFragmentManager();
         final FragmentTransaction transaction = fm.beginTransaction();

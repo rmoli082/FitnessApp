@@ -1,21 +1,22 @@
 package com.morashstudios.fitnessapp;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.lifecycle.Observer;
-import androidx.lifecycle.ViewModelProvider;
-import androidx.lifecycle.ViewModelProviders;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.lifecycle.Observer;
+import androidx.lifecycle.ViewModelProviders;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
+import java.util.Locale;
 
 public class MeasurementsActivity extends AppCompatActivity implements MeasurementListAdapter.OnDeleteClickListener {
 
@@ -59,7 +60,9 @@ public class MeasurementsActivity extends AppCompatActivity implements Measureme
 
         if (requestCode == NEW_MEASUREMENT_ACTIVITY_REQ_CODE && resultCode == RESULT_OK) {
 
-            Measurement measurement = new Measurement (new Date().toString(),
+            SimpleDateFormat df = new SimpleDateFormat("EEE MMM dd yyyy, HH:mm:ss");
+
+            Measurement measurement = new Measurement (df.format(new Date()),
                     data.getFloatExtra("neck", 0f),
                     data.getFloatExtra("chest", 0f),
                     data.getFloatExtra("waist", 0f),

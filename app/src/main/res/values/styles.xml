@@ -92,8 +92,26 @@
     <style name="ChartText">
         <item name="android:textSize">16sp</item>
         <item name="android:layout_margin">16dp</item>
-        <item name ="android:layout_width">wrap_content</item>
+        <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
     </style>
+
+    <style name="MainCard">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_margin">8dp</item>
+        <item name="cardCornerRadius">10dp</item>
+        <item name="cardBackgroundColor">@color/colorPrimarySuperLight</item>
+    </style>
+
+    <style name="MeasurementCard">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_margin">8dp</item>
+        <item name="cardCornerRadius">10dp</item>
+        <item name="cardBackgroundColor">@color/colorPrimarySuperLight</item>
+    </style>
+
+
 
 </resources>
