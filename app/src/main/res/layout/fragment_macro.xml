@@ -6,6 +6,8 @@
     android:orientation="vertical"
     tools:context=".MacroFragment">
 
+
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -16,69 +18,81 @@
             style="@style/TitleText"
             android:text="@string/macro_calc" />
 
-        <TextView
-            android:id="@+id/macro_diet_header"
-            style="@style/HeaderText"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center_horizontal"
-            android:text="@string/macro_diet_header" />
+        <androidx.cardview.widget.CardView
+            style="@style/MainCard">
 
-        <RadioGroup
-            android:id="@+id/macro_diet_select"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center_horizontal"
-            android:orientation="horizontal">
-
-            <RadioButton
-                android:id="@+id/macro_diet_default_button"
-                style="@style/RadioButtonCandy"
-                android:layout_width="wrap_content"
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/default_diet" />
+                android:orientation="vertical">
 
-            <RadioButton
-                android:id="@+id/macro_diet_lofat_button"
-                style="@style/RadioButtonCandy"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/lofat_diet" />
+                <TextView
+                    android:id="@+id/macro_diet_header"
+                    style="@style/HeaderText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_horizontal"
+                    android:text="@string/macro_diet_header" />
 
-            <RadioButton
-                android:id="@+id/macro_diet_locarb_button"
-                style="@style/RadioButtonCandy"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/locarb_diet" />
+                <RadioGroup
+                    android:id="@+id/macro_diet_select"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
 
-            <RadioButton
-                android:id="@+id/macro_diet_keto_button"
-                style="@style/RadioButtonCandy"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/keto_diet" />
+                        <RadioButton
+                            android:id="@+id/macro_diet_default_button"
+                            style="@style/RadioButtonCandy"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/default_diet" />
 
-        </RadioGroup>
+                        <RadioButton
+                            android:id="@+id/macro_diet_lofat_button"
+                            style="@style/RadioButtonCandy"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/lofat_diet" />
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
+                        <RadioButton
+                            android:id="@+id/macro_diet_locarb_button"
+                            style="@style/RadioButtonCandy"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/locarb_diet" />
 
-            <TextView
-                android:id="@+id/macro_calories_header"
-                style="@style/HeaderText"
-                android:text="@string/enter_calories" />
+                        <RadioButton
+                            android:id="@+id/macro_diet_keto_button"
+                            style="@style/RadioButtonCandy"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/keto_diet" />
 
-            <EditText
-                android:id="@+id/macro_calorie_entry"
-                style="@style/EntryText"
-                android:autofillHints="@string/calories_hint"
-                android:hint="@string/calories_hint"
-                android:inputType="number" />
+                </RadioGroup>
 
-        </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginBottom="8dp">
+
+                    <TextView
+                        android:id="@+id/macro_calories_header"
+                        style="@style/HeaderText"
+                        android:text="@string/enter_calories" />
+
+                    <EditText
+                        android:id="@+id/macro_calorie_entry"
+                        style="@style/EntryText"
+                        android:autofillHints="@string/calories_hint"
+                        android:hint="@string/calories_hint"
+                        android:inputType="number" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
 
         <Button
             android:id="@+id/macro_get_results_button"
@@ -87,79 +101,85 @@
             android:layout_margin="16dp"
             android:text="@string/get_results" />
 
-        <LinearLayout
+        <androidx.cardview.widget.CardView
             android:id="@+id/macro_results_tab"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
+            style="@style/MainCard"
             android:visibility="gone">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:gravity="center_horizontal">
+                android:orientation="vertical">
 
-                <TextView
-                    android:id="@+id/macro_carb_header"
-                    style="@style/ResultsHeader"
-                    android:text="@string/macro_carb_header" />
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_horizontal">
 
-                <TextView
-                    android:id="@+id/macro_carb_result"
-                    style="@style/ResultsText" />
-                <TextView
-                    android:id="@+id/grams"
-                    style="@style/ResultsText"
-                    android:text="@string/grams"/>
+                    <TextView
+                        android:id="@+id/macro_carb_header"
+                        style="@style/ResultsHeader"
+                        android:text="@string/macro_carb_header" />
+
+                    <TextView
+                        android:id="@+id/macro_carb_result"
+                        style="@style/ResultsText" />
+
+                    <TextView
+                        android:id="@+id/grams"
+                        style="@style/ResultsText"
+                        android:text="@string/grams"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_horizontal">
+
+                    <TextView
+                        android:id="@+id/macro_protein_header"
+                        style="@style/ResultsHeader"
+                        android:text="@string/macro_protein_header" />
+
+                    <TextView
+                        android:id="@+id/macro_protein_result"
+                        style="@style/ResultsText" />
+
+                    <TextView
+                        android:id="@id/grams"
+                        style="@style/ResultsText"
+                        android:text="@string/grams"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_horizontal">
+
+                    <TextView
+                        android:id="@+id/macro_fat_header"
+                        style="@style/ResultsHeader"
+                        android:text="@string/macro_fat_header" />
+
+                    <TextView
+                        android:id="@+id/macro_fat_result"
+                        style="@style/ResultsText" />
+
+                    <TextView
+                        android:id="@id/grams"
+                        style="@style/ResultsText"
+                        android:text="@string/grams"/>
+
+                </LinearLayout>
 
             </LinearLayout>
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:gravity="center_horizontal">
-
-                <TextView
-                    android:id="@+id/macro_protein_header"
-                    style="@style/ResultsHeader"
-                    android:text="@string/macro_protein_header" />
-
-                <TextView
-                    android:id="@+id/macro_protein_result"
-                    style="@style/ResultsText" />
-
-                <TextView
-                    android:id="@id/grams"
-                    style="@style/ResultsText"
-                    android:text="@string/grams"/>
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:gravity="center_horizontal">
-
-                <TextView
-                    android:id="@+id/macro_fat_header"
-                    style="@style/ResultsHeader"
-                    android:text="@string/macro_fat_header" />
-
-                <TextView
-                    android:id="@+id/macro_fat_result"
-                    style="@style/ResultsText" />
-
-                <TextView
-                    android:id="@id/grams"
-                    style="@style/ResultsText"
-                    android:text="@string/grams"/>
-
-            </LinearLayout>
-
-        </LinearLayout>
+        </androidx.cardview.widget.CardView>
 
     </LinearLayout>
 

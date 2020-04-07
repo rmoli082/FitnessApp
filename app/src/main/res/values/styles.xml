@@ -21,7 +21,7 @@
     <style name="HeaderText">
         <item name="android:textSize">16sp</item>
         <item name="android:layout_margin">8dp</item>
-        <item name = "android:layout_width">0dp</item>
+        <item name ="android:layout_width">0dp</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:layout_weight">1</item>
         <item name="android:gravity">end</item>
@@ -61,7 +61,7 @@
     <style name="RadioButtonCandy">
         <item name="android:textSize">16sp</item>
         <item name="android:layout_marginBottom">8dp</item>
-        <item name="android:layout_marginEnd">8dp</item>
+        <item name="android:layout_marginEnd">4dp</item>
     </style>
 
     <style name="FillerText">

@@ -53,7 +53,6 @@ public class CalorieFragment extends Fragment {
         final EditText ageEntry = view.findViewById(R.id.calorie_age_entry);
         final Spinner activitySelect = view.findViewById(R.id.calorie_activity_select);
         final TextView calorieResults = view.findViewById(R.id.calorie_results);
-        final LinearLayout resultsTab = view.findViewById(R.id.calorie_results_tab);
         Button calculateCaloriesButton = view.findViewById(R.id.calculate_calories_button);
 
         if (units.equals(getString(R.string.settings_unit_metric_value))) {
@@ -91,7 +90,7 @@ public class CalorieFragment extends Fragment {
                     return;
                 }
 
-                resultsTab.setVisibility(View.VISIBLE);
+                view.findViewById(R.id.calorie_results_tab).setVisibility(View.VISIBLE);
 
                 mHeight = Double.parseDouble(String.valueOf(heightEntry.getText()));
                 mWeight = Double.parseDouble(String.valueOf(weightEntry.getText()));

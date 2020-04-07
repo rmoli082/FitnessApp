@@ -1,7 +1,9 @@
 package com.morashstudios.fitnessapp;
 
+import android.content.Context;
 import android.os.Bundle;
 
+import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
 
 import android.text.TextUtils;
@@ -9,6 +11,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -41,6 +44,7 @@ public class OneRepMaxFragment extends Fragment {
         EditText weightEntry = view.findViewById(R.id.repmax_weight_entry);
         EditText repEntry = view.findViewById(R.id.repmax_reps_entry);
         Button getRepMax = view.findViewById(R.id.onerm_results_button);
+        CardView resultsCard = view.findViewById(R.id.onerm_results_card);
         TextView oneRMresult = view.findViewById(R.id.repmax_onerm);
         TextView twoRMresult = view.findViewById(R.id.repmax_tworm);
         TextView threeRMresult = view.findViewById(R.id.repmax_threerm);
@@ -50,12 +54,19 @@ public class OneRepMaxFragment extends Fragment {
         getRepMax.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+                if (view != null) {
+                    InputMethodManager imm = (InputMethodManager) getActivity().getSystemService(Context.INPUT_METHOD_SERVICE);
+                    imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
+                }
+
                 if (TextUtils.isEmpty(weightEntry.getText()) || TextUtils.isEmpty(repEntry.getText()) ||
                 Integer.parseInt(String.valueOf(repEntry.getText())) == 0) {
                     Toast.makeText(getContext(), "Please enter weight and reps lifted to continue",
                             Toast.LENGTH_LONG).show();
                     return;
                 }
+                resultsCard.setVisibility(View.VISIBLE);
                 DecimalFormat df = new DecimalFormat("0");
                 mWeight = Float.parseFloat(String.valueOf(weightEntry.getText()));
                 mReps = Integer.parseInt(String.valueOf(repEntry.getText()));

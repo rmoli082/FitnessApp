@@ -13,137 +13,143 @@
             style="@style/TitleText"
             android:text="@string/bodyfat_calc"/>
 
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+        <androidx.cardview.widget.CardView
+            style="@style/MainCard">
 
-            <TextView
-                android:id="@+id/sex_header"
-                style="@style/HeaderText"
-                android:layout_width="wrap_content"
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_centerHorizontal="true"
-                android:text="@string/sex_header" />
+                android:orientation="vertical"
+                android:layout_marginBottom="8dp">
 
-            <RadioGroup
-                android:id="@+id/sex_button_group"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/sex_header"
-                android:layout_centerHorizontal="true"
-                android:orientation="horizontal">
-
-                <RadioButton
-                    android:id="@+id/sex_button_male"
-                    style="@style/RadioButtonCandy"
+                <TextView
+                    android:id="@+id/sex_header"
+                    style="@style/HeaderText"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/male" />
+                    android:layout_gravity="center_horizontal"
+                    android:text="@string/sex_header" />
 
-                <RadioButton
-                    android:id="@+id/sex_button_female"
-                    style="@style/RadioButtonCandy"
+                <RadioGroup
+                    android:id="@+id/sex_button_group"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/female" />
+                    android:layout_gravity="center_horizontal"
+                    android:orientation="horizontal">
 
-            </RadioGroup>
+                    <RadioButton
+                        android:id="@+id/sex_button_male"
+                        style="@style/RadioButtonCandy"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/male" />
 
-        </RelativeLayout>
+                    <RadioButton
+                        android:id="@+id/sex_button_female"
+                        style="@style/RadioButtonCandy"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/female" />
 
-        <LinearLayout
-            android:id="@+id/bodyfat_height_bar"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+                </RadioGroup>
 
-            <TextView
-                android:id="@+id/bodyfat_height_header"
-                style="@style/HeaderText"
-                android:text="@string/height" />
+            <LinearLayout
+                android:id="@+id/bodyfat_height_bar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
 
-            <EditText
-                android:id="@+id/bodyfat_height_entry"
-                style="@style/EntryText"
-                android:autofillHints="@string/hint"
-                android:hint="@string/hint"
-                android:inputType="numberDecimal" />
+                <TextView
+                    android:id="@+id/bodyfat_height_header"
+                    style="@style/HeaderText"
+                    android:text="@string/height" />
 
-        </LinearLayout>
+                <EditText
+                    android:id="@+id/bodyfat_height_entry"
+                    style="@style/EntryText"
+                    android:autofillHints="@string/hint"
+                    android:hint="@string/hint"
+                    android:inputType="numberDecimal" />
 
-        <LinearLayout
-            android:id="@+id/bodyfat_weight_bar"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            </LinearLayout>
 
-            <TextView
-                android:id="@+id/bodyfat_weight_header"
-                style="@style/HeaderText"
-                android:text="@string/weight" />
+            <LinearLayout
+                android:id="@+id/bodyfat_weight_bar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
 
-            <EditText
-                android:id="@+id/bodyfat_weight_entry"
-                style="@style/EntryText"
-                android:autofillHints="@string/hint_pounds"
-                android:hint="@string/hint_pounds"
-                android:inputType="numberDecimal" />
+                <TextView
+                    android:id="@+id/bodyfat_weight_header"
+                    style="@style/HeaderText"
+                    android:text="@string/weight" />
 
-        </LinearLayout>
+                <EditText
+                    android:id="@+id/bodyfat_weight_entry"
+                    style="@style/EntryText"
+                    android:autofillHints="@string/hint_pounds"
+                    android:hint="@string/hint_pounds"
+                    android:inputType="numberDecimal" />
 
-        <LinearLayout
-            android:id="@+id/bodyfat_waist_bar"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            </LinearLayout>
 
-            <TextView
-                android:id="@+id/bodyfat_waist_header"
-                style="@style/HeaderText"
-                android:text="@string/waist_male" />
+            <LinearLayout
+                android:id="@+id/bodyfat_waist_bar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
 
-            <EditText
-                android:id="@+id/bodyfat_waist_entry"
-                style="@style/EntryText"
-                android:autofillHints="@string/hint"
-                android:hint="@string/hint"
-                android:inputType="numberDecimal" />
-        </LinearLayout>
+                <TextView
+                    android:id="@+id/bodyfat_waist_header"
+                    style="@style/HeaderText"
+                    android:text="@string/waist_male" />
 
-        <LinearLayout
-            android:id="@+id/bodyfat_neck_bar"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+                <EditText
+                    android:id="@+id/bodyfat_waist_entry"
+                    style="@style/EntryText"
+                    android:autofillHints="@string/hint"
+                    android:hint="@string/hint"
+                    android:inputType="numberDecimal" />
+            </LinearLayout>
 
-            <TextView
-                android:id="@+id/bodyfat_neck_header"
-                style="@style/HeaderText"
-                android:text="@string/neck" />
+            <LinearLayout
+                android:id="@+id/bodyfat_neck_bar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
 
-            <EditText
-                android:id="@+id/bodyfat_neck_entry"
-                style="@style/EntryText"
-                android:autofillHints="@string/hint"
-                android:hint="@string/hint"
-                android:inputType="numberDecimal" />
-        </LinearLayout>
+                <TextView
+                    android:id="@+id/bodyfat_neck_header"
+                    style="@style/HeaderText"
+                    android:text="@string/neck" />
 
-        <LinearLayout
-            android:id="@+id/bodyfat_hips_bar"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+                <EditText
+                    android:id="@+id/bodyfat_neck_entry"
+                    style="@style/EntryText"
+                    android:autofillHints="@string/hint"
+                    android:hint="@string/hint"
+                    android:inputType="numberDecimal" />
+            </LinearLayout>
 
-            <TextView
-                android:id="@+id/bodyfat_hips_header"
-                style="@style/HeaderText"
-                android:text="@string/hips"
-                android:visibility="gone" />
+            <LinearLayout
+                android:id="@+id/bodyfat_hips_bar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
 
-            <EditText
-                android:id="@+id/bodyfat_hips_entry"
-                style="@style/EntryText"
-                android:autofillHints="@string/hint"
-                android:hint="@string/hint"
-                android:inputType="numberDecimal"
-                android:visibility="gone" />
-        </LinearLayout>
+                <TextView
+                    android:id="@+id/bodyfat_hips_header"
+                    style="@style/HeaderText"
+                    android:text="@string/hips"
+                    android:visibility="gone" />
+
+                <EditText
+                    android:id="@+id/bodyfat_hips_entry"
+                    style="@style/EntryText"
+                    android:autofillHints="@string/hint"
+                    android:hint="@string/hint"
+                    android:inputType="numberDecimal"
+                    android:visibility="gone" />
+            </LinearLayout>
+
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
 
         <Button
             android:id="@+id/calculate_bodyfat"
@@ -152,104 +158,110 @@
             android:layout_margin="16dp"
             android:text="@string/get_results" />
 
-        <LinearLayout
+        <androidx.cardview.widget.CardView
+            style="@style/MainCard"
             android:id="@+id/bodyfat_results"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
             android:visibility="gone">
 
             <LinearLayout
-                android:id="@+id/bodyfat_results_group"
+
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:gravity="center_horizontal">
-
-                <TextView
-                    android:id="@+id/bodyfat_percent_header"
-                    style="@style/ResultsHeader"
-                    android:text="@string/bodyfat_percent" />
-
-                <TextView
-                    android:id="@+id/bodyfat_percent_results"
-                    style="@style/ResultsText" />
-
-                <TextView
-                    style="@style/ResultsText"
-                    android:text="@string/percent"/>
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:id="@+id/fatmass_results_group"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center_horizontal">
-
-                <TextView
-                    android:id="@+id/bodyfat_fat_mass_header"
-                    style="@style/ResultsHeader"
-                    android:text="@string/fat_mass" />
-
-                <TextView
-                    android:id="@+id/bodyfat_fat_mass_results"
-                    style="@style/ResultsText" />
-
-                <TextView
-                    android:id="@+id/lbs_or_kg"
-                    style="@style/ResultsText"
-                    android:text="@string/lbs"/>
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:id="@+id/leanmass_results_group"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center_horizontal">
-
-                <TextView
-                    android:id="@+id/bodyfat_lean_mass_header"
-                    style="@style/ResultsHeader"
-                    android:text="@string/lean_mass" />
-
-                <TextView
-                    android:id="@+id/bodyfat_lean_mass_results"
-                    style="@style/ResultsText" />
-
-                <TextView
-                    android:id="@id/lbs_or_kg"
-                    style="@style/ResultsText"
-                    android:text="@string/lbs"/>
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:id="@+id/bodyfat_chart_group"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center_horizontal"
                 android:orientation="vertical">
 
-                <TextView
-                    style="@style/ChartHeader"
-                    android:layout_marginTop="24dp"
-                    android:text="@string/chart_header" />
+                <LinearLayout
+                    android:id="@+id/bodyfat_results_group"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_horizontal">
 
-                <TextView
-                    android:id="@+id/percentage_chart_male"
-                    style="@style/ChartText"
-                    android:text="@string/percent_chart_male" />
+                    <TextView
+                        android:id="@+id/bodyfat_percent_header"
+                        style="@style/ResultsHeader"
+                        android:text="@string/bodyfat_percent" />
 
-                <TextView
-                    android:id="@+id/percentage_chart_female"
-                    style="@style/ChartText"
-                    android:text="@string/percent_chart_female"
-                    android:visibility="gone"/>
+                    <TextView
+                        android:id="@+id/bodyfat_percent_results"
+                        style="@style/ResultsText" />
+
+                    <TextView
+                        style="@style/ResultsText"
+                        android:text="@string/percent"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/fatmass_results_group"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_horizontal">
+
+                    <TextView
+                        android:id="@+id/bodyfat_fat_mass_header"
+                        style="@style/ResultsHeader"
+                        android:text="@string/fat_mass" />
+
+                    <TextView
+                        android:id="@+id/bodyfat_fat_mass_results"
+                        style="@style/ResultsText" />
+
+                    <TextView
+                        android:id="@+id/lbs_or_kg"
+                        style="@style/ResultsText"
+                        android:text="@string/lbs"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/leanmass_results_group"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_horizontal">
+
+                    <TextView
+                        android:id="@+id/bodyfat_lean_mass_header"
+                        style="@style/ResultsHeader"
+                        android:text="@string/lean_mass" />
+
+                    <TextView
+                        android:id="@+id/bodyfat_lean_mass_results"
+                        style="@style/ResultsText" />
+
+                    <TextView
+                        android:id="@id/lbs_or_kg"
+                        style="@style/ResultsText"
+                        android:text="@string/lbs"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/bodyfat_chart_group"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_horizontal"
+                    android:orientation="vertical">
+
+                    <TextView
+                        style="@style/ChartHeader"
+                        android:layout_marginTop="24dp"
+                        android:text="@string/chart_header" />
+
+                    <TextView
+                        android:id="@+id/percentage_chart_male"
+                        style="@style/ChartText"
+                        android:text="@string/percent_chart_male" />
+
+                    <TextView
+                        android:id="@+id/percentage_chart_female"
+                        style="@style/ChartText"
+                        android:text="@string/percent_chart_female"
+                        android:visibility="gone"/>
+
+                </LinearLayout>
 
             </LinearLayout>
 
-        </LinearLayout>
+        </androidx.cardview.widget.CardView>
 
     </LinearLayout>
 

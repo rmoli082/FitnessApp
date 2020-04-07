@@ -1,0 +1,124 @@
+{
+  "formatVersion": 1,
+  "database": {
+    "version": 1,
+    "identityHash": "c12f61bc1225ed3528f1d8169f36e8d4",
+    "entities": [
+      {
+        "tableName": "measurements",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`measurements_ID` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `date` TEXT, `neck` REAL NOT NULL, `chest` REAL NOT NULL, `waist` REAL NOT NULL, `hips` REAL NOT NULL, `rightBicep` REAL NOT NULL, `rightForearm` REAL NOT NULL, `leftBicep` REAL NOT NULL, `leftForearm` REAL NOT NULL, `rightThigh` REAL NOT NULL, `rightCalf` REAL NOT NULL, `leftThigh` REAL NOT NULL, `leftCalf` REAL NOT NULL, `weight` REAL NOT NULL, `bodyFat` REAL NOT NULL)",
+        "fields": [
+          {
+            "fieldPath": "measurements_ID",
+            "columnName": "measurements_ID",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "mDate",
+            "columnName": "date",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "mNeck",
+            "columnName": "neck",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "mChest",
+            "columnName": "chest",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "mWaist",
+            "columnName": "waist",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "mHips",
+            "columnName": "hips",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "mRightBicep",
+            "columnName": "rightBicep",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "mRightForearm",
+            "columnName": "rightForearm",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "mLeftBicep",
+            "columnName": "leftBicep",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "mLeftForearm",
+            "columnName": "leftForearm",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "mRightThigh",
+            "columnName": "rightThigh",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "mRightCalf",
+            "columnName": "rightCalf",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "mLeftThigh",
+            "columnName": "leftThigh",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "mLeftCalf",
+            "columnName": "leftCalf",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "mWeight",
+            "columnName": "weight",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "mBodyfat",
+            "columnName": "bodyFat",
+            "affinity": "REAL",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "measurements_ID"
+          ],
+          "autoGenerate": true
+        },
+        "indices": [],
+        "foreignKeys": []
+      }
+    ],
+    "views": [],
+    "setupQueries": [
+      "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, 'c12f61bc1225ed3528f1d8169f36e8d4')"
+    ]
+  }
+}
