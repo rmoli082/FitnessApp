@@ -18,5 +18,5 @@ public interface MeasurementDao {
     LiveData<List<Measurement>> getAllMeasurements();
 
     @Delete
-    int delete(Measurement measurement);
+    void delete(Measurement measurement);
 }

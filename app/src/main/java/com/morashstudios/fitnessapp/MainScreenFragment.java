@@ -35,7 +35,7 @@ public class MainScreenFragment extends Fragment {
         CardView onermSelect = view.findViewById(R.id.onerm_select);
         CardView measurementSelect = view.findViewById(R.id.measurements_select);
 
-        FragmentManager fm = getFragmentManager();
+        FragmentManager fm = getActivity().getSupportFragmentManager();
         final FragmentTransaction transaction = fm.beginTransaction();
 
         bodyfatSelect.setOnClickListener(new View.OnClickListener() {

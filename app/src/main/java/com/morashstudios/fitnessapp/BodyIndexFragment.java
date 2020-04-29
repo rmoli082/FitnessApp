@@ -16,6 +16,7 @@ import android.widget.Toast;
 import androidx.fragment.app.Fragment;
 
 import java.text.DecimalFormat;
+import java.util.Objects;
 
 
 /**
@@ -58,10 +59,9 @@ public class BodyIndexFragment extends Fragment {
             @Override
             public void onClick(View v) {
 
-                if (view != null) {
-                    InputMethodManager imm = (InputMethodManager) getActivity().getSystemService(Context.INPUT_METHOD_SERVICE);
-                    imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
-                }
+                    InputMethodManager imm = (InputMethodManager) Objects.requireNonNull(getActivity()).getSystemService(Context.INPUT_METHOD_SERVICE);
+                assert imm != null;
+                imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
 
                 if (String.valueOf(weightEntry.getText()).isEmpty() ||
                 String.valueOf(heightEntry.getText()).isEmpty()) {

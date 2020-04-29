@@ -2,12 +2,7 @@ package com.morashstudios.fitnessapp;
 
 import android.content.Context;
 import android.os.Bundle;
-
-import androidx.cardview.widget.CardView;
-import androidx.fragment.app.Fragment;
-
 import android.text.TextUtils;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,7 +12,11 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.cardview.widget.CardView;
+import androidx.fragment.app.Fragment;
+
 import java.text.DecimalFormat;
+import java.util.Objects;
 
 
 /**
@@ -55,10 +54,9 @@ public class OneRepMaxFragment extends Fragment {
             @Override
             public void onClick(View v) {
 
-                if (view != null) {
-                    InputMethodManager imm = (InputMethodManager) getActivity().getSystemService(Context.INPUT_METHOD_SERVICE);
+                    InputMethodManager imm = (InputMethodManager) Objects.requireNonNull(getActivity()).getSystemService(Context.INPUT_METHOD_SERVICE);
+                    assert imm != null;
                     imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
-                }
 
                 if (TextUtils.isEmpty(weightEntry.getText()) || TextUtils.isEmpty(repEntry.getText()) ||
                 Integer.parseInt(String.valueOf(repEntry.getText())) == 0) {
