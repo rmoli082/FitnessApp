@@ -32,7 +32,9 @@
                 <TextView
                     style="@style/FillerHeader"
                     android:layout_marginTop="8dp"
-                    android:text="@string/bodyfat_calc" />
+                    android:text="@string/bodyfat_calc"
+                    android:drawableStart="@drawable/baseline_settings_input_svideo_black_24"
+                    android:drawablePadding="8dp"/>
 
                 <TextView
                     style="@style/FillerText"
@@ -54,7 +56,9 @@
                 <TextView
                     style="@style/FillerHeader"
                     android:layout_marginTop="8dp"
-                    android:text="@string/body_index_calc" />
+                    android:text="@string/body_index_calc"
+                    android:drawableStart="@drawable/round_accessibility_new_black_24"
+                    android:drawablePadding="8dp"/>
 
                 <TextView
                     style="@style/FillerText"
@@ -76,7 +80,9 @@
                 <TextView
                     style="@style/FillerHeader"
                     android:layout_marginTop="8dp"
-                    android:text="@string/calorie_calc" />
+                    android:text="@string/calorie_calc"
+                    android:drawableStart="@drawable/round_restaurant_black_24"
+                    android:drawablePadding="8dp"/>
 
                 <TextView
                     style="@style/FillerText"
@@ -98,7 +104,9 @@
                 <TextView
                     style="@style/FillerHeader"
                     android:layout_marginTop="8dp"
-                    android:text="@string/macro_calc" />
+                    android:text="@string/macro_calc"
+                    android:drawableStart="@drawable/round_donut_small_black_24"
+                    android:drawablePadding="8dp" />
 
                 <TextView
                     style="@style/FillerText"
@@ -120,11 +128,37 @@
                 <TextView
                     style="@style/FillerHeader"
                     android:layout_marginTop="8dp"
-                    android:text="@string/repmax_calc" />
+                    android:text="@string/repmax_calc"
+                    android:drawableStart="@drawable/baseline_fitness_center_black_24"
+                    android:drawablePadding="8dp"/>
 
                 <TextView
                     style="@style/FillerText"
                     android:text="@string/onerm_description" />
+
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/measurements_select"
+            style="@style/MainCard" >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    style="@style/FillerHeader"
+                    android:layout_marginTop="8dp"
+                    android:text="@string/measurements"
+                    android:drawableStart="@drawable/baseline_straighten_black_24"
+                    android:drawablePadding="8dp"/>
+
+                <TextView
+                    style="@style/FillerText"
+                    android:text="@string/measurements_description" />
 
             </LinearLayout>
 

@@ -4,13 +4,20 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MeasurementsActivity">
+    tools:context=".MeasurementsActivity"
+    android:background="@color/colorPrimaryExtraLight">
+
+    <TextView
+        android:id="@+id/title"
+        style="@style/TitleText"
+        android:text="@string/measurements"/>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerview"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@android:color/darker_gray"
+        android:layout_below="@id/title"
+        android:background="@color/colorPrimaryExtraLight"
         tools:listitem="@layout/recyclerview_item" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton

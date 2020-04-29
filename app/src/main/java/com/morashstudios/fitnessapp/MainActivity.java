@@ -48,27 +48,27 @@ public class MainActivity extends AppCompatActivity {
                 {
 
                     case R.id.main_screen:
-                        transaction.replace (R.id.contentFragment, new MainScreenFragment()).commit();
+                        transaction.replace (R.id.contentFragment, new MainScreenFragment()).addToBackStack("main").commit();
                         dl.closeDrawer(GravityCompat.START);
                         break;
                     case R.id.bodyfat_calc:
-                        transaction.replace(R.id.contentFragment, new BodyfatCalculatorFragment()).commit();
+                        transaction.replace(R.id.contentFragment, new BodyfatCalculatorFragment()).addToBackStack("bodyfat").commit();
                         dl.closeDrawer(GravityCompat.START);
                         break;
                     case R.id.bmi_calc:
-                        transaction.replace(R.id.contentFragment, new BodyIndexFragment()).commit();
+                        transaction.replace(R.id.contentFragment, new BodyIndexFragment()).addToBackStack("bmi").commit();
                         dl.closeDrawer(GravityCompat.START);
                         break;
                     case R.id.calorie_calc:
-                        transaction.replace(R.id.contentFragment, new CalorieFragment()).commit();
+                        transaction.replace(R.id.contentFragment, new CalorieFragment()).addToBackStack("calorie").commit();
                         dl.closeDrawer(GravityCompat.START);
                         break;
                     case R.id.macro_calc:
-                        transaction.replace(R.id.contentFragment, new MacroFragment()).commit();
+                        transaction.replace(R.id.contentFragment, new MacroFragment()).addToBackStack("macro").commit();
                         dl.closeDrawer(GravityCompat.START);
                         break;
                     case R.id.repmax_calc:
-                        transaction.replace(R.id.contentFragment, new OneRepMaxFragment()).commit();
+                        transaction.replace(R.id.contentFragment, new OneRepMaxFragment()).addToBackStack("repmax").commit();
                         dl.closeDrawer(GravityCompat.START);
                         break;
                     case R.id.measurements:

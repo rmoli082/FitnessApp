@@ -1,6 +1,7 @@
 package com.morashstudios.fitnessapp;
 
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -32,6 +33,7 @@ public class MainScreenFragment extends Fragment {
         CardView calorieSelect = view.findViewById(R.id.calorie_select);
         CardView macroSelect = view.findViewById(R.id.macro_select);
         CardView onermSelect = view.findViewById(R.id.onerm_select);
+        CardView measurementSelect = view.findViewById(R.id.measurements_select);
 
         FragmentManager fm = getFragmentManager();
         final FragmentTransaction transaction = fm.beginTransaction();
@@ -39,37 +41,45 @@ public class MainScreenFragment extends Fragment {
         bodyfatSelect.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                transaction.replace(R.id.contentFragment, new BodyfatCalculatorFragment()).commit();
+                transaction.replace(R.id.contentFragment, new BodyfatCalculatorFragment()).addToBackStack("bodyfat").commit();
             }
         });
 
         bodyindexSelect.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                transaction.replace(R.id.contentFragment, new BodyIndexFragment()).commit();
+                transaction.replace(R.id.contentFragment, new BodyIndexFragment()).addToBackStack("bmi").commit();
             }
         });
 
         calorieSelect.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                transaction.replace(R.id.contentFragment, new CalorieFragment()).commit();
+                transaction.replace(R.id.contentFragment, new CalorieFragment()).addToBackStack("calorie").commit();
             }
         });
 
         macroSelect.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                transaction.replace(R.id.contentFragment, new MacroFragment()).commit();
+                transaction.replace(R.id.contentFragment, new MacroFragment()).addToBackStack("macro").commit();
             }
         });
 
-        onermSelect.setOnClickListener((new View.OnClickListener() {
+        onermSelect.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                transaction.replace(R.id.contentFragment, new OneRepMaxFragment()).commit();
+                transaction.replace(R.id.contentFragment, new OneRepMaxFragment()).addToBackStack("repmax").commit();
             }
-        }));
+        });
+
+        measurementSelect.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getContext(), MeasurementsActivity.class);
+                startActivity(intent);
+            }
+        });
 
         return view;
     }
