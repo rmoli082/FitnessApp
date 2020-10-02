@@ -9,8 +9,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.inputmethod.InputMethodManager;
-import android.widget.Button;
-import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
@@ -23,9 +21,6 @@ import com.morashstudios.fitnessapp.databinding.FragmentBodyfatBinding;
 import java.text.DecimalFormat;
 import java.util.Objects;
 
-/**
- * A simple {@link Fragment} subclass.
- */
 public class BodyfatCalculatorFragment extends Fragment {
 
     private double mHeight;
@@ -53,26 +48,23 @@ public class BodyfatCalculatorFragment extends Fragment {
 
         binding = FragmentBodyfatBinding.inflate(getLayoutInflater());
 
-        binding.sexButtonGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(RadioGroup group, int checkedId) {
-                if (checkedId == R.id.sex_button_female) {
-                    mIsFemale = true;
-                    binding.bodyfatHipsHeader.setVisibility(View.VISIBLE);
-                    binding.bodyfatHipsEntry.setVisibility(View.VISIBLE);
-                    binding.percentageChartFemale.setVisibility(View.VISIBLE);
-                    binding.percentageChartMale.setVisibility(View.GONE);
-                    binding.bodyfatWaistHeader.setText(R.string.waist_female);
-                } else {
-                    mIsFemale = false;
-                    binding.bodyfatHipsHeader.setVisibility(View.GONE);
-                    binding.bodyfatHipsEntry.setVisibility(View.GONE);
-                    binding.percentageChartFemale.setVisibility(View.GONE);
-                    binding.percentageChartMale.setVisibility(View.VISIBLE);
-                    binding.bodyfatWaistHeader.setText(R.string.waist_male);
-                }
-
+        binding.sexButtonGroup.setOnCheckedChangeListener((group, checkedId) -> {
+            if (checkedId == R.id.sex_button_female) {
+                mIsFemale = true;
+                binding.bodyfatHipsHeader.setVisibility(View.VISIBLE);
+                binding.bodyfatHipsEntry.setVisibility(View.VISIBLE);
+                binding.percentageChartFemale.setVisibility(View.VISIBLE);
+                binding.percentageChartMale.setVisibility(View.GONE);
+                binding.bodyfatWaistHeader.setText(R.string.waist_female);
+            } else {
+                mIsFemale = false;
+                binding.bodyfatHipsHeader.setVisibility(View.GONE);
+                binding.bodyfatHipsEntry.setVisibility(View.GONE);
+                binding.percentageChartFemale.setVisibility(View.GONE);
+                binding.percentageChartMale.setVisibility(View.VISIBLE);
+                binding.bodyfatWaistHeader.setText(R.string.waist_male);
             }
+
         });
 
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getActivity());
@@ -90,68 +82,65 @@ public class BodyfatCalculatorFragment extends Fragment {
 
         }
 
-        binding.calculateBodyfat.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
+        binding.calculateBodyfat.setOnClickListener(v -> {
 
-                    InputMethodManager imm = (InputMethodManager) Objects.requireNonNull(getActivity()).getSystemService(Context.INPUT_METHOD_SERVICE);
-                    assert imm != null;
-                    imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
+            InputMethodManager imm = (InputMethodManager) requireActivity().getSystemService(Context.INPUT_METHOD_SERVICE);
+            assert imm != null;
+            imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
 
-                DecimalFormat df = new DecimalFormat("0.0");
+            DecimalFormat df = new DecimalFormat("0.0");
 
-                RadioButton sexChoice = view.findViewById(binding.sexButtonGroup.getCheckedRadioButtonId());
+            RadioButton sexChoice = view.findViewById(binding.sexButtonGroup.getCheckedRadioButtonId());
 
-                if (sexChoice == null){
-                    Toast.makeText(getContext(), "Please select a gender", Toast.LENGTH_SHORT).show();
-                    return;
-                }
-
-                if (String.valueOf(binding.bodyfatHeightEntry.getText()).isEmpty() ||
-                        String.valueOf(binding.bodyfatWeightEntry.getText()).isEmpty() ||
-                        String.valueOf(binding.bodyfatWaistEntry.getText()).isEmpty() ||
-                        String.valueOf(binding.bodyfatNeckEntry.getText()).isEmpty() ||
-                        (mIsFemale && String.valueOf(binding.bodyfatHipsEntry.getText()).isEmpty())){
-                    Toast.makeText(getContext(), "Please enter your measurements", Toast.LENGTH_SHORT).show();
-                    return;
-                }
-
-                view.findViewById(R.id.bodyfat_results).setVisibility(View.VISIBLE);
-
-                mHeight = Double.parseDouble(String.valueOf(binding.bodyfatHeightEntry.getText()));
-                mWeight = Double.parseDouble(String.valueOf(binding.bodyfatWeightEntry.getText()));
-                mWaist = Double.parseDouble(String.valueOf(binding.bodyfatWaistEntry.getText()));
-                mNeck = Double.parseDouble(String.valueOf(binding.bodyfatNeckEntry.getText()));
-
-                if (units.equals(getString(R.string.settings_unit_us_value))) {
-                    mHeight *= 2.54;
-                    mNeck *= 2.54;
-                    mWaist *= 2.54;
-                }
-
-                if (mIsFemale) {
-
-                    mHips = Double.parseDouble(String.valueOf(binding.bodyfatHipsEntry.getText()));
-                    if (units.equals( getString(R.string.settings_unit_us_value))) {
-                        mHips *= 2.54;
-                    }
-
-                    mBfPercent = 495 / (1.29579 - 0.35004 * Math.log10(mWaist + mHips - mNeck) + 0.221 * Math.log10(mHeight)) - 450;
-                    TextView textView = view.findViewById(R.id.bodyfat_percent_results);
-                    textView.setText(df.format(mBfPercent));
-                } else {
-                    mBfPercent = 495 / (1.0324 - 0.19077 * Math.log10(mWaist - mNeck) + .15456 * Math.log10(mHeight)) - 450;
-                    TextView textView = view.findViewById(R.id.bodyfat_percent_results);
-                    textView.setText(df.format(mBfPercent));
-                }
-
-                mFatMass = mWeight * mBfPercent / 100;
-                mLeanMass = mWeight - mFatMass;
-
-                binding.bodyfatFatMassResults.setText(df.format(mFatMass));
-                binding.bodyfatLeanMassResults.setText(df.format(mLeanMass));
-
+            if (sexChoice == null) {
+                Toast.makeText(getContext(), "Please select a gender", Toast.LENGTH_SHORT).show();
+                return;
             }
+
+            if (String.valueOf(binding.bodyfatHeightEntry.getText()).isEmpty() ||
+                    String.valueOf(binding.bodyfatWeightEntry.getText()).isEmpty() ||
+                    String.valueOf(binding.bodyfatWaistEntry.getText()).isEmpty() ||
+                    String.valueOf(binding.bodyfatNeckEntry.getText()).isEmpty() ||
+                    (mIsFemale && String.valueOf(binding.bodyfatHipsEntry.getText()).isEmpty())) {
+                Toast.makeText(getContext(), "Please enter your measurements", Toast.LENGTH_SHORT).show();
+                return;
+            }
+
+            view.findViewById(R.id.bodyfat_results).setVisibility(View.VISIBLE);
+
+            mHeight = Double.parseDouble(String.valueOf(binding.bodyfatHeightEntry.getText()));
+            mWeight = Double.parseDouble(String.valueOf(binding.bodyfatWeightEntry.getText()));
+            mWaist = Double.parseDouble(String.valueOf(binding.bodyfatWaistEntry.getText()));
+            mNeck = Double.parseDouble(String.valueOf(binding.bodyfatNeckEntry.getText()));
+
+            if (units.equals(getString(R.string.settings_unit_us_value))) {
+                mHeight *= 2.54;
+                mNeck *= 2.54;
+                mWaist *= 2.54;
+            }
+
+            if (mIsFemale) {
+
+                mHips = Double.parseDouble(String.valueOf(binding.bodyfatHipsEntry.getText()));
+                if (units.equals(getString(R.string.settings_unit_us_value))) {
+                    mHips *= 2.54;
+                }
+
+                mBfPercent = 495 / (1.29579 - 0.35004 * Math.log10(mWaist + mHips - mNeck) + 0.221 * Math.log10(mHeight)) - 450;
+                TextView textView = view.findViewById(R.id.bodyfat_percent_results);
+                textView.setText(df.format(mBfPercent));
+            } else {
+                mBfPercent = 495 / (1.0324 - 0.19077 * Math.log10(mWaist - mNeck) + .15456 * Math.log10(mHeight)) - 450;
+                TextView textView = view.findViewById(R.id.bodyfat_percent_results);
+                textView.setText(df.format(mBfPercent));
+            }
+
+            mFatMass = mWeight * mBfPercent / 100;
+            mLeanMass = mWeight - mFatMass;
+
+            binding.bodyfatFatMassResults.setText(df.format(mFatMass));
+            binding.bodyfatLeanMassResults.setText(df.format(mLeanMass));
+
         });
 
         return view;

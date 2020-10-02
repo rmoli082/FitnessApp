@@ -25,7 +25,9 @@
             <EditText
                 android:id="@+id/add_neck"
                 style="@style/EntryText"
-                android:inputType="numberDecimal"/>
+                android:inputType="numberDecimal"
+                android:importantForAutofill="no"
+                android:hint="@string/enter_measurement"/>
 
         </LinearLayout>
 
@@ -40,7 +42,9 @@
             <EditText
                 android:id="@+id/add_chest"
                 style="@style/EntryText"
-                android:inputType="numberDecimal"/>
+                android:inputType="numberDecimal"
+                android:importantForAutofill="no"
+                android:hint="@string/enter_measurement"/>
 
         </LinearLayout>
 
@@ -55,7 +59,9 @@
             <EditText
                 android:id="@+id/add_waist"
                 style="@style/EntryText"
-                android:inputType="numberDecimal"/>
+                android:inputType="numberDecimal"
+                android:importantForAutofill="no"
+                android:hint="@string/enter_measurement"/>
 
         </LinearLayout>
 
@@ -70,7 +76,9 @@
             <EditText
                 android:id="@+id/add_hips"
                 style="@style/EntryText"
-                android:inputType="numberDecimal"/>
+                android:inputType="numberDecimal"
+                android:importantForAutofill="no"
+                android:hint="@string/enter_measurement"/>
 
         </LinearLayout>
 
@@ -83,9 +91,11 @@
                 android:text="@string/add_rBicep" />
 
             <EditText
-                android:id="@+id/add_rBicep"
+                android:id="@+id/add_r_bicep"
                 style="@style/EntryText"
-                android:inputType="numberDecimal"/>
+                android:inputType="numberDecimal"
+                android:importantForAutofill="no"
+                android:hint="@string/enter_measurement"/>
 
         </LinearLayout>
 
@@ -98,9 +108,11 @@
                 android:text="@string/add_rForearm" />
 
             <EditText
-                android:id="@+id/add_rForearm"
+                android:id="@+id/add_r_forearm"
                 style="@style/EntryText"
-                android:inputType="numberDecimal"/>
+                android:inputType="numberDecimal"
+                android:importantForAutofill="no"
+                android:hint="@string/enter_measurement"/>
 
         </LinearLayout>
 
@@ -113,9 +125,11 @@
                 android:text="@string/add_lBicep" />
 
             <EditText
-                android:id="@+id/add_lBicep"
+                android:id="@+id/add_l_bicep"
                 style="@style/EntryText"
-                android:inputType="numberDecimal"/>
+                android:inputType="numberDecimal"
+                android:importantForAutofill="no"
+                android:hint="@string/enter_measurement"/>
 
         </LinearLayout>
 
@@ -128,9 +142,11 @@
                 android:text="@string/add_lForearm" />
 
             <EditText
-                android:id="@+id/add_lForearm"
+                android:id="@+id/add_l_forearm"
                 style="@style/EntryText"
-                android:inputType="numberDecimal"/>
+                android:inputType="numberDecimal"
+                android:importantForAutofill="no"
+                android:hint="@string/enter_measurement"/>
 
         </LinearLayout>
 
@@ -143,9 +159,11 @@
                 android:text="@string/add_rThigh" />
 
             <EditText
-                android:id="@+id/add_rThigh"
+                android:id="@+id/add_r_thigh"
                 style="@style/EntryText"
-                android:inputType="numberDecimal"/>
+                android:inputType="numberDecimal"
+                android:importantForAutofill="no"
+                android:hint="@string/enter_measurement"/>
 
         </LinearLayout>
 
@@ -158,9 +176,11 @@
                 android:text="@string/add_rCalf" />
 
             <EditText
-                android:id="@+id/add_rCalf"
+                android:id="@+id/add_r_calf"
                 style="@style/EntryText"
-                android:inputType="numberDecimal"/>
+                android:inputType="numberDecimal"
+                android:importantForAutofill="no"
+                android:hint="@string/enter_measurement"/>
 
         </LinearLayout>
 
@@ -173,9 +193,11 @@
                 android:text="@string/add_lThigh" />
 
             <EditText
-                android:id="@+id/add_lThigh"
+                android:id="@+id/add_l_thigh"
                 style="@style/EntryText"
-                android:inputType="numberDecimal"/>
+                android:inputType="numberDecimal"
+                android:importantForAutofill="no"
+                android:hint="@string/enter_measurement"/>
 
         </LinearLayout>
 
@@ -188,9 +210,11 @@
                 android:text="@string/add_lCalf" />
 
             <EditText
-                android:id="@+id/add_lCalf"
+                android:id="@+id/add_l_calf"
                 style="@style/EntryText"
-                android:inputType="numberDecimal"/>
+                android:inputType="numberDecimal"
+                android:importantForAutofill="no"
+                android:hint="@string/enter_measurement"/>
 
         </LinearLayout>
 
@@ -205,7 +229,9 @@
             <EditText
                 android:id="@+id/add_weight"
                 style="@style/EntryText"
-                android:inputType="numberDecimal"/>
+                android:inputType="numberDecimal"
+                android:importantForAutofill="no"
+                android:hint="@string/enter_measurement"/>
 
         </LinearLayout>
 
@@ -214,13 +240,15 @@
             android:layout_height="wrap_content">
 
             <TextView
+                android:id="@+id/add_bodyfat"
                 style="@style/HeaderText"
                 android:text="@string/bodyfat_percent" />
 
             <EditText
-                android:id="@+id/add_bodyfat"
                 style="@style/EntryText"
-                android:inputType="numberDecimal"/>
+                android:inputType="numberDecimal"
+                android:importantForAutofill="no"
+                android:hint="@string/enter_measurement"/>
 
         </LinearLayout>
 

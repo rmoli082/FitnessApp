@@ -5,188 +5,56 @@ import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
-import java.util.Date;
-
-@Entity (tableName = "measurements")
+@Entity(tableName = "measurements")
 public class Measurement {
 
     @PrimaryKey(autoGenerate = true)
-    @NonNull
     private int measurements_ID;
 
-    public int getMeasurements_ID() {
-        return this.measurements_ID;
-    }
-
-    public float getNeck() {
-        return this.mNeck;
-    }
-
-    @ColumnInfo(name="date")
+    @ColumnInfo(name = "date")
     private String mDate;
 
-    @ColumnInfo(name="neck")
+    @ColumnInfo(name = "neck")
     private float mNeck;
 
-    @ColumnInfo(name="chest")
+    @ColumnInfo(name = "chest")
     private float mChest;
 
-    @ColumnInfo(name="waist")
+    @ColumnInfo(name = "waist")
     private float mWaist;
 
-    @ColumnInfo(name="hips")
+    @ColumnInfo(name = "hips")
     private float mHips;
 
-    @ColumnInfo(name="rightBicep")
+    @ColumnInfo(name = "rightBicep")
     private float mRightBicep;
 
-    @ColumnInfo(name="rightForearm")
+    @ColumnInfo(name = "rightForearm")
     private float mRightForearm;
 
-    @ColumnInfo(name="leftBicep")
+    @ColumnInfo(name = "leftBicep")
     private float mLeftBicep;
 
-    @ColumnInfo(name="leftForearm")
+    @ColumnInfo(name = "leftForearm")
     private float mLeftForearm;
 
-    @ColumnInfo(name="rightThigh")
+    @ColumnInfo(name = "rightThigh")
     private float mRightThigh;
 
-    @ColumnInfo(name="rightCalf")
+    @ColumnInfo(name = "rightCalf")
     private float mRightCalf;
 
-    @ColumnInfo(name="leftThigh")
+    @ColumnInfo(name = "leftThigh")
     private float mLeftThigh;
 
-    @ColumnInfo(name="leftCalf")
+    @ColumnInfo(name = "leftCalf")
     private float mLeftCalf;
 
-    @ColumnInfo(name="weight")
+    @ColumnInfo(name = "weight")
     private float mWeight;
 
-    @ColumnInfo(name="bodyFat")
+    @ColumnInfo(name = "bodyFat")
     private float mBodyfat;
-
-    public String getDate() {
-        return mDate;
-    }
-
-
-    public float getChest() {
-        return mChest;
-    }
-
-    public float getWaist() {
-        return mWaist;
-    }
-
-    public float getHips() {
-        return mHips;
-    }
-
-    public float getRightBicep() {
-        return mRightBicep;
-    }
-
-    public float getRightForearm() {
-        return mRightForearm;
-    }
-
-    public float getLeftBicep() {
-        return mLeftBicep;
-    }
-
-    public float getLeftForearm() {
-        return mLeftForearm;
-    }
-
-    public float getRightThigh() {
-        return mRightThigh;
-    }
-
-    public float getRightCalf() {
-        return mRightCalf;
-    }
-
-    public float getLeftThigh() {
-        return mLeftThigh;
-    }
-
-    public float getLeftCalf() {
-        return mLeftCalf;
-    }
-
-    public void setMeasurements_ID(int measurements_ID) {
-        this.measurements_ID = measurements_ID;
-    }
-
-    public void setDate(String mDate) {
-        this.mDate = mDate;
-    }
-
-    public void setNeck(float mNeck) {
-        this.mNeck = mNeck;
-    }
-
-    public void setChest(float mChest) {
-        this.mChest = mChest;
-    }
-
-    public void setWaist(float mWaist) {
-        this.mWaist = mWaist;
-    }
-
-    public void setHips(float mHips) {
-        this.mHips = mHips;
-    }
-
-    public void setRightBicep(float mRightBicep) {
-        this.mRightBicep = mRightBicep;
-    }
-
-    public void setRightForearm(float mRightForearm) {
-        this.mRightForearm = mRightForearm;
-    }
-
-    public void setLeftBicep(float mLeftBicep) {
-        this.mLeftBicep = mLeftBicep;
-    }
-
-    public void setLeftForearm(float mLeftForearm) {
-        this.mLeftForearm = mLeftForearm;
-    }
-
-    public void setRightThigh(float mRightThigh) {
-        this.mRightThigh = mRightThigh;
-    }
-
-    public void setRightCalf(float mRightCalf) {
-        this.mRightCalf = mRightCalf;
-    }
-
-    public void setLeftThigh(float mLeftThigh) {
-        this.mLeftThigh = mLeftThigh;
-    }
-
-    public void setLeftCalf(float mLeftCalf) {
-        this.mLeftCalf = mLeftCalf;
-    }
-
-    public void setWeight(float mWeight) {
-        this.mWeight = mWeight;
-    }
-
-    public void setBodyfat(float mBodyfat) {
-        this.mBodyfat = mBodyfat;
-    }
-
-    public float getWeight() {
-        return mWeight;
-    }
-
-    public float getBodyfat() {
-        return mBodyfat;
-    }
 
     @Override
     public String toString() {
@@ -207,9 +75,9 @@ public class Measurement {
                 "Bodyfat: " + mBodyfat;
     }
 
-    public Measurement (String date, float neck, float chest, float waist, float hips, float rightBicep,
-                        float rightForearm, float leftBicep, float leftForearm, float rightThigh,
-                        float rightCalf, float leftThigh, float leftCalf, float weight, float bodyfat) {
+    public Measurement(String date, float neck, float chest, float waist, float hips, float rightBicep,
+                       float rightForearm, float leftBicep, float leftForearm, float rightThigh,
+                       float rightCalf, float leftThigh, float leftCalf, float weight, float bodyfat) {
         this.mDate = date;
         this.mNeck = neck;
         this.mChest = chest;

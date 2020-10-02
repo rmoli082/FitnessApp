@@ -19,22 +19,20 @@ public class MeasurementListAdapter extends RecyclerView.Adapter<MeasurementList
     }
 
     private final LayoutInflater layoutInflater;
-    private Context mContext;
     private List<Measurement> mMeasurements;
-    private OnDeleteClickListener onDeleteClickListener;
+    private final OnDeleteClickListener onDeleteClickListener;
 
     public MeasurementListAdapter(Context context, OnDeleteClickListener listener) {
         layoutInflater = LayoutInflater.from(context);
-        mContext = context;
         this.onDeleteClickListener = listener;
 
     }
+
     @NonNull
     @Override
     public MeasurementViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View itemView = layoutInflater.inflate(R.layout.recyclerview_item, parent, false);
-        MeasurementViewHolder viewHolder = new MeasurementViewHolder(itemView);
-        return viewHolder;
+        return new MeasurementViewHolder(itemView);
     }
 
     @Override
@@ -60,11 +58,11 @@ public class MeasurementListAdapter extends RecyclerView.Adapter<MeasurementList
         notifyDataSetChanged();
     }
 
-    public class MeasurementViewHolder extends RecyclerView.ViewHolder{
+    public class MeasurementViewHolder extends RecyclerView.ViewHolder {
 
-        private TextView measurementItemView;
+        private final TextView measurementItemView;
         private int mPosition;
-        private ImageView deleteButton;
+        private final ImageView deleteButton;
 
         public MeasurementViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -78,12 +76,9 @@ public class MeasurementListAdapter extends RecyclerView.Adapter<MeasurementList
         }
 
         public void setListener() {
-            deleteButton.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    if (onDeleteClickListener != null) {
-                        onDeleteClickListener.OnDeleteCLickListener(mMeasurements.get(mPosition));
-                    }
+            deleteButton.setOnClickListener(v -> {
+                if (onDeleteClickListener != null) {
+                    onDeleteClickListener.OnDeleteCLickListener(mMeasurements.get(mPosition));
                 }
             });
         }

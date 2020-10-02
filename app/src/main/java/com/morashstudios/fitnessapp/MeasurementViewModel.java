@@ -10,17 +10,25 @@ import java.util.List;
 
 public class MeasurementViewModel extends AndroidViewModel {
 
-    private MeasurementDao measurementDao;
-    private MeasurementDatabase measurementDB;
-    private LiveData<List<Measurement>> mAllMeasurements;
+    private final MeasurementDao measurementDao;
+    private final LiveData<List<Measurement>> mAllMeasurements;
 
     public MeasurementViewModel(Application application) {
 
         super(application);
 
-        measurementDB = MeasurementDatabase.getDatabase(application);
+        MeasurementDatabase measurementDB = MeasurementDatabase.getDatabase(application);
         measurementDao = measurementDB.measurementDao();
         mAllMeasurements = measurementDao.getAllMeasurements();
+    }
+
+    public MeasurementViewModel(Application application, MeasurementDao measurementDao, LiveData<List<Measurement>> allMeasurements) {
+
+        super(application);
+
+        MeasurementDatabase measurementDB = MeasurementDatabase.getDatabase(application);
+        this.measurementDao = measurementDao;
+        mAllMeasurements = allMeasurements;
     }
 
     public void insert(Measurement measurement) {
@@ -40,8 +48,8 @@ public class MeasurementViewModel extends AndroidViewModel {
         super.onCleared();
     }
 
-    private class OperationsAsyncTask extends AsyncTask<Measurement, Void, Void> {
-        MeasurementDao mAsyncTaskDao;
+    private static class OperationsAsyncTask extends AsyncTask<Measurement, Void, Void> {
+        final MeasurementDao mAsyncTaskDao;
 
         OperationsAsyncTask(MeasurementDao dao) {
             this.mAsyncTaskDao = dao;
@@ -52,7 +60,8 @@ public class MeasurementViewModel extends AndroidViewModel {
             return null;
         }
     }
-    private class InsertAsyncTask extends OperationsAsyncTask {
+
+    private static class InsertAsyncTask extends OperationsAsyncTask {
 
         public InsertAsyncTask(MeasurementDao mMeasurementDao) {
             super(mMeasurementDao);
@@ -65,7 +74,7 @@ public class MeasurementViewModel extends AndroidViewModel {
         }
     }
 
-    private class DeleteAsyncTask extends OperationsAsyncTask {
+    private static class DeleteAsyncTask extends OperationsAsyncTask {
 
         public DeleteAsyncTask(MeasurementDao measurementDao) {
             super(measurementDao);

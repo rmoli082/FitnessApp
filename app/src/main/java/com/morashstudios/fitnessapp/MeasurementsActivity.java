@@ -7,6 +7,7 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.Observer;
+import androidx.lifecycle.ViewModelProvider;
 import androidx.lifecycle.ViewModelProviders;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -35,23 +36,15 @@ public class MeasurementsActivity extends AppCompatActivity implements Measureme
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
         FloatingActionButton addFab = findViewById(R.id.add_measurement_fab);
-        addFab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent (MeasurementsActivity.this, AddMeasurementActivity.class);
-                startActivityForResult(intent, NEW_MEASUREMENT_ACTIVITY_REQ_CODE);
+        addFab.setOnClickListener(v -> {
+            Intent intent = new Intent(MeasurementsActivity.this, AddMeasurementActivity.class);
+            startActivityForResult(intent, NEW_MEASUREMENT_ACTIVITY_REQ_CODE);
 
-            }
         });
 
-        measurementViewModel = ViewModelProviders.of(this).get(MeasurementViewModel.class);
+        measurementViewModel = new ViewModelProvider(this).get(MeasurementViewModel.class);
 
-        measurementViewModel.getAllMeasurements().observe(this, new Observer<List<Measurement>>() {
-            @Override
-            public void onChanged(List<Measurement> measurements) {
-                measurementListAdapter.setMeasurements(measurements);
-            }
-        });
+        measurementViewModel.getAllMeasurements().observe(this, measurements -> measurementListAdapter.setMeasurements(measurements));
     }
 
     @Override
@@ -60,9 +53,9 @@ public class MeasurementsActivity extends AppCompatActivity implements Measureme
 
         if (requestCode == NEW_MEASUREMENT_ACTIVITY_REQ_CODE && resultCode == RESULT_OK) {
 
-            SimpleDateFormat df = new SimpleDateFormat("EEE MMM dd yyyy, HH:mm:ss");
+            SimpleDateFormat df = new SimpleDateFormat("EEE MMM dd yyyy, HH:mm:ss", Locale.getDefault());
 
-            Measurement measurement = new Measurement (df.format(new Date()),
+            Measurement measurement = new Measurement(df.format(new Date()),
                     data.getFloatExtra("neck", 0f),
                     data.getFloatExtra("chest", 0f),
                     data.getFloatExtra("waist", 0f),

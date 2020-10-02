@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<fragment
+<androidx.fragment.app.FragmentContainerView
     android:name="com.morashstudios.fitnessapp.SettingsActivity$FitnessAppPreferenceFragment"
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
@@ -7,4 +7,4 @@
     android:layout_height="match_parent"
     tools:context=".SettingsActivity">
 
-</fragment>
+</androidx.fragment.app.FragmentContainerView>

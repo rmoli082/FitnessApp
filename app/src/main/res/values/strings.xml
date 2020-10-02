@@ -32,9 +32,6 @@
     <string name="settings_unit_metric_value">metric</string>
     <string name="settings_unit_us_label">US</string>
     <string name="settings_unit_us_value">us</string>
-    <string name="goal_select_header">Select your goal:</string>
-    <string name="goal_weight_loss">Fat loss</string>
-    <string name="goal_weight_gain">Gain muscle</string>
     <string name="macro_diet_header">Select your diet:</string>
     <string name="default_diet">None</string>
     <string name="locarb_diet">Low Carb</string>
@@ -51,11 +48,10 @@
     <string name="bmi_height_entry">Enter height:</string>
     <string name="bmi_header">BMI:</string>
     <string name="activity_header">Activity level:</string>
-    <string name="activity_select">Click to select</string>
     <string name="activity_sedentary">No or little exercise</string>
     <string name="activity_light">Exercise 1–3 days/week</string>
     <string name="activity_moderate">Exercise 2–4 days/week</string>
-    <string name="activity_heavy">Exercise 5-7 days/week</string>
+    <string name="activity_heavy">Exercise 5–7 days/week</string>
     <string name="activity_intense">Intense Exercise 2–4 days/week</string>
     <string name="activity_very_intense">Intense Exercise 5–7 days/week</string>
     <string name="activity_sedentary_value">sedentary</string>
@@ -80,9 +76,9 @@
     <string name="grams">g</string>
     <string name="chart_header">Acceptable Body Fat Ranges</string>
     <string name="bmi_chart_header">Acceptable BMI Ranges</string>
-    <string name="percent_chart_male">Athletes\t\t\t\t6-14%\nFitness\t\t\t\t\t14-18%\nAverage\t\t\t\t18-25%\nObese\t\t\t\t\t\t25%+\n\n</string>
-    <string name="percent_chart_female">Athletes\t\t\t\t14-21%\nFitness\t\t\t\t\t21-25%\nAverage\t\t\t\t25-32%\nObese\t\t\t\t\t\t32%+\n\n</string>
-    <string name="bmi_chart">Underweight\t\t\t\t\t&lt; 18.5\nNormal weight\t\t\t18.5-24.9\nOverweight\t\t\t\t\t\t\t25-29.9\nObese\t\t\t\t\t\t\t\t\t\t\t\t\t\t&gt; 30</string>
+    <string name="percent_chart_male">Athletes\t\t\t\t6–14%\nFitness\t\t\t\t\t14–18%\nAverage\t\t\t\t18–25%\nObese\t\t\t\t\t\t25%+\n\n</string>
+    <string name="percent_chart_female">Athletes\t\t\t\t14–21%\nFitness\t\t\t\t\t21–25%\nAverage\t\t\t\t25–32%\nObese\t\t\t\t\t\t32%+\n\n</string>
+    <string name="bmi_chart"><![CDATA[Underweight\t\t\t\t\t< 18.5\nNormal weight\t\t\t18.5–24.9\nOverweight\t\t\t\t\t\t\t25–29.9\nObese\t\t\t\t\t\t\t\t\t\t\t\t\t\t> 30]]></string>
     <string name="repmax_calc">Rep Max Calculator</string>
     <string name="repmax_weight">Weight lifted:</string>
     <string name="repmax_reps">Reps completed:</string>
@@ -110,6 +106,8 @@
     <string name="add_lThigh">Thigh(left)</string>
     <string name="add_lCalf">Calf(left)</string>
     <string name="save_button">Save</string>
-    <string name="enterstuffpls">Please enter a measurement or fill with 0 to continue</string>
+    <string name="enter_stuff">Please enter a measurement or fill with 0 to continue</string>
+    <string name="enter_measurement">&nbsp;</string>
     <string name="no_entries">No entries recorded</string>
+    <string name="delete">Delete</string>
 </resources>

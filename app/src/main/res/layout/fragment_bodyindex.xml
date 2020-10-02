@@ -20,7 +20,6 @@
                 android:layout_marginBottom="8dp">
 
                 <TextView
-                    android:id="@+id/bmi_header"
                     style="@style/TitleText"
                     android:text="@string/body_index_calc" />
 
@@ -30,7 +29,6 @@
                     android:orientation="horizontal">
 
                     <TextView
-                        android:id="@+id/bmi_weight_header"
                         style="@style/HeaderText"
                         android:text="@string/bmi_weight_entry" />
 
@@ -49,7 +47,6 @@
                     android:orientation="horizontal">
 
                     <TextView
-                        android:id="@+id/bmi_height_header"
                         style="@style/HeaderText"
                         android:text="@string/bmi_height_entry" />
 
@@ -101,7 +98,6 @@
 
 
                 <LinearLayout
-                    android:id="@+id/bodyindex_chart_group"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="center_horizontal"
@@ -113,7 +109,6 @@
                         android:text="@string/bmi_chart_header" />
 
                     <TextView
-                        android:id="@+id/percentage_chart_male"
                         style="@style/ChartText"
                         android:text="@string/bmi_chart" />
 

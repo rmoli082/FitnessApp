@@ -2,12 +2,10 @@ package com.morashstudios.fitnessapp;
 
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.preference.Preference;
-import android.preference.PreferenceFragment;
-import android.preference.PreferenceManager;
-
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.preference.Preference;
+import androidx.preference.PreferenceFragmentCompat;
 
 public class SettingsActivity extends AppCompatActivity {
 
@@ -18,7 +16,7 @@ public class SettingsActivity extends AppCompatActivity {
         );
     }
 
-    public static class FitnessAppPreferenceFragment extends PreferenceFragment
+    public static class FitnessAppPreferenceFragment extends PreferenceFragmentCompat
             implements Preference.OnPreferenceChangeListener {
 
         @Override
@@ -32,6 +30,12 @@ public class SettingsActivity extends AppCompatActivity {
         }
 
         @Override
+        public void onCreatePreferences(Bundle savedInstanceState, String rootKey) {
+            setPreferencesFromResource(R.xml.settings_main, rootKey);
+
+        }
+
+        @Override
         public boolean onPreferenceChange(Preference preference, Object newValue) {
             String stringValue = newValue.toString();
             preference.setSummary(stringValue);
@@ -40,7 +44,7 @@ public class SettingsActivity extends AppCompatActivity {
 
         private void bindPreferenceSummaryToValue(Preference preference) {
             preference.setOnPreferenceChangeListener(this);
-            SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(preference.getContext());
+            SharedPreferences preferences = preference.getSharedPreferences();
             String preferenceString = preferences.getString(preference.getKey(), "");
             onPreferenceChange(preference, preferenceString);
         }

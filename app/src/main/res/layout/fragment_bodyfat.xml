@@ -23,7 +23,6 @@
                 android:layout_marginBottom="8dp">
 
                 <TextView
-                    android:id="@+id/sex_header"
                     style="@style/HeaderText"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -54,12 +53,10 @@
                 </RadioGroup>
 
             <LinearLayout
-                android:id="@+id/bodyfat_height_bar"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
                 <TextView
-                    android:id="@+id/bodyfat_height_header"
                     style="@style/HeaderText"
                     android:text="@string/height" />
 
@@ -73,12 +70,10 @@
             </LinearLayout>
 
             <LinearLayout
-                android:id="@+id/bodyfat_weight_bar"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
                 <TextView
-                    android:id="@+id/bodyfat_weight_header"
                     style="@style/HeaderText"
                     android:text="@string/weight" />
 
@@ -92,7 +87,6 @@
             </LinearLayout>
 
             <LinearLayout
-                android:id="@+id/bodyfat_waist_bar"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
@@ -110,12 +104,10 @@
             </LinearLayout>
 
             <LinearLayout
-                android:id="@+id/bodyfat_neck_bar"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
                 <TextView
-                    android:id="@+id/bodyfat_neck_header"
                     style="@style/HeaderText"
                     android:text="@string/neck" />
 
@@ -128,7 +120,6 @@
             </LinearLayout>
 
             <LinearLayout
-                android:id="@+id/bodyfat_hips_bar"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
@@ -170,13 +161,11 @@
                 android:orientation="vertical">
 
                 <LinearLayout
-                    android:id="@+id/bodyfat_results_group"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="center_horizontal">
 
                     <TextView
-                        android:id="@+id/bodyfat_percent_header"
                         style="@style/ResultsHeader"
                         android:text="@string/bodyfat_percent" />
 
@@ -191,13 +180,11 @@
                 </LinearLayout>
 
                 <LinearLayout
-                    android:id="@+id/fatmass_results_group"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="center_horizontal">
 
                     <TextView
-                        android:id="@+id/bodyfat_fat_mass_header"
                         style="@style/ResultsHeader"
                         android:text="@string/fat_mass" />
 
@@ -213,13 +200,11 @@
                 </LinearLayout>
 
                 <LinearLayout
-                    android:id="@+id/leanmass_results_group"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="center_horizontal">
 
                     <TextView
-                        android:id="@+id/bodyfat_lean_mass_header"
                         style="@style/ResultsHeader"
                         android:text="@string/lean_mass" />
 
@@ -235,7 +220,6 @@
                 </LinearLayout>
 
                 <LinearLayout
-                    android:id="@+id/bodyfat_chart_group"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="center_horizontal"

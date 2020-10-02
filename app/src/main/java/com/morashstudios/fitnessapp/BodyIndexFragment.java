@@ -9,8 +9,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
-import android.widget.EditText;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.fragment.app.Fragment;
@@ -21,9 +19,6 @@ import java.text.DecimalFormat;
 import java.util.Objects;
 
 
-/**
- * A simple {@link Fragment} subclass.
- */
 public class BodyIndexFragment extends Fragment {
 
     private double mHeight;
@@ -58,35 +53,32 @@ public class BodyIndexFragment extends Fragment {
 
         Button getResults = view.findViewById(R.id.bmi_results_button);
 
-        getResults.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
+        getResults.setOnClickListener(v -> {
 
-                    InputMethodManager imm = (InputMethodManager) Objects.requireNonNull(getActivity()).getSystemService(Context.INPUT_METHOD_SERVICE);
-                assert imm != null;
-                imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
+            InputMethodManager imm = (InputMethodManager) requireActivity().getSystemService(Context.INPUT_METHOD_SERVICE);
+            assert imm != null;
+            imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
 
-                if (String.valueOf(binding.bmiWeightEntry.getText()).isEmpty() ||
-                String.valueOf(binding.bmiHeightEntry.getText()).isEmpty()) {
-                    Toast.makeText(getContext(), "Please enter your measurements", Toast.LENGTH_SHORT).show();
-                    return;
-                }
-
-                view.findViewById(R.id.bmi_results_tab).setVisibility(View.VISIBLE);
-
-                mWeight = Double.parseDouble(String.valueOf(binding.bmiWeightEntry.getText()));
-                mHeight = Double.parseDouble(String.valueOf(binding.bmiHeightEntry.getText()));
-
-                if (units.equals(getString(R.string.settings_unit_us_value))) {
-                    mWeight /= 2.2;
-                    mHeight *= 2.54;
-                }
-
-                mHeight /= 100;
-                mBodyIndex = mWeight/Math.pow(mHeight, 2);
-
-                binding.bmiResult.setText(df.format(mBodyIndex));
+            if (String.valueOf(binding.bmiWeightEntry.getText()).isEmpty() ||
+                    String.valueOf(binding.bmiHeightEntry.getText()).isEmpty()) {
+                Toast.makeText(getContext(), "Please enter your measurements", Toast.LENGTH_SHORT).show();
+                return;
             }
+
+            view.findViewById(R.id.bmi_results_tab).setVisibility(View.VISIBLE);
+
+            mWeight = Double.parseDouble(String.valueOf(binding.bmiWeightEntry.getText()));
+            mHeight = Double.parseDouble(String.valueOf(binding.bmiHeightEntry.getText()));
+
+            if (units.equals(getString(R.string.settings_unit_us_value))) {
+                mWeight /= 2.2;
+                mHeight *= 2.54;
+            }
+
+            mHeight /= 100;
+            mBodyIndex = mWeight / Math.pow(mHeight, 2);
+
+            binding.bmiResult.setText(df.format(mBodyIndex));
         });
 
         return view;

@@ -27,10 +27,9 @@
 
     <item android:id = "@+id/measurements"
         android:icon="@drawable/baseline_straighten_black_24"
-        android:title="Measurements" />
+        android:title="@string/measurements" />
 
-    <item android:id="@+id/blank_space"
-        android:title="" />
+    <item android:title="" />
 
     <item android:id="@+id/settings"
         android:icon="@drawable/round_settings_black_24"

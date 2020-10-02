@@ -33,10 +33,11 @@
                         android:text="@string/repmax_weight"/>
 
                     <EditText
-                        style="@style/EntryText"
                         android:id="@+id/repmax_weight_entry"
+                        style="@style/EntryText"
                         android:hint="@string/lb_or_kg"
-                        android:inputType="numberDecimal"/>
+                        android:inputType="numberDecimal"
+                        android:importantForAutofill="no" />
 
                 </LinearLayout>
 
@@ -50,10 +51,11 @@
                         android:text="@string/repmax_reps"/>
 
                     <EditText
-                        style="@style/EntryText"
                         android:id="@+id/repmax_reps_entry"
+                        style="@style/EntryText"
                         android:hint="@string/one_to_ten"
-                        android:inputType="number"/>
+                        android:inputType="number"
+                        android:importantForAutofill="no" />
 
                 </LinearLayout>
 
