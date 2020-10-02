@@ -15,6 +15,8 @@ import android.widget.Toast;
 
 import androidx.fragment.app.Fragment;
 
+import com.morashstudios.fitnessapp.databinding.FragmentMacroBinding;
+
 import java.util.Objects;
 
 
@@ -28,6 +30,8 @@ public class MacroFragment extends Fragment {
     private double mProteinPercent;
     private double mCarbsPercent;
 
+    private FragmentMacroBinding binding;
+
     public MacroFragment() {
         // Required empty public constructor
     }
@@ -39,9 +43,9 @@ public class MacroFragment extends Fragment {
         // Inflate the layout for this fragment
         final View view = inflater.inflate(R.layout.fragment_macro, container, false);
 
-        final RadioGroup dietGoalSelect = view.findViewById(R.id.macro_diet_select);
+        binding = FragmentMacroBinding.inflate(getLayoutInflater());
 
-        dietGoalSelect.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+        binding.macroDietSelect.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup group, int checkedId) {
                 switch (checkedId)
@@ -70,10 +74,7 @@ public class MacroFragment extends Fragment {
             }
         });
 
-        final EditText calorieEntry = view.findViewById(R.id.macro_calorie_entry);
-
-        Button getResultsButton = view.findViewById(R.id.macro_get_results_button);
-        getResultsButton.setOnClickListener(new View.OnClickListener() {
+        binding.macroGetResultsButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
@@ -81,28 +82,25 @@ public class MacroFragment extends Fragment {
                 assert imm != null;
                 imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
 
-                RadioButton dietGoal = view.findViewById(dietGoalSelect.getCheckedRadioButtonId());
+                RadioButton dietGoal = view.findViewById(binding.macroDietSelect.getCheckedRadioButtonId());
 
                 if (dietGoal == null) {
                     Toast.makeText(getContext(), "Please select a diet type", Toast.LENGTH_SHORT).show();
                     return;
                 }
 
-                if (String.valueOf(calorieEntry.getText()).isEmpty()) {
+                if (String.valueOf(binding.macroCalorieEntry.getText()).isEmpty()) {
                     Toast.makeText(getContext(), "Please enter calorie requirements", Toast.LENGTH_SHORT).show();
                     return;
                 }
 
-                view.findViewById(R.id.macro_results_tab).setVisibility(View.VISIBLE);
+                binding.macroResultsTab.setVisibility(View.VISIBLE);
 
-                mCalorieNeeds = Integer.parseInt(String.valueOf(calorieEntry.getText()));
-                TextView carbAmount = view.findViewById(R.id.macro_carb_result);
-                TextView proteinAmount = view.findViewById(R.id.macro_protein_result);
-                TextView fatAmount = view.findViewById(R.id.macro_fat_result);
+                mCalorieNeeds = Integer.parseInt(String.valueOf(binding.macroCalorieEntry.getText()));
 
-                carbAmount.setText(String.valueOf(Math.round((mCalorieNeeds*mCarbsPercent)/4)));
-                proteinAmount.setText(String.valueOf(Math.round((mCalorieNeeds*mProteinPercent)/4)));
-                fatAmount.setText(String.valueOf(Math.round((mCalorieNeeds*mFatPercent)/9)));
+                binding.macroCarbResult.setText(String.valueOf(Math.round((mCalorieNeeds*mCarbsPercent)/4)));
+                binding.macroProteinResult.setText(String.valueOf(Math.round((mCalorieNeeds*mProteinPercent)/4)));
+                binding.macroFatResult.setText(String.valueOf(Math.round((mCalorieNeeds*mFatPercent)/9)));
             }
         });
 

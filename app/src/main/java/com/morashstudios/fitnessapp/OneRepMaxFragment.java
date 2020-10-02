@@ -15,6 +15,8 @@ import android.widget.Toast;
 import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
 
+import com.morashstudios.fitnessapp.databinding.FragmentOneRepMaxBinding;
+
 import java.text.DecimalFormat;
 import java.util.Objects;
 
@@ -28,6 +30,8 @@ public class OneRepMaxFragment extends Fragment {
     private int mReps;
     private float mOneRM;
 
+    private FragmentOneRepMaxBinding binding;
+
 
     public OneRepMaxFragment() {
         // Required empty public constructor
@@ -39,18 +43,9 @@ public class OneRepMaxFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_one_rep_max, container, false);
+        binding = FragmentOneRepMaxBinding.inflate(getLayoutInflater());
 
-        EditText weightEntry = view.findViewById(R.id.repmax_weight_entry);
-        EditText repEntry = view.findViewById(R.id.repmax_reps_entry);
-        Button getRepMax = view.findViewById(R.id.onerm_results_button);
-        CardView resultsCard = view.findViewById(R.id.onerm_results_card);
-        TextView oneRMresult = view.findViewById(R.id.repmax_onerm);
-        TextView twoRMresult = view.findViewById(R.id.repmax_tworm);
-        TextView threeRMresult = view.findViewById(R.id.repmax_threerm);
-        TextView fiveRMresult = view.findViewById(R.id.repmax_fiverm);
-        TextView tenRMresult = view.findViewById(R.id.repmax_tenrm);
-
-        getRepMax.setOnClickListener(new View.OnClickListener() {
+        binding.onermResultsButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
@@ -58,22 +53,23 @@ public class OneRepMaxFragment extends Fragment {
                     assert imm != null;
                     imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
 
-                if (TextUtils.isEmpty(weightEntry.getText()) || TextUtils.isEmpty(repEntry.getText()) ||
-                Integer.parseInt(String.valueOf(repEntry.getText())) == 0) {
+                if (TextUtils.isEmpty(binding.repmaxWeightEntry.getText()) || TextUtils.isEmpty(binding.repmaxRepsEntry.getText()) ||
+                Integer.parseInt(String.valueOf(binding.repmaxRepsEntry.getText())) == 0) {
                     Toast.makeText(getContext(), "Please enter weight and reps lifted to continue",
                             Toast.LENGTH_LONG).show();
                     return;
                 }
-                resultsCard.setVisibility(View.VISIBLE);
+
+                binding.onermResultsCard.setVisibility(View.VISIBLE);
                 DecimalFormat df = new DecimalFormat("0");
-                mWeight = Float.parseFloat(String.valueOf(weightEntry.getText()));
-                mReps = Integer.parseInt(String.valueOf(repEntry.getText()));
+                mWeight = Float.parseFloat(String.valueOf(binding.repmaxWeightEntry.getText()));
+                mReps = Integer.parseInt(String.valueOf(binding.repmaxRepsEntry.getText()));
                 mOneRM = mWeight * (1 + (mReps/30.0f));
-                oneRMresult.setText(df.format(mOneRM));
-                twoRMresult.setText(df.format(mOneRM * 0.95f));
-                threeRMresult.setText(df.format(mOneRM * 0.9f));
-                fiveRMresult.setText(df.format(mOneRM * 0.86f));
-                tenRMresult.setText(df.format(mOneRM * 0.75f));
+                binding.repmaxOnerm.setText(df.format(mOneRM));
+                binding.repmaxTworm.setText(df.format(mOneRM * 0.95f));
+                binding.repmaxThreerm.setText(df.format(mOneRM * 0.9f));
+                binding.repmaxFiverm.setText(df.format(mOneRM * 0.86f));
+                binding.repmaxTenrm.setText(df.format(mOneRM * 0.75f));
             }
         });
 

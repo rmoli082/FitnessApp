@@ -18,6 +18,8 @@ import android.widget.Toast;
 
 import androidx.fragment.app.Fragment;
 
+import com.morashstudios.fitnessapp.databinding.FragmentCalorieBinding;
+
 import java.util.Objects;
 
 
@@ -33,6 +35,8 @@ public class CalorieFragment extends Fragment {
     private boolean mIsFemale;
     private double mCalorieModifier;
 
+    private FragmentCalorieBinding binding;
+
     public CalorieFragment() {
         // Required empty public constructor
     }
@@ -44,31 +48,25 @@ public class CalorieFragment extends Fragment {
         // Inflate the layout for this fragment
         final View view = inflater.inflate(R.layout.fragment_calorie, container, false);
 
+        binding = FragmentCalorieBinding.inflate(getLayoutInflater());
+
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getActivity());
         final String units = prefs.getString(getString(R.string.settings_unit_key),
                 getString(R.string.settings_unit_default));
 
-        final RadioGroup genderSelect = view.findViewById(R.id.calorie_gender_select);
-        final EditText heightEntry = view.findViewById(R.id.calorie_height_entry);
-        final EditText weightEntry = view.findViewById(R.id.calorie_weight_entry);
-        final EditText ageEntry = view.findViewById(R.id.calorie_age_entry);
-        final Spinner activitySelect = view.findViewById(R.id.calorie_activity_select);
-        final TextView calorieResults = view.findViewById(R.id.calorie_results);
-        Button calculateCaloriesButton = view.findViewById(R.id.calculate_calories_button);
-
         if (units.equals(getString(R.string.settings_unit_metric_value))) {
-            heightEntry.setHint(R.string.hint_cm);
-            weightEntry.setHint(R.string.hint_kg);
+            binding.calorieHeightEntry.setHint(R.string.hint_cm);
+            binding.calorieWeightEntry.setHint(R.string.hint_kg);
         }
 
-        genderSelect.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+        binding.calorieGenderSelect.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup group, int checkedId) {
                 mIsFemale = checkedId == R.id.calorie_gender_female;
             }
         });
 
-        calculateCaloriesButton.setOnClickListener(new View.OnClickListener() {
+        binding.calculateCaloriesButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
@@ -76,25 +74,25 @@ public class CalorieFragment extends Fragment {
                 assert imm != null;
                 imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
 
-                RadioButton genderChoice = view.findViewById(genderSelect.getCheckedRadioButtonId());
+                RadioButton genderChoice = view.findViewById(binding.calorieGenderSelect.getCheckedRadioButtonId());
 
                 if (genderChoice == null) {
                     Toast.makeText(getContext(), "Please select a gender", Toast.LENGTH_SHORT).show();
                     return;
                 }
 
-                if (String.valueOf(heightEntry.getText()).isEmpty() ||
-                        String.valueOf(weightEntry.getText()).isEmpty() ||
-                        String.valueOf(ageEntry.getText()).isEmpty()) {
+                if (String.valueOf(binding.calorieHeightEntry.getText()).isEmpty() ||
+                        String.valueOf(binding.calorieWeightEntry.getText()).isEmpty() ||
+                        String.valueOf(binding.calorieAgeEntry.getText()).isEmpty()) {
                     Toast.makeText(getContext(), "Please enter your measurements", Toast.LENGTH_SHORT).show();
                     return;
                 }
 
                 view.findViewById(R.id.calorie_results_tab).setVisibility(View.VISIBLE);
 
-                mHeight = Double.parseDouble(String.valueOf(heightEntry.getText()));
-                mWeight = Double.parseDouble(String.valueOf(weightEntry.getText()));
-                mAge = Integer.parseInt(String.valueOf(ageEntry.getText()));
+                mHeight = Double.parseDouble(String.valueOf(binding.calorieHeightEntry.getText()));
+                mWeight = Double.parseDouble(String.valueOf(binding.calorieWeightEntry.getText()));
+                mAge = Integer.parseInt(String.valueOf(binding.calorieAgeEntry.getText()));
 
                 if (units.equals(getString(R.string.settings_unit_us_value))) {
                     mHeight *= 2.54;
@@ -109,7 +107,7 @@ public class CalorieFragment extends Fragment {
                     mBMR += 5;
                 }
 
-                int spinner_pos = activitySelect.getSelectedItemPosition();
+                int spinner_pos = binding.calorieActivitySelect.getSelectedItemPosition();
                 String[] values = getResources().getStringArray(R.array.calories_activity_level_values);
                 String activityLevel = values[spinner_pos];
 
@@ -139,7 +137,7 @@ public class CalorieFragment extends Fragment {
 
                 mBMR *= mCalorieModifier;
 
-                calorieResults.setText(String.valueOf(Math.round(mBMR)));
+                binding.calorieResults.setText(String.valueOf(Math.round(mBMR)));
 
             }
         });

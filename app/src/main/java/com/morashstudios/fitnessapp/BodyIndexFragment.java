@@ -15,6 +15,8 @@ import android.widget.Toast;
 
 import androidx.fragment.app.Fragment;
 
+import com.morashstudios.fitnessapp.databinding.FragmentBodyindexBinding;
+
 import java.text.DecimalFormat;
 import java.util.Objects;
 
@@ -28,6 +30,8 @@ public class BodyIndexFragment extends Fragment {
     private double mWeight;
     private double mBodyIndex;
 
+    private FragmentBodyindexBinding binding;
+
     public BodyIndexFragment() {
         // Required empty public constructor
     }
@@ -39,9 +43,8 @@ public class BodyIndexFragment extends Fragment {
         // Inflate the layout for this fragment
         final View view = inflater.inflate(R.layout.fragment_bodyindex, container, false);
 
-        final EditText weightEntry = view.findViewById(R.id.bmi_weight_entry);
-        final EditText heightEntry = view.findViewById(R.id.bmi_height_entry);
-        final TextView bmiResults = view.findViewById(R.id.bmi_result);
+        binding = FragmentBodyindexBinding.inflate(getLayoutInflater());
+
         final DecimalFormat df = new DecimalFormat("0.0");
 
         SharedPreferences sharedPrefs = PreferenceManager.getDefaultSharedPreferences(getActivity());
@@ -49,8 +52,8 @@ public class BodyIndexFragment extends Fragment {
                 getString(R.string.settings_unit_default));
 
         if (units.equals(getString(R.string.settings_unit_metric_value))) {
-            weightEntry.setHint(getString(R.string.hint_kg));
-            heightEntry.setHint(R.string.hint_cm);
+            binding.bmiWeightEntry.setHint(getString(R.string.hint_kg));
+            binding.bmiHeightEntry.setHint(R.string.hint_cm);
         }
 
         Button getResults = view.findViewById(R.id.bmi_results_button);
@@ -63,16 +66,16 @@ public class BodyIndexFragment extends Fragment {
                 assert imm != null;
                 imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
 
-                if (String.valueOf(weightEntry.getText()).isEmpty() ||
-                String.valueOf(heightEntry.getText()).isEmpty()) {
+                if (String.valueOf(binding.bmiWeightEntry.getText()).isEmpty() ||
+                String.valueOf(binding.bmiHeightEntry.getText()).isEmpty()) {
                     Toast.makeText(getContext(), "Please enter your measurements", Toast.LENGTH_SHORT).show();
                     return;
                 }
 
                 view.findViewById(R.id.bmi_results_tab).setVisibility(View.VISIBLE);
 
-                mWeight = Double.parseDouble(String.valueOf(weightEntry.getText()));
-                mHeight = Double.parseDouble(String.valueOf(heightEntry.getText()));
+                mWeight = Double.parseDouble(String.valueOf(binding.bmiWeightEntry.getText()));
+                mHeight = Double.parseDouble(String.valueOf(binding.bmiHeightEntry.getText()));
 
                 if (units.equals(getString(R.string.settings_unit_us_value))) {
                     mWeight /= 2.2;
@@ -82,7 +85,7 @@ public class BodyIndexFragment extends Fragment {
                 mHeight /= 100;
                 mBodyIndex = mWeight/Math.pow(mHeight, 2);
 
-                bmiResults.setText(df.format(mBodyIndex));
+                binding.bmiResult.setText(df.format(mBodyIndex));
             }
         });
 
