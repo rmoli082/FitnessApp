@@ -23,8 +23,7 @@ public class AddMeasurementActivity extends AppCompatActivity {
 
         binding = ActivityAddMeasurementBinding.inflate(getLayoutInflater());
 
-        Button saveMeasurement = findViewById(R.id.save_measurement_button);
-        saveMeasurement.setOnClickListener(new View.OnClickListener() {
+        binding.saveMeasurementButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent resultIntent = new Intent();
