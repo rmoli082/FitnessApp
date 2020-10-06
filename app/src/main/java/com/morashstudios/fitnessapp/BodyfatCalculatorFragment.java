@@ -106,7 +106,7 @@ public class BodyfatCalculatorFragment extends Fragment {
                 return;
             }
 
-            view.findViewById(R.id.bodyfat_results).setVisibility(View.VISIBLE);
+            binding.bodyfatResults.setVisibility(View.VISIBLE);
 
             mHeight = Double.parseDouble(String.valueOf(binding.bodyfatHeightEntry.getText()));
             mWeight = Double.parseDouble(String.valueOf(binding.bodyfatWeightEntry.getText()));

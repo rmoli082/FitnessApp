@@ -18,9 +18,7 @@
         android:theme="@style/NavDrawerTheme"
         android:layout_gravity="start"
         app:headerLayout="@layout/nav_header"
-        android:id="@+id/nv"
-        app:itemBackground="@color/colorPrimaryLight"
-        android:background="@color/colorPrimaryLight" />
+        android:id="@+id/nv"/>
 
 
 

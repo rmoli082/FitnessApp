@@ -95,4 +95,131 @@ public class Measurement {
         this.mBodyfat = bodyfat;
     }
 
+    public int getMeasurements_ID() {
+        return measurements_ID;
+    }
+
+    public void setMeasurements_ID(int measurements_ID) {
+        this.measurements_ID = measurements_ID;
+    }
+
+    public String getMDate() {
+        return mDate;
+    }
+
+    public void setMDate(String mDate) {
+        this.mDate = mDate;
+    }
+
+    public float getMNeck() {
+        return mNeck;
+    }
+
+    public void setMNeck(float mNeck) {
+        this.mNeck = mNeck;
+    }
+
+    public float getMChest() {
+        return mChest;
+    }
+
+    public void setMChest(float mChest) {
+        this.mChest = mChest;
+    }
+
+    public float getMWaist() {
+        return mWaist;
+    }
+
+    public void setMWaist(float mWaist) {
+        this.mWaist = mWaist;
+    }
+
+    public float getMHips() {
+        return mHips;
+    }
+
+    public void setMHips(float mHips) {
+        this.mHips = mHips;
+    }
+
+    public float getMRightBicep() {
+        return mRightBicep;
+    }
+
+    public void setMRightBicep(float mRightBicep) {
+        this.mRightBicep = mRightBicep;
+    }
+
+    public float getMRightForearm() {
+        return mRightForearm;
+    }
+
+    public void setMRightForearm(float mRightForearm) {
+        this.mRightForearm = mRightForearm;
+    }
+
+    public float getMLeftBicep() {
+        return mLeftBicep;
+    }
+
+    public void setMLeftBicep(float mLeftBicep) {
+        this.mLeftBicep = mLeftBicep;
+    }
+
+    public float getMLeftForearm() {
+        return mLeftForearm;
+    }
+
+    public void setMLeftForearm(float mLeftForearm) {
+        this.mLeftForearm = mLeftForearm;
+    }
+
+    public float getMRightThigh() {
+        return mRightThigh;
+    }
+
+    public void setMRightThigh(float mRightThigh) {
+        this.mRightThigh = mRightThigh;
+    }
+
+    public float getMRightCalf() {
+        return mRightCalf;
+    }
+
+    public void setMRightCalf(float mRightCalf) {
+        this.mRightCalf = mRightCalf;
+    }
+
+    public float getMLeftThigh() {
+        return mLeftThigh;
+    }
+
+    public void setMLeftThigh(float mLeftThigh) {
+        this.mLeftThigh = mLeftThigh;
+    }
+
+    public float getMLeftCalf() {
+        return mLeftCalf;
+    }
+
+    public void setMLeftCalf(float mLeftCalf) {
+        this.mLeftCalf = mLeftCalf;
+    }
+
+    public float getMWeight() {
+        return mWeight;
+    }
+
+    public void setMWeight(float mWeight) {
+        this.mWeight = mWeight;
+    }
+
+    public float getMBodyfat() {
+        return mBodyfat;
+    }
+
+    public void setMBodyfat(float mBodyfat) {
+        this.mBodyfat = mBodyfat;
+    }
 }
