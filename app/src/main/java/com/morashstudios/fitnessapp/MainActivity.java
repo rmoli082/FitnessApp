@@ -49,7 +49,7 @@ public class MainActivity extends AppCompatActivity {
                     dl.closeDrawer(GravityCompat.START);
                     break;
                 case R.id.bodyfat_calc:
-                    transaction.replace(R.id.contentFragment, new BodyfatCalculatorFragment()).addToBackStack("bodyfat").commit();
+                    transaction.replace(R.id.contentFragment, new BodyFatCalculatorFragment()).addToBackStack("bodyfat").commit();
                     dl.closeDrawer(GravityCompat.START);
                     break;
                 case R.id.bmi_calc:

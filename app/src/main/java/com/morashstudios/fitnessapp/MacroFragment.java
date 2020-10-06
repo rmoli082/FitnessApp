@@ -2,19 +2,17 @@ package com.morashstudios.fitnessapp;
 
 import android.content.Context;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.RadioButton;
-import android.widget.RadioGroup;
 import android.widget.Toast;
 
 import androidx.fragment.app.Fragment;
 
 import com.morashstudios.fitnessapp.databinding.FragmentMacroBinding;
-
-import java.util.Objects;
 
 
 public class MacroFragment extends Fragment {
@@ -35,9 +33,8 @@ public class MacroFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        final View view = inflater.inflate(R.layout.fragment_macro, container, false);
-
-        binding = FragmentMacroBinding.inflate(getLayoutInflater());
+        binding = FragmentMacroBinding.inflate(inflater, container, false);
+        View view = binding.getRoot();
 
         binding.macroDietSelect.setOnCheckedChangeListener((group, checkedId) -> {
             switch (checkedId) {
@@ -65,32 +62,40 @@ public class MacroFragment extends Fragment {
         });
 
         binding.macroGetResultsButton.setOnClickListener(v -> {
-
+            //Close keyboard
             InputMethodManager imm = (InputMethodManager) requireActivity().getSystemService(Context.INPUT_METHOD_SERVICE);
             assert imm != null;
             imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
 
-            RadioButton dietGoal = view.findViewById(binding.macroDietSelect.getCheckedRadioButtonId());
-
-            if (dietGoal == null) {
-                Toast.makeText(getContext(), "Please select a diet type", Toast.LENGTH_SHORT).show();
-                return;
+            if (ValidateChoices(view))
+            {
+                mCalorieNeeds = Integer.parseInt(String.valueOf(binding.macroCalorieEntry.getText()));
+                CalculateAndDisplayResults();
             }
-
-            if (String.valueOf(binding.macroCalorieEntry.getText()).isEmpty()) {
-                Toast.makeText(getContext(), "Please enter calorie requirements", Toast.LENGTH_SHORT).show();
-                return;
-            }
-
-            binding.macroResultsTab.setVisibility(View.VISIBLE);
-
-            mCalorieNeeds = Integer.parseInt(String.valueOf(binding.macroCalorieEntry.getText()));
-
-            binding.macroCarbResult.setText(String.valueOf(Math.round((mCalorieNeeds * mCarbsPercent) / 4)));
-            binding.macroProteinResult.setText(String.valueOf(Math.round((mCalorieNeeds * mProteinPercent) / 4)));
-            binding.macroFatResult.setText(String.valueOf(Math.round((mCalorieNeeds * mFatPercent) / 9)));
         });
 
         return view;
+    }
+
+    private void CalculateAndDisplayResults() {
+        binding.macroCarbResult.setText(String.valueOf(Math.round((mCalorieNeeds * mCarbsPercent) / 4)));
+        binding.macroProteinResult.setText(String.valueOf(Math.round((mCalorieNeeds * mProteinPercent) / 4)));
+        binding.macroFatResult.setText(String.valueOf(Math.round((mCalorieNeeds * mFatPercent) / 9)));
+        binding.macroResultsTab.setVisibility(View.VISIBLE);
+    }
+
+    private boolean ValidateChoices(View view) {
+        RadioButton dietGoal = view.findViewById(binding.macroDietSelect.getCheckedRadioButtonId());
+
+        if (dietGoal == null) {
+            Toast.makeText(getContext(), "Please select a diet type", Toast.LENGTH_SHORT).show();
+            return false;
+        }
+
+        if (TextUtils.isEmpty(binding.macroCalorieEntry.getText())) {
+            Toast.makeText(getContext(), "Please enter calorie requirements", Toast.LENGTH_SHORT).show();
+            return false;
+        }
+        return true;
     }
 }

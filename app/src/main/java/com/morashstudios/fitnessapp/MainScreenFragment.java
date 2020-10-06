@@ -18,6 +18,8 @@ import com.morashstudios.fitnessapp.databinding.FragmentMainBinding;
  */
 public class MainScreenFragment extends Fragment {
 
+    private FragmentMainBinding binding;
+
 
     public MainScreenFragment() {
         // Required empty public constructor
@@ -27,14 +29,13 @@ public class MainScreenFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_main, container, false);
-
-        com.morashstudios.fitnessapp.databinding.FragmentMainBinding binding = FragmentMainBinding.inflate(getLayoutInflater());
+        binding = FragmentMainBinding.inflate(inflater, container, false);
+        View view = binding.getRoot();
 
         FragmentManager fm = getActivity().getSupportFragmentManager();
         final FragmentTransaction transaction = fm.beginTransaction();
 
-        binding.bodyfatSelect.setOnClickListener(v -> transaction.replace(R.id.contentFragment, new BodyfatCalculatorFragment()).addToBackStack("bodyfat").commit());
+        binding.bodyfatSelect.setOnClickListener(v -> transaction.replace(R.id.contentFragment, new BodyFatCalculatorFragment()).addToBackStack("bodyfat").commit());
 
         binding.bodyindexSelect.setOnClickListener(v -> transaction.replace(R.id.contentFragment, new BodyIndexFragment()).addToBackStack("bmi").commit());
 

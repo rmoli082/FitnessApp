@@ -9,12 +9,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.inputmethod.InputMethodManager;
-import android.widget.Button;
-import android.widget.EditText;
-import android.widget.TextView;
 import android.widget.Toast;
 
-import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
 
 import com.morashstudios.fitnessapp.databinding.FragmentBodyindexBinding;
@@ -28,6 +24,7 @@ public class BodyIndexFragment extends Fragment {
     private double mWeight;
     private double mBodyIndex;
     private String units;
+    private FragmentBodyindexBinding binding;
 
     public BodyIndexFragment() {
         // Required empty public constructor
@@ -37,52 +34,51 @@ public class BodyIndexFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+
         // Inflate the layout for this fragment
-        final View view = inflater.inflate(R.layout.fragment_bodyindex, container, false);
+        binding = FragmentBodyindexBinding.inflate(inflater, container, false);
+        View view = binding.getRoot();
 
-        com.morashstudios.fitnessapp.databinding.FragmentBodyindexBinding binding = FragmentBodyindexBinding.inflate(getLayoutInflater());
-
+        // Load SharedPreferences to get units
         SharedPreferences sharedPrefs = PreferenceManager.getDefaultSharedPreferences(getActivity());
         units = sharedPrefs.getString(getString(R.string.settings_unit_key),
                 getString(R.string.settings_unit_default));
 
+        // Set units in hints
         assert units != null;
         if (units.equals(getString(R.string.settings_unit_metric_value))) {
             binding.bmiWeightEntry.setHint(getString(R.string.hint_kg));
             binding.bmiHeightEntry.setHint(R.string.hint_cm);
         }
 
-        Button resultButton = view.findViewById(R.id.bmi_results_button);
+        binding.bmiResultsButton.setOnClickListener(v -> {
 
-        resultButton.setOnClickListener(v -> {
-
-            EditText weightEntry = view.findViewById(R.id.bmi_weight_entry);
-            EditText heightEntry = view.findViewById(R.id.bmi_height_entry);
-            TextView bmiResults = view.findViewById(R.id.bmi_result);
             DecimalFormat df = new DecimalFormat("0.0");
 
+            // Close software keyboard
             InputMethodManager imm = (InputMethodManager) requireActivity().getSystemService(Context.INPUT_METHOD_SERVICE);
             assert imm != null;
             imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
 
-            if (TextUtils.isEmpty(weightEntry.getText()) ||
-                    TextUtils.isEmpty(heightEntry.getText())) {
+            // Check to ensure entries completed
+            if (TextUtils.isEmpty(binding.bmiWeightEntry.getText()) ||
+                    TextUtils.isEmpty(binding.bmiHeightEntry.getText())) {
                 Toast.makeText(getContext(), "Please enter your measurements", Toast.LENGTH_SHORT).show();
                 return;
             }
 
-            CardView resultsTab = view.findViewById(R.id.bmi_results_tab);
-            resultsTab.setVisibility(View.VISIBLE);
+            ParseEntries();
 
-            mWeight = Double.parseDouble(String.valueOf(weightEntry.getText()));
-            mHeight = Double.parseDouble(String.valueOf(heightEntry.getText()));
-
-            CalculateBMI();
-
-            bmiResults.setText(df.format(CalculateBMI()));
+            binding.bmiResultsTab.setVisibility(View.VISIBLE);
+            binding.bmiResult.setText(df.format(CalculateBMI()));
         });
 
         return view;
+    }
+
+    private void ParseEntries() {
+        mWeight = Double.parseDouble(String.valueOf(binding.bmiWeightEntry.getText()));
+        mHeight = Double.parseDouble(String.valueOf(binding.bmiHeightEntry.getText()));
     }
 
     private double CalculateBMI() {
