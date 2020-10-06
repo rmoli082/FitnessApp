@@ -1,4 +1,4 @@
-package com.morashstudios.fitnessapp;
+package com.morashstudios.fitnessapp.Measurements;
 
 import androidx.lifecycle.LiveData;
 import androidx.room.Dao;

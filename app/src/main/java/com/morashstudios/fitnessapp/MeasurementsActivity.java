@@ -1,22 +1,23 @@
 package com.morashstudios.fitnessapp;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
+import android.util.Log;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
-import androidx.lifecycle.ViewModelProviders;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.morashstudios.fitnessapp.Measurements.Measurement;
+import com.morashstudios.fitnessapp.Measurements.MeasurementListAdapter;
+import com.morashstudios.fitnessapp.Measurements.MeasurementViewModel;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.util.List;
 import java.util.Locale;
 
 public class MeasurementsActivity extends AppCompatActivity implements MeasurementListAdapter.OnDeleteClickListener {

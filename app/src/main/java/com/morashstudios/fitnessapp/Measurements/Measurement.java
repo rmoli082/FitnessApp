@@ -1,4 +1,4 @@
-package com.morashstudios.fitnessapp;
+package com.morashstudios.fitnessapp.Measurements;
 
 import androidx.annotation.NonNull;
 import androidx.room.ColumnInfo;

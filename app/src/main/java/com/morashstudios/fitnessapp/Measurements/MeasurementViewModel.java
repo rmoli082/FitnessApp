@@ -1,4 +1,4 @@
-package com.morashstudios.fitnessapp;
+package com.morashstudios.fitnessapp.Measurements;
 
 import android.app.Application;
 import android.os.AsyncTask;
@@ -39,7 +39,7 @@ public class MeasurementViewModel extends AndroidViewModel {
         new DeleteAsyncTask(measurementDao).execute(measurement);
     }
 
-    LiveData<List<Measurement>> getAllMeasurements() {
+    public LiveData<List<Measurement>> getAllMeasurements() {
         return mAllMeasurements;
     }
 
