@@ -10,6 +10,10 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.android.play.core.review.ReviewInfo;
+import com.google.android.play.core.review.ReviewManager;
+import com.google.android.play.core.review.ReviewManagerFactory;
+import com.google.android.play.core.tasks.Task;
 import com.morashstudios.fitnessapp.databinding.ActivityAddMeasurementBinding;
 
 public class AddMeasurementActivity extends AppCompatActivity {
@@ -56,8 +60,23 @@ public class AddMeasurementActivity extends AppCompatActivity {
             resultIntent.putExtra("bodyfat", Float.parseFloat(String.valueOf(binding.addBodyfat.getText())));
             setResult(RESULT_OK, resultIntent);
 
-            Log.e("Get Results", String.valueOf(resultIntent.getFloatExtra("neck", 0)));
-            finish();
+            ReviewManager manager = ReviewManagerFactory.create(this);
+            Task<ReviewInfo> request = manager.requestReviewFlow();
+            request.addOnCompleteListener(task -> {
+                if (task.isSuccessful()) {
+                    // We can get the ReviewInfo object
+                    ReviewInfo reviewInfo = task.getResult();
+
+                    Task<Void> flow = manager.launchReviewFlow(this, reviewInfo);
+                    flow.addOnCompleteListener(t -> {
+                        finish();
+                    });
+                } else {
+                    finish();
+                }
+            });
+
+
         });
     }
 }
