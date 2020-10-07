@@ -7,6 +7,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
@@ -18,8 +19,6 @@ import com.morashstudios.fitnessapp.databinding.FragmentMainBinding;
  */
 public class MainScreenFragment extends Fragment {
 
-    private FragmentMainBinding binding;
-
 
     public MainScreenFragment() {
         // Required empty public constructor
@@ -27,12 +26,12 @@ public class MainScreenFragment extends Fragment {
 
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        binding = FragmentMainBinding.inflate(inflater, container, false);
+        FragmentMainBinding binding = FragmentMainBinding.inflate(inflater, container, false);
         View view = binding.getRoot();
 
-        FragmentManager fm = getActivity().getSupportFragmentManager();
+        FragmentManager fm = requireActivity().getSupportFragmentManager();
         final FragmentTransaction transaction = fm.beginTransaction();
 
         binding.bodyfatSelect.setOnClickListener(v -> transaction.replace(R.id.contentFragment, new BodyFatCalculatorFragment()).addToBackStack("bodyfat").commit());

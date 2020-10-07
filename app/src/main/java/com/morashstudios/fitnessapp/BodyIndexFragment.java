@@ -11,6 +11,7 @@ import android.view.ViewGroup;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
 import com.morashstudios.fitnessapp.databinding.FragmentBodyindexBinding;
@@ -22,7 +23,6 @@ public class BodyIndexFragment extends Fragment {
 
     private double mHeight;
     private double mWeight;
-    private double mBodyIndex;
     private String units;
     private FragmentBodyindexBinding binding;
 
@@ -32,7 +32,7 @@ public class BodyIndexFragment extends Fragment {
 
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
         // Inflate the layout for this fragment
@@ -52,28 +52,34 @@ public class BodyIndexFragment extends Fragment {
         }
 
         binding.bmiResultsButton.setOnClickListener(v -> {
-
-            DecimalFormat df = new DecimalFormat("0.0");
-
             // Close software keyboard
             InputMethodManager imm = (InputMethodManager) requireActivity().getSystemService(Context.INPUT_METHOD_SERVICE);
             assert imm != null;
             imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
 
-            // Check to ensure entries completed
-            if (TextUtils.isEmpty(binding.bmiWeightEntry.getText()) ||
-                    TextUtils.isEmpty(binding.bmiHeightEntry.getText())) {
-                Toast.makeText(getContext(), "Please enter your measurements", Toast.LENGTH_SHORT).show();
-                return;
+            if (ValidateEntries()){
+                ParseEntries();
+                DisplayResults();
             }
-
-            ParseEntries();
-
-            binding.bmiResultsTab.setVisibility(View.VISIBLE);
-            binding.bmiResult.setText(df.format(CalculateBMI()));
         });
 
         return view;
+    }
+
+    private boolean ValidateEntries() {
+        if (TextUtils.isEmpty(binding.bmiWeightEntry.getText()) ||
+                TextUtils.isEmpty(binding.bmiHeightEntry.getText())) {
+            Toast.makeText(getContext(), "Please enter your measurements", Toast.LENGTH_SHORT).show();
+            return false;
+        }
+        return true;
+    }
+
+    private void DisplayResults() {
+        DecimalFormat df = new DecimalFormat("0.0");
+
+        binding.bmiResult.setText(df.format(CalculateBMI()));
+        binding.bmiResultsTab.setVisibility(View.VISIBLE);
     }
 
     private void ParseEntries() {
@@ -82,14 +88,16 @@ public class BodyIndexFragment extends Fragment {
     }
 
     private double CalculateBMI() {
+        double bodyIndex;
+
         if (units.equals(getString(R.string.settings_unit_us_value))) {
             mWeight /= 2.2;
             mHeight *= 2.54;
         }
 
         mHeight /= 100;
-        mBodyIndex = mWeight / Math.pow(mHeight, 2);
+        bodyIndex = mWeight / Math.pow(mHeight, 2);
 
-        return mBodyIndex;
+        return bodyIndex;
     }
 }

@@ -2,6 +2,7 @@ package com.morashstudios.fitnessapp;
 
 import android.content.SharedPreferences;
 import android.os.Bundle;
+
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.preference.Preference;
@@ -24,14 +25,17 @@ public class SettingsActivity extends AppCompatActivity {
             addPreferencesFromResource(R.xml.settings_main);
 
             Preference unitsPreference = findPreference(getString(R.string.settings_unit_key));
+            Preference genderPreference = findPreference(getString(R.string.settings_gender_key));
 
+            assert unitsPreference != null;
             bindPreferenceSummaryToValue(unitsPreference);
+            assert genderPreference != null;
+            bindPreferenceSummaryToValue(genderPreference);
         }
 
         @Override
         public void onCreatePreferences(Bundle savedInstanceState, String rootKey) {
-            setPreferencesFromResource(R.xml.settings_main, rootKey);
-
+            // setPreferencesFromResource(R.xml.settings_main, rootKey);
         }
 
         @Override
@@ -45,6 +49,7 @@ public class SettingsActivity extends AppCompatActivity {
             preference.setOnPreferenceChangeListener(this);
             SharedPreferences preferences = preference.getSharedPreferences();
             String preferenceString = preferences.getString(preference.getKey(), "");
+            assert preferenceString != null;
             onPreferenceChange(preference, preferenceString);
         }
     }

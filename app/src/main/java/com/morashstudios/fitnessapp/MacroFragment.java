@@ -10,6 +10,7 @@ import android.view.inputmethod.InputMethodManager;
 import android.widget.RadioButton;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
 import com.morashstudios.fitnessapp.databinding.FragmentMacroBinding;
@@ -30,7 +31,7 @@ public class MacroFragment extends Fragment {
 
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         binding = FragmentMacroBinding.inflate(inflater, container, false);

@@ -10,14 +10,15 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.inputmethod.InputMethodManager;
-import android.widget.RadioButton;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
 import com.morashstudios.fitnessapp.databinding.FragmentBodyfatBinding;
 
 import java.text.DecimalFormat;
+import java.util.Objects;
 
 public class BodyFatCalculatorFragment extends Fragment {
 
@@ -42,34 +43,14 @@ public class BodyFatCalculatorFragment extends Fragment {
 
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
         // Inflate view and bindings
         binding = FragmentBodyfatBinding.inflate(inflater, container, false);
         View view = binding.getRoot();
 
-        // Update UI for sex choice
-        binding.sexButtonGroup.setOnCheckedChangeListener((group, checkedId) -> {
-            if (checkedId == R.id.sex_button_female) {
-                mIsFemale = true;
-                binding.bodyfatHipsHeader.setVisibility(View.VISIBLE);
-                binding.bodyfatHipsEntry.setVisibility(View.VISIBLE);
-                binding.percentageChartFemale.setVisibility(View.VISIBLE);
-                binding.percentageChartMale.setVisibility(View.GONE);
-                binding.bodyfatWaistHeader.setText(R.string.waist_female);
-            } else {
-                mIsFemale = false;
-                binding.bodyfatHipsHeader.setVisibility(View.GONE);
-                binding.bodyfatHipsEntry.setVisibility(View.GONE);
-                binding.percentageChartFemale.setVisibility(View.GONE);
-                binding.percentageChartMale.setVisibility(View.VISIBLE);
-                binding.bodyfatWaistHeader.setText(R.string.waist_male);
-            }
-
-        });
-
-        SetUnitPrefs();
+        SetUnitPrefsAndGender();
 
         binding.calculateBodyfat.setOnClickListener(v -> {
             // Close keyboard
@@ -78,7 +59,7 @@ public class BodyFatCalculatorFragment extends Fragment {
             imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
 
             // Execute click
-            if(ValidateEntries(view)) {
+            if (ValidateEntries()) {
                 ParseEntries();
                 CalculateBodyFat();
                 DisplayResults();
@@ -88,10 +69,11 @@ public class BodyFatCalculatorFragment extends Fragment {
         return view;
     }
 
-    private void SetUnitPrefs() {
+    private void SetUnitPrefsAndGender() {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getActivity());
         units = prefs.getString(getString(R.string.settings_unit_key),
                 getString(R.string.settings_unit_default));
+        mIsFemale = Objects.equals(prefs.getString(getString(R.string.settings_gender_key), getString(R.string.male)), getString(R.string.female));
 
         assert units != null;
         if (units.equals(getString(R.string.settings_unit_metric_value))) {
@@ -102,18 +84,18 @@ public class BodyFatCalculatorFragment extends Fragment {
             binding.bodyfatNeckEntry.setHint(R.string.hint_cm);
             binding.bodyfatHipsEntry.setHint(R.string.hint_cm);
             binding.lbsOrKg.setText(R.string.kg);
+        }
 
+        if (mIsFemale) {
+            binding.bodyfatHipsHeader.setVisibility(View.VISIBLE);
+            binding.bodyfatHipsEntry.setVisibility(View.VISIBLE);
+        } else {
+            binding.bodyfatHipsHeader.setVisibility(View.GONE);
+            binding.bodyfatHipsEntry.setVisibility(View.GONE);
         }
     }
 
-    private boolean ValidateEntries(View view) {
-        RadioButton sexChoice = view.findViewById(binding.sexButtonGroup.getCheckedRadioButtonId());
-
-        if (sexChoice == null) {
-            Toast.makeText(getContext(), "Please select a gender", Toast.LENGTH_SHORT).show();
-            return false;
-        }
-
+    private boolean ValidateEntries() {
         if (TextUtils.isEmpty(binding.bodyfatHeightEntry.getText()) ||
                 TextUtils.isEmpty(binding.bodyfatWeightEntry.getText()) ||
                 TextUtils.isEmpty(binding.bodyfatWaistEntry.getText()) ||

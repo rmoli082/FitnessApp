@@ -27,4 +27,14 @@
         <item>@string/activity_intense_value</item>
         <item>@string/activity_very_intense_value</item>
     </string-array>
+
+    <string-array name="settings_gender_entries">
+        <item>@string/male</item>
+        <item>@string/female</item>
+    </string-array>
+
+    <string-array name="settings_gender_values">
+        <item>@string/male</item>
+        <item>@string/female</item>
+    </string-array>
 </resources>

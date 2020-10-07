@@ -9,12 +9,14 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.inputmethod.InputMethodManager;
-import android.widget.RadioButton;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
 import com.morashstudios.fitnessapp.databinding.FragmentCalorieBinding;
+
+import java.util.Objects;
 
 public class CalorieFragment extends Fragment {
 
@@ -34,16 +36,15 @@ public class CalorieFragment extends Fragment {
 
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
         // Inflate the layout for this fragment
         binding = FragmentCalorieBinding.inflate(inflater, container, false);
         View view = binding.getRoot();
 
-        SetUnitPrefs();
+        SetUnitPrefsAndGender();
 
-        binding.calorieGenderSelect.setOnCheckedChangeListener((group, checkedId) -> mIsFemale = checkedId == R.id.calorie_gender_female);
 
         binding.calculateCaloriesButton.setOnClickListener(v -> {
             // Close keyboard
@@ -51,9 +52,8 @@ public class CalorieFragment extends Fragment {
             assert imm != null;
             imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
 
-            RadioButton genderChoice = view.findViewById(binding.calorieGenderSelect.getCheckedRadioButtonId());
 
-            if (ValidateEntries(genderChoice)) {
+            if (ValidateEntries()) {
                 ParseEntries();
                 CalculateCalories();
                 DisplayResults();
@@ -87,35 +87,35 @@ public class CalorieFragment extends Fragment {
     }
 
     private double GetCalorieModifierFromSpinner() {
-        double mCalorieModifier;
+        double calorieModifier;
         int spinner_pos = binding.calorieActivitySelect.getSelectedItemPosition();
         String[] values = getResources().getStringArray(R.array.calories_activity_level_values);
         String activityLevel = values[spinner_pos];
 
         switch (activityLevel) {
             case "sedentary":
-                mCalorieModifier = 1.1;
+                calorieModifier = 1;
                 break;
             case "light":
-                mCalorieModifier = 1.3;
+                calorieModifier = 1.15;
                 break;
             case "moderate":
-                mCalorieModifier = 1.4;
+                calorieModifier = 1.25;
                 break;
             case "heavy":
-                mCalorieModifier = 1.5;
+                calorieModifier = 1.5;
                 break;
             case "intense":
-                mCalorieModifier = 1.6;
+                calorieModifier = 1.4;
                 break;
             case "very_intense":
-                mCalorieModifier = 1.8;
+                calorieModifier = 1.75;
                 break;
             default:
-                mCalorieModifier = 1.0;
+                calorieModifier = 1.0;
         }
 
-        return mCalorieModifier;
+        return calorieModifier;
     }
 
     private void ParseEntries() {
@@ -124,12 +124,7 @@ public class CalorieFragment extends Fragment {
         mAge = Integer.parseInt(String.valueOf(binding.calorieAgeEntry.getText()));
     }
 
-    private boolean ValidateEntries(RadioButton genderChoice) {
-        // Check for gender selection
-        if (genderChoice == null) {
-            Toast.makeText(getContext(), "Please select a gender", Toast.LENGTH_SHORT).show();
-            return false;
-        }
+    private boolean ValidateEntries() {
 
         // Check required entries have input
         if (TextUtils.isEmpty(binding.calorieHeightEntry.getText()) ||
@@ -141,10 +136,11 @@ public class CalorieFragment extends Fragment {
         return true;
     }
 
-    private void SetUnitPrefs() {
+    private void SetUnitPrefsAndGender() {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getActivity());
         units = prefs.getString(getString(R.string.settings_unit_key),
                 getString(R.string.settings_unit_default));
+        mIsFemale = Objects.equals(prefs.getString(getString(R.string.settings_gender_key), getString(R.string.male)), getString(R.string.female));
 
         assert units != null;
         if (units.equals(getString(R.string.settings_unit_metric_value))) {

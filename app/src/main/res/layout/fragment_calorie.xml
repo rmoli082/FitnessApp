@@ -24,35 +24,7 @@
                 android:orientation="vertical"
                 android:layout_marginBottom="8dp">
 
-                <TextView
-                    style="@style/HeaderText"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_horizontal"
-                    android:text="@string/sex_header" />
 
-                <RadioGroup
-                    android:id="@+id/calorie_gender_select"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="center_horizontal"
-                    android:orientation="horizontal">
-
-                    <RadioButton
-                        android:id="@+id/calorie_gender_male"
-                        style="@style/RadioButtonCandy"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/male" />
-
-                    <RadioButton
-                        android:id="@+id/calorie_gender_female"
-                        style="@style/RadioButtonCandy"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/female" />
-
-                </RadioGroup>
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -131,6 +103,7 @@
         </androidx.cardview.widget.CardView>
 
         <Button
+            android:textColor="@color/textDarkBack"
             android:id="@+id/calculate_calories_button"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

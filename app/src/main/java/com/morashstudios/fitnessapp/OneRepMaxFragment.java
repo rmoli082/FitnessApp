@@ -9,6 +9,7 @@ import android.view.ViewGroup;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
 import com.morashstudios.fitnessapp.databinding.FragmentOneRepMaxBinding;
@@ -17,8 +18,6 @@ import java.text.DecimalFormat;
 
 public class OneRepMaxFragment extends Fragment {
 
-    private float mWeight;
-    private int mReps;
     private float mOneRM;
 
     private FragmentOneRepMaxBinding binding;
@@ -30,7 +29,7 @@ public class OneRepMaxFragment extends Fragment {
 
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         binding = FragmentOneRepMaxBinding.inflate(inflater, container, false);
@@ -65,8 +64,8 @@ public class OneRepMaxFragment extends Fragment {
     }
 
     private void ParseEntries() {
-        mWeight = Float.parseFloat(String.valueOf(binding.repmaxWeightEntry.getText()));
-        mReps = Integer.parseInt(String.valueOf(binding.repmaxRepsEntry.getText()));
+        float mWeight = Float.parseFloat(String.valueOf(binding.repmaxWeightEntry.getText()));
+        int mReps = Integer.parseInt(String.valueOf(binding.repmaxRepsEntry.getText()));
 
         mOneRM = mWeight * (1 + (mReps / 30.0f));
     }

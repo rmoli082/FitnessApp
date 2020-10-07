@@ -27,6 +27,8 @@
     <string name="settings_name">Settings</string>
     <string name="settings_unit_label">Units</string>
     <string name="settings_unit_key">settings_unit</string>
+    <string name="settings_gender_label">Gender</string>
+    <string name="settings_gender_key">settings_gender</string>
     <string name="settings_unit_default">@string/settings_unit_us_value</string>
     <string name="settings_unit_metric_label">Metric</string>
     <string name="settings_unit_metric_value">metric</string>
@@ -69,7 +71,7 @@
     <string name="macro_description">The Macro Calculator will help you to compute the required amount of carbs, protein, and fat that you should intake daily based on your caloric and dietary needs. You can select a normal diet, a low fat diet, a low carb diet, and the Keto diet to target your macro splits.</string>
     <string name="onerm_description">The Rep Max Calculator will estimate a one repetition maximum for a particular lift derived from the amount of reps and weight you lift. Using the one rep max, the calculator will also determine a 2, 3, 5 and 10 repetition max for your lift.</string>
     <string name="measurements_description">The Measurements tab will allow you to store your body measurements so you can keep track of your body\'s changes as you progress. The tracker will store the circumference of various body parts, your weight, and your body fat percentage.</string>
-    <string name="settings_description">You can select between Metric units and US units by accessing the app settings.\n\nClick on the desired calculator below, or select it from the main menu. </string>
+    <string name="settings_description">You can select your gender and your preference between Metric units or US units by accessing the app settings.\n\nClick on the desired calculator below, or select it from the main menu. </string>
     <string name="lbs">lbs</string>
     <string name="kg">kg</string>
     <string name="percent">%</string>

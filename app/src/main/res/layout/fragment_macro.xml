@@ -93,6 +93,7 @@
         </androidx.cardview.widget.CardView>
 
         <Button
+            android:textColor="@color/textDarkBack"
             android:id="@+id/macro_get_results_button"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
